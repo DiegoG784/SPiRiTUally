@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://entities/base/resources/item_base.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Axe"
+description = "A rustic hand-made axe, made with the most finest material, able to cut a variety of things, including your finger."
+value = 0

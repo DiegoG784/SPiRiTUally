@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entities/base/entity/enemy/enemy_base.gd" type="Script" id=1]
+
+[node name="enemy" type="Spatial"]
+script = ExtResource( 1 )
