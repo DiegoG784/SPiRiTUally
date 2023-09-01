@@ -13,6 +13,12 @@ config_version=4
 config/name="SPiRiTUally"
 config/icon="res://icon.png"
 
+[autoload]
+
+Game="*res://managers/game_manager.gd"
+Sound="*res://managers/sound_manager/sound_manager.tscn"
+Inventory="*res://managers/item_manager.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
