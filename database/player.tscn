@@ -1,24 +1,31 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entities/base/entity/player/player.gd" type="Script" id=1]
 [ext_resource path="res://entities/base/entity/base/state_machine/state_machine_base.gd" type="Script" id=2]
 [ext_resource path="res://entities/base/entity/player/states/walk.gd" type="Script" id=3]
 [ext_resource path="res://entities/base/entity/player/states/idle.gd" type="Script" id=4]
+[ext_resource path="res://assets/models/gabriel_gaspard/gaspardobjeto.glb" type="PackedScene" id=5]
 
 [sub_resource type="SpatialMaterial" id=2]
 flags_unshaded = true
 albedo_color = Color( 0, 1, 0.905882, 1 )
 
-[sub_resource type="SphereShape" id=1]
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 3.50111, 1 )
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 1 )
 
+[node name="gaspardobjeto" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0541073, 0 )
+
 [node name="CSGSphere" type="CSGSphere" parent="."]
+visible = false
 material = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29647, 0 )
+shape = SubResource( 3 )
 
 [node name="state_machine" type="Node" parent="."]
 script = ExtResource( 2 )
