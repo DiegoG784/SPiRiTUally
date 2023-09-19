@@ -20,12 +20,9 @@ func cut_jump():
 #		print(motion.y)
 
 func calc_physics(entity_motion, delta):
-#	print(motion)
-#		motion.x = dir
-#		motion.z = dir2
-
 	motion = entity_motion * walking_speed * delta
-	
+
+
 	if entity_motion != Vector3.ZERO:
 		look_at(translation + entity_motion, Vector3.UP)
 		
