@@ -1,5 +1,5 @@
-extends Node
-
+extends Area
+class_name SceneSwitcher
 
 # Declare member variables here. Examples:
 # var a = 2
