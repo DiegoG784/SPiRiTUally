@@ -21,16 +21,17 @@ func enter():
 	entity.animation(name)
 	print(name)
 
-func logic():
-	get_input()
+func logic(delta):
+	get_input(delta)
 	entity.move()
 
-func get_input():
+func get_input(delta):
 	#jump = Input.is_action_just_pressed("jump")
-	entity_side_motion = Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")
-	entity_angle_motion = Input.get_action_strength("walk_backward") - Input.get_action_strength("walk_forward")
+	var entity_motion = Vector3()
+	entity_motion.x = Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")
+	entity_motion.z = Input.get_action_strength("walk_backward") - Input.get_action_strength("walk_forward")
 
-	entity.calc_physics(entity_side_motion, entity_angle_motion)
+	entity.calc_physics(entity_motion, delta)
 	
 func get_transition():
 	return next_state

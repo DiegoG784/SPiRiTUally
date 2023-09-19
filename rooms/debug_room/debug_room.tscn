@@ -8,6 +8,7 @@
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132861, 1.5824, -0.100514 )
+walking_speed = 1000
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 17.5, 0, 0, 0, 1, 0, 0, 0, 16, 0, -1, 0 )

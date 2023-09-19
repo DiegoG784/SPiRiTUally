@@ -19,24 +19,30 @@ func cut_jump():
 		motion.y = -100
 #		print(motion.y)
 
-func calc_physics(dir, dir2):
+func calc_physics(entity_motion, delta):
 #	print(motion)
-	motion.x = dir
-	motion.z = dir2
+#		motion.x = dir
+#		motion.z = dir2
 
-	if motion.x < 0:
-		motion.x -= walking_speed
-#		flip('left')
-	elif motion.x > 0:
-		motion.x += walking_speed
-#		flip('right')
+	motion = entity_motion * walking_speed * delta
 	
-	if motion.z < 0:
-		motion.z -= walking_speed
+	if entity_motion != Vector3.ZERO:
+		self.look_at(translation + entity_motion, Vector3.UP)
+
+#	if motion.x < 0:
+#		motion.x -= walking_speed
+##		flip('left')
+#	elif motion.x > 0:
+#		motion.x += walking_speed
+##		flip('right')
+#
+#	if motion.z < 0:
+#		motion.z -= walking_speed
 #		flip('left')
-	elif motion.z > 0:
-		motion.z += walking_speed
+#	elif motion.z > 0:
+#		motion.z += walking_speed
 #		flip('right')
+
 
 
 func animation(animation_name):

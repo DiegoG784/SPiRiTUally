@@ -30,7 +30,7 @@ func enter_state():
 	current_state.enter() #antes de executar o código principal, alguns parâmetros podem ser inseridos nesse método caso necessário
 
 func _physics_process(delta):
-	current_state.logic() #Sua função principal do estado será executado em loop
+	current_state.logic(delta) #Sua função principal do estado será executado em loop
 	if current_state.get_transition() != null:
 		change_state(current_state.get_transition())
 	#print(current_state.name)
