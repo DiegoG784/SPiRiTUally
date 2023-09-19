@@ -27,7 +27,11 @@ func calc_physics(entity_motion, delta):
 	motion = entity_motion * walking_speed * delta
 	
 	if entity_motion != Vector3.ZERO:
-		self.look_at(translation + entity_motion, Vector3.UP)
+		look_at(translation + entity_motion, Vector3.UP)
+		
+#		var target_position = translation + entity_motion
+#		var new_transform = transform.looking_at(target_position, Vector3.UP)
+#		rotation = transform.interpolate_with(new_transform, walking_speed * delta)
 
 #	if motion.x < 0:
 #		motion.x -= walking_speed
