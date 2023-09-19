@@ -55,3 +55,10 @@ func animation(animation_name):
 #	else:
 #		motion.x = max(-KNOCKBACK_SPEED, -MAX_KNOCKBACK_SPEED)
 #		flip('right')
+
+#	if input_vector != Vector3.ZERO:
+#		# Smooth Rotation
+#		#Pivot.look_at(translation + input_vector, Vector3.UP)
+#		var target_position = translation + input_vector
+#		var new_transform = transform.looking_at(target_position, Vector3.UP)
+#		Pivot.transform  = Pivot.transform.interpolate_with(new_transform, max_speed * delta)
