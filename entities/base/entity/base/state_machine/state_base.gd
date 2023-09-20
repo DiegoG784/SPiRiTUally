@@ -28,6 +28,7 @@ func logic(delta):
 func get_input(delta):
 	#jump = Input.is_action_just_pressed("jump")
 	var entity_motion = Vector3()
+	
 	entity_motion.x = Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")
 	entity_motion.z = Input.get_action_strength("walk_backward") - Input.get_action_strength("walk_forward")
 

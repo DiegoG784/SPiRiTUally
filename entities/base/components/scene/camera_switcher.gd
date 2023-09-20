@@ -1,9 +1,7 @@
 extends Area
 class_name CameraSwitcher
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(NodePath) var camera_to_switch
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,3 +12,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func player_entered(body):
+	if body is Player:
+		pass
+		if camera_to_switch:
+			get_node(camera_to_switch).current = true
+		else:
+			printerr("O nó " + self.name + " não possui uma câmera em sua variável!")
+#		executar tratamento de 
