@@ -31,9 +31,10 @@ func get_input(delta):
 	
 	entity_motion.x = Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")
 	entity_motion.z = Input.get_action_strength("walk_backward") - Input.get_action_strength("walk_forward")
-
-	entity.calc_physics(entity_motion, delta)
 	
+	entity.calc_physics(entity_motion, delta)
+
+
 func get_transition():
 	return next_state
 

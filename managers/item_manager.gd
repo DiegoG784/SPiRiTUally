@@ -3,7 +3,7 @@ extends Node
 var inventory = [
 #	Item.new().name("Item único"),
 #	[Item.new().name("item stackável"), 4],
-]#Ver como vai ser guardado os itens do jogo (através de recursos ou algo mais complexo envolvendo arrays?)
+]
 
 func _ready():
 	var item = Item.new()
@@ -14,7 +14,7 @@ func _ready():
 	add_item(item2, 20)
 
 func add_item(item_file, quantity = 0):
-	print(inventory)
+#	print(inventory)
 	
 	var item_position = search_item(item_file.name, true)
 	
@@ -32,12 +32,19 @@ func add_item(item_file, quantity = 0):
 		else:
 			printerr("O item é único já possui no inventário!")
 	
-	print(inventory)
+#	print(inventory)
 
-func remove_item(item_name):
-	pass
+func remove_item(item_name, quantity = 0):
+	var item_position = search_item(item_name, true)
+	
+	if quantity > 0:
+		inventory[item_position][1] -= quantity
+		inventory[item_position][1] -= max(0, inventory[item_position][1])
+	else:
+		inventory.remove(item_position)
 
-func use_item(item_name, quantity):
+
+func use_item(item_name, quantity): #Somente para itens consumíveis como poções ou algo parecido
 	pass
 
 func search_item(item_name, return_array_position = false):

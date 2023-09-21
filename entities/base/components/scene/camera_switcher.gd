@@ -6,6 +6,7 @@ export(NodePath) var camera_to_switch
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(get_node(camera_to_switch).global_rotation)
 	pass # Replace with function body.
 
 

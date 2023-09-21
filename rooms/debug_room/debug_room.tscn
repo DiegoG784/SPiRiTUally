@@ -12,7 +12,7 @@ height = 4.569
 [node name="debug_room" type="Spatial"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132861, 1.5824, -0.100514 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132861, 0.244684, -0.100514 )
 walking_speed = 1000
 
 [node name="StaticBody" type="StaticBody" parent="."]
