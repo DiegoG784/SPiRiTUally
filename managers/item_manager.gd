@@ -40,11 +40,15 @@ func remove_item(item_name, quantity = 0):
 	if quantity > 0:
 		inventory[item_position][1] -= quantity
 		inventory[item_position][1] -= max(0, inventory[item_position][1])
+		
+		if quantity == 0:
+			inventory.remove(item_position)
+		
 	else:
 		inventory.remove(item_position)
 
 
-func use_item(item_name, quantity): #Somente para itens consumíveis como poções ou algo parecido
+func use_item(item_name): #Somente para consumíveis como poções ou algo parecido
 	pass
 
 func search_item(item_name, return_array_position = false):

@@ -29,13 +29,19 @@ current = true
 
 [node name="camera_switcher" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0849, 0, -6.77819 )
-camera_to_switch = NodePath("../another_camera")
+camera_to_switch = NodePath("../facing_to_-x")
 
 [node name="CollisionShape" parent="camera_switcher" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.78271, 0.863847, 3.49406 )
 shape = SubResource( 2 )
 
-[node name="another_camera" type="Camera" parent="."]
+[node name="facing_to_-x" type="Camera" parent="."]
 transform = Transform( 0.0115768, -0.400749, 0.916115, 0.00506379, 0.916188, 0.400717, -0.99992, 0, 0.0126358, 24.6568, 10.9133, -0.214405 )
+
+[node name="facing_to_z" type="Camera" parent="."]
+transform = Transform( -1, 0, -8.9407e-08, -2.47969e-08, 0.96077, 0.277348, 8.58995e-08, 0.277348, -0.960769, 0, 12, -18.3475 )
+
+[node name="facing_to_x" type="Camera" parent="."]
+transform = Transform( 1.29611e-07, 0.277348, -0.960769, -2.47969e-08, 0.96077, 0.277348, 1, -1.21233e-08, 1.31404e-07, -21.4047, 12, 0.126207 )
 
 [editable path="camera_switcher"]

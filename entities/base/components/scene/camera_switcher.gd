@@ -19,7 +19,9 @@ func player_entered(body):
 	if body is Player:
 		pass
 		if camera_to_switch:
+			print(get_node(camera_to_switch).transform.basis.z.normalized().abs().max_axis())
 			get_node(camera_to_switch).current = true
 		else:
 			printerr("O nó " + self.name + " não possui uma câmera em sua variável!")
-#		executar tratamento de 
+#		executar tratamento de repameamento de movimento
+		

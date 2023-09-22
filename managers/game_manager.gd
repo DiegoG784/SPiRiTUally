@@ -13,3 +13,6 @@ func set_current_player(player):
 
 func set_current_scene(scene):
 	current_scene = scene
+
+func remap_player_moviment(direction):
+	pass

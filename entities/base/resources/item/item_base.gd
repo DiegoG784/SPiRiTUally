@@ -5,4 +5,4 @@ class_name Item
 export(String) var name
 export(String, MULTILINE) var description
 export(int) var value
-export(PackedScene) var scene #Talvez usado para armas
+export(PackedScene) var scene #Talvez usado para armas (também para consumíveis?)
