@@ -19,7 +19,7 @@ var on_stairs
 func enter():
 	next_state = null
 	entity.animation(name)
-	print(name)
+#	print(name)
 
 func logic(delta):
 	get_input(delta)

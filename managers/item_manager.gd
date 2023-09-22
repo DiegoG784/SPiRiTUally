@@ -5,6 +5,8 @@ var inventory = [
 #	[Item.new().name("item stackável"), 4],
 ]
 
+var current_item
+
 func _ready():
 	var item = Item.new()
 	item.name = "Teste"

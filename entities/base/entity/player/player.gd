@@ -4,6 +4,9 @@ class_name Player
 func _ready():
 	pass # Replace with function body.
 
+func _unhandled_input(event):
+	pass
+
 func move():
 	motion = move_and_slide(motion, JUMP)
 
