@@ -1,8 +1,8 @@
 extends Node
 
 var inventory = [
-#	Item.new().name("Item único"),
-#	[Item.new().name("item stackável"), 4],
+#	ItemUnico,
+#	[ItemStackavel, 4],
 ]
 
 var current_item
