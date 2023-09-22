@@ -1,4 +1,5 @@
 extends Node
+class_name HealthComponent
 
 export(NodePath) var parent #variável que vai referenciar o nó pai da entidade
 

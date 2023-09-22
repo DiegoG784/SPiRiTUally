@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="health_bar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 6.0
+margin_top = 17.0
+margin_right = 246.0
+margin_bottom = 31.0

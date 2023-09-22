@@ -6,3 +6,6 @@ func enter():
 
 func logic():
 	pass
+
+func exit():
+	pass
