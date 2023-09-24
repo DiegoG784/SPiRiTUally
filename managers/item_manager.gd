@@ -23,6 +23,7 @@ func add_item(item_file, quantity = 0):
 	if quantity > 0:
 		
 		if item_position != null:
+#			Se o item for stackável, adicionar quantidade no inventário
 			inventory[item_position][1] += quantity
 		else:
 			inventory.append([item_file, quantity])
@@ -51,22 +52,32 @@ func remove_item(item_name, quantity = 0):
 
 
 func use_item(item_name): #Somente para consumíveis como poções ou algo parecido
-	pass
+	var item_usage = [search_item(item_name), search_item(item_name, true)]
+	
+	if item_usage[1] != null:
+		item_usage[0].item_scene.logic()
+		inventory[item_usage[1][1]] -= 1
+#		Atualizar HUD do inventário
+	else:
+		printerr("Item com o nome " + item_name + " não encontrado!")
 
 func search_item(item_name, return_array_position = false):
-	pass
 	for item in inventory:
+		
 		if item is Array:
 			
 			if item[0].name == item_name:
 				if return_array_position:
-					return item
+					return inventory.find(item)
 				else:
-					return item_name
+					return item
 			
 		elif item.name == item_name:
+			
 			if return_array_position:
-				return item
+				return inventory.find(item)
 			else:
-				return item_name
+				return item
+		
+	
 	return null

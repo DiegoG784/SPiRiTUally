@@ -1,6 +1,7 @@
 extends Node
 class_name ItemScript
 
+
 func enter():
 	pass
 
