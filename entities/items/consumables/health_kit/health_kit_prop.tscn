@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://database/components/scene/interacteable_area.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/base/components/scene/item_prop/item_prop.gd" type="Script" id=2]
+[ext_resource path="res://entities/base/components/scene/item_prop/interacteable_area_item_prop.gd" type="Script" id=3]
+[ext_resource path="res://database/items/consumables/health_kit.tres" type="Resource" id=4]
+
+[sub_resource type="SphereShape" id=1]
+radius = 1.06931
+
+[node name="health_kit_prop" type="Spatial"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+script = ExtResource( 2 )
+item_file = ExtResource( 4 )
+
+[node name="placeholder_model" type="CSGBox" parent="."]
+width = 0.579041
+height = 0.232805
+depth = 0.460964
+
+[node name="interact_radius" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="collision" parent="interact_radius" index="0"]
+shape = SubResource( 1 )
+
+[editable path="interact_radius"]

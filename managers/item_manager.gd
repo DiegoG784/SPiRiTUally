@@ -8,19 +8,22 @@ var inventory = [
 var current_item
 
 func _ready():
+	pass
 	var item = Item.new()
 	item.name = "Teste"
 	var item2 = Item.new()
 	item2.name = "Teste2"
+	var item3 = load("res://database/items/consumables/health_kit.tres")
 	add_item(item)
 	add_item(item2, 20)
+	add_item(item3, 3)
 
-func add_item(item_file, quantity = 0):
+func add_item(item_file, quantity = 1):
 #	print(inventory)
 	
 	var item_position = search_item(item_file.name, true)
 	
-	if quantity > 0:
+	if item_file.is_consumable or quantity > 1:
 		
 		if item_position != null:
 #			Se o item for stackável, adicionar quantidade no inventário
@@ -35,7 +38,12 @@ func add_item(item_file, quantity = 0):
 		else:
 			printerr("O item é único já possui no inventário!")
 	
-#	print(inventory)
+	print()
+	print("Item adicionado: " + item_file.name)
+	print("Quantidade do item: " + str(quantity))
+	print()
+	print("Inventário atual: " + str(inventory))
+	print()
 
 func remove_item(item_name, quantity = 0):
 	var item_position = search_item(item_name, true)
@@ -57,6 +65,7 @@ func use_item(item_name): #Somente para consumíveis como poções ou algo parec
 	if item_usage[1] != null:
 		item_usage[0].item_scene.logic()
 		inventory[item_usage[1][1]] -= 1
+#		Travar input do usuário e esperar a função de lógica do item terminar
 #		Atualizar HUD do inventário
 	else:
 		printerr("Item com o nome " + item_name + " não encontrado!")
