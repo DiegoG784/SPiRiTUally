@@ -9,14 +9,14 @@ var current_item
 
 func _ready():
 	pass
-	var item = Item.new()
-	item.name = "Teste"
-	var item2 = Item.new()
-	item2.name = "Teste2"
-	var item3 = load("res://database/items/consumables/health_kit.tres")
-	add_item(item)
-	add_item(item2, 20)
-	add_item(item3, 3)
+#	var item = Item.new()
+#	item.name = "Teste"
+#	var item2 = Item.new()
+#	item2.name = "Teste2"
+#	var item3 = load("res://database/items/consumables/health_kit.tres")
+#	add_item(item)
+#	add_item(item2, 20)
+#	add_item(item3, 3)
 
 func add_item(item_file, quantity = 1):
 #	print(inventory)
