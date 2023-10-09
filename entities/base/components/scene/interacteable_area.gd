@@ -7,6 +7,15 @@ var can_interact = false
 var in_execution = false
 var already_executed = false
 
+func _ready():
+	if !is_connected("body_entered", self, "player_entered"):
+		self.connect("body_entered", self, "player_entered")
+
+	if !is_connected("body_exited", self, "player_exited"):
+		self.connect("body_exited", self, "player_exited")
+
+#	print(name + ": " + str(is_connected("body_entered", self, "player_entered")))
+
 func _process(delta):
 	if can_interact and Input.is_action_just_pressed("interact") and !in_execution and !already_executed:
 		in_execution = true
@@ -19,6 +28,7 @@ func interact_action(): #Aqui é onde vai executar a interação entre o player 
 		already_executed = true
 	
 	in_execution = false
+	can_interact = true
 	print("Interação terminada")
 
 func terminate_interaction(): #Vou deixar esse método com o código de cima caso fique somente ele.

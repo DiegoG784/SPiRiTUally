@@ -7,4 +7,6 @@ export(int) var walking_speed = 80
 export(int) var jump_force = -370
 export(int) var gravity = 20
 export(int) var MAX_walking_speed = 100
-export(NodePath) var health
+export(NodePath) var health_node
+
+onready var health = get_node(health_node) if health_node else null

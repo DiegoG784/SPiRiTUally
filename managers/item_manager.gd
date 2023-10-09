@@ -50,25 +50,39 @@ func remove_item(item_name, quantity = 0):
 	
 	if quantity > 0:
 		inventory[item_position][1] -= quantity
-		inventory[item_position][1] -= max(0, inventory[item_position][1])
+		inventory[item_position][1] = max(0, inventory[item_position][1])
 		
-		if quantity == 0:
+		if inventory[item_position][1] == 0:
 			inventory.remove(item_position)
 		
 	else:
 		inventory.remove(item_position)
+	
+	print(inventory)
 
 
 func use_item(item_name): #Somente para consumíveis como poções ou algo parecido
-	var item_usage = [search_item(item_name), search_item(item_name, true)]
-	
+	var item_usage = [search_item(item_name)[0], search_item(item_name, true)]
+	print(item_usage)
 	if item_usage[1] != null:
-		item_usage[0].item_scene.logic()
-		inventory[item_usage[1][1]] -= 1
+		
+		print('iniciando execução da lógica do item')
+		var item_script = item_usage[0].item_script.new()
+#		item_usage[0].item_script.logic()
+		item_script.logic()
+#		yield(item_script, "item_logic_terminated")
+		print('execução terminada')
+		
+		remove_item(item_usage[0].name, 1)
 #		Travar input do usuário e esperar a função de lógica do item terminar
 #		Atualizar HUD do inventário
 	else:
 		printerr("Item com o nome " + item_name + " não encontrado!")
+	
+	print(inventory)
+
+func equip_item(item_name): #Somente para itens equipáveis
+	pass
 
 func search_item(item_name, return_array_position = false):
 	for item in inventory:

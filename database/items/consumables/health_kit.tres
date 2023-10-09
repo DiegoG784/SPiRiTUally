@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://entities/base/resources/item/item_base.gd" type="Script" id=1]
+[ext_resource path="res://entities/base/item_script/consumable_script.gd" type="Script" id=2]
 
 [resource]
 script = ExtResource( 1 )
@@ -10,3 +11,4 @@ is_consumable = true
 is_stackable = true
 max_stack = 0
 value = 0
+item_script = ExtResource( 2 )

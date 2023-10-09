@@ -14,12 +14,24 @@ func _ready():
 
 
 
-func item_selected(index):
-	selected_item = index
-	print(selected_item)
+func item_selected(index): #Usado quando o item é clicado na lista
+	selected_item = Inventory.inventory[index]
+	
+	if selected_item is Array:
+		selected_item = Inventory.inventory[index][0]
+		print(selected_item.name)
+	else:
+		selected_item = Inventory.inventory[index]
+		print(selected_item.name)
+#		alterar texto do botão para "equipar"
+#	print(selected_item)
 
 
-func _on_Button_pressed():
-	pass # Replace with function body.
+func _on_Button_pressed(): #usado quando o item é clicado no botão de usar/equipar
+	if selected_item:
+		if selected_item.is_consumable == true:
+			Inventory.use_item(selected_item.name)
+		else:
+			Inventory.equip_item(selected_item.name)
 #	Inventory.use_item(Inventory.inventory[selected_item][0].name)
 	queue_free()

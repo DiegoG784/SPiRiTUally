@@ -2,7 +2,7 @@ extends Entity
 class_name Player
 
 func _ready():
-	pass # Replace with function body.
+	Game.set_current_player(self)
 
 func move():
 	motion = move_and_slide(motion, JUMP)

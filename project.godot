@@ -93,7 +93,7 @@ _global_script_class_icons={
 [application]
 
 config/name="SPiRiTUally"
-run/main_scene="res://rooms/debug_room/debug_room.tscn"
+run/main_scene="res://managers/scene_manager/scene_manager.tscn"
 config/icon="res://icon.png"
 
 [autoload]
