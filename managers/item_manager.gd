@@ -5,7 +5,13 @@ var inventory = [
 #	[ItemStackavel, 4],
 ]
 
+var current_hotbar = [ #Somente os nomes dos itens estarão aqui como referência
+#	"NomeItemReferencia"
+]
+
 var current_item
+
+signal item_logic_terminated
 
 func _ready():
 	pass
@@ -70,7 +76,6 @@ func use_item(item_name): #Somente para consumíveis como poções ou algo parec
 		var item_script = item_usage[0].item_script.new()
 #		item_usage[0].item_script.logic()
 		item_script.logic()
-#		yield(item_script, "item_logic_terminated")
 		print('execução terminada')
 		
 		remove_item(item_usage[0].name, 1)
@@ -82,6 +87,9 @@ func use_item(item_name): #Somente para consumíveis como poções ou algo parec
 	print(inventory)
 
 func equip_item(item_name): #Somente para itens equipáveis
+	pass
+
+func put_item_in_hotbar(item_name):
 	pass
 
 func search_item(item_name, return_array_position = false):

@@ -7,8 +7,5 @@
 script = ExtResource( 1 )
 name = "Health Kit"
 description = "A first aid medkit with plenty of tools for great recovery. Recovers great scale of your health."
-is_consumable = true
-is_stackable = true
-max_stack = 0
 value = 0
 item_script = ExtResource( 2 )
