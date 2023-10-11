@@ -29,7 +29,7 @@ func add_item(item_file, quantity = 1):
 	
 	var item_position = search_item(item_file.name, true)
 	
-	if item_file.is_consumable or quantity > 1:
+	if item_file is ConsumableItem or quantity > 1:
 		
 		if item_position != null:
 #			Se o item for stackável, adicionar quantidade no inventário
@@ -64,23 +64,37 @@ func remove_item(item_name, quantity = 0):
 	else:
 		inventory.remove(item_position)
 	
-	print(inventory)
+#	print(inventory)
 
 
-func use_item(item_name): #Somente para consumíveis como poções ou algo parecido
+func use_item(item_name): #Para consumíveis e itens que serão usados no jogo como chaves ou algo do tipo
 	var item_usage = [search_item(item_name)[0], search_item(item_name, true)]
 	print(item_usage)
 	if item_usage[1] != null:
+		var current_item = item_usage[0]
+		var item_script
 		
-		print('iniciando execução da lógica do item')
-		var item_script = item_usage[0].item_script.new()
-#		item_usage[0].item_script.logic()
-		item_script.logic()
-		print('execução terminada')
+		match current_item:
+			ConsumableItem:
+				if current_item.custom_item_script:
+					item_script = current_item.custom_item_script.new(current_item)
+				else:
+					item_script = current_item.basic_item_script.new(current_item)
+				
+				print(item_script)
+#				print('iniciando execução da lógica do item')
+				item_script.logic()
+		#		print('execução terminada')
+				
+				remove_item(item_usage[0].name, 1)
+		#		Travar input do usuário e esperar a função de lógica do item terminar
+		#		Atualizar HUD do inventário
+				pass
+			Item:
+				pass
+#				fazer um match de ID entre o item e o local de interação em alguns itens?
+			
 		
-		remove_item(item_usage[0].name, 1)
-#		Travar input do usuário e esperar a função de lógica do item terminar
-#		Atualizar HUD do inventário
 	else:
 		printerr("Item com o nome " + item_name + " não encontrado!")
 	

@@ -3,6 +3,7 @@ class_name Player
 
 func _ready():
 	Game.set_current_player(self)
+	print("floor: " + str(is_on_floor()))
 
 func move():
 	motion = move_and_slide(motion, JUMP)

@@ -8,6 +8,6 @@ func _ready():
 func interact_action():
 	Inventory.add_item(parent.item_file)
 	
-#	chamar método que vai mostrar que ganhou o item
+#	mostrar uma janela que mostre o item que você pegou/ganhou
 	
 	parent.queue_free()

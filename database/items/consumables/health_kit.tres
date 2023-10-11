@@ -1,11 +1,15 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://entities/base/resources/item/item_base.gd" type="Script" id=1]
-[ext_resource path="res://entities/base/item_script/consumable_script.gd" type="Script" id=2]
+[ext_resource path="res://entities/base/resources/item/consumable_item_base.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
 name = "Health Kit"
-description = "A first aid medkit with plenty of tools for great recovery. Recovers great scale of your health."
+description = "A Healthy kit."
+can_be_sold = false
 value = 0
-item_script = ExtResource( 2 )
+is_stackable = false
+max_stack = 0
+cure_type = 0
+base_value = 10
+regen_delay = 1
