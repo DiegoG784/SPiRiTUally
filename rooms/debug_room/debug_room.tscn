@@ -36,6 +36,7 @@ extents = Vector3( 4.40404, 1, 1 )
 
 [node name="debug_room" type="Spatial"]
 script = ExtResource( 5 )
+initial_camera = NodePath("camera_switchers/facing_to_-z")
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132861, 0.244684, -0.100514 )
