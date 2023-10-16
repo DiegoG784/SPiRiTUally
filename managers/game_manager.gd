@@ -20,3 +20,10 @@ func remap_player_moviment(direction):
 
 func set_scene_manager(target):
 	scene_manager = target
+
+func lock_player_input():
+	current_player.can_move = false
+
+func unlock_player_input():
+	current_player.can_move = true
+

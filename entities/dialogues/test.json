@@ -1,0 +1,45 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Hello there buddy!"],
+            ["Leonnard", "character_expression?", "Howdy Gaspard! Wanna go for some coffee?"]
+        ],
+        "dialogue_options":[
+            ["Sure, Great idea! Your car is here right?", 1],
+            ["Sure! Let's go to my car. Any neaby coffee shop?", 2, ["item", "Car Keys"] ],
+            ["I would like a lot, but i'm not in the mood right now. Thanks.", 3],
+            ["No thanks.", "end"]
+        ]
+    },
+    {
+        "dialogue_id":1,
+        "dialogue_texts":[
+            ["Leonnard", "character_expression?", "Great! Don't Worry, my car is on parking. Let's Go now!"]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"],
+            ["scene", "change_scene", "scene_file.tscn"]
+        ]
+    },
+    {
+        "dialogue_id":2,
+        "dialogue_texts":[
+            ["Leonnard", "character_expression?", "Alright then! I will give you the map to the coffee shop okay?"]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"],
+            ["inventory", "give_item", "health_kit.tres"],
+            ["scene", "change_scene", "scene_file.tscn"]
+        ]
+    },
+    {
+        "dialogue_id":3,
+        "dialogue_texts":[
+            ["Leonnard", "character_expression?", "Oh, it's okay. We can go next time right?"]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"]
+        ]
+    }
+]

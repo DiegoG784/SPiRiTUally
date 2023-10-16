@@ -19,10 +19,12 @@ func _ready():
 
 func player_entered(body):
 	if body is Player:
-		pass
+		
 		if camera_to_switch:
-			print(name + ": " + str(get_node(camera_to_switch).transform.basis.z.normalized().abs().max_axis()))
-			get_node(camera_to_switch).current = true
+			var camera_node = get_node(camera_to_switch)
+			
+			camera_node.current = true
+			Game.scene_manager.set_current_camera(camera_node)
 		else:
 			printerr("O nó " + self.name + " não possui uma câmera em sua variável!")
 #		executar tratamento de repameamento de movimento

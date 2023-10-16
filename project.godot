@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/base/item_script/consumable_script.gd"
 }, {
+"base": "Resource",
+"class": "DialogueBranch",
+"language": "GDScript",
+"path": "res://entities/base/resources/dialogue_branch.gd"
+}, {
+"base": "InteracteableArea",
+"class": "DialogueInteraction",
+"language": "GDScript",
+"path": "res://entities/base/components/scene/dialogue_interaction.gd"
+}, {
 "base": "Entity",
 "class": "Enemy",
 "language": "GDScript",
@@ -64,7 +74,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/base/entity/player/player.gd"
 }, {
-"base": "Area",
+"base": "InteracteableArea",
 "class": "SceneSwitcher",
 "language": "GDScript",
 "path": "res://entities/base/components/scene/scene_changer.gd"
@@ -88,6 +98,8 @@ _global_script_class_icons={
 "CameraSwitcher": "",
 "ConsumableItem": "",
 "ConsumableItemScript": "",
+"DialogueBranch": "",
+"DialogueInteraction": "",
 "Enemy": "",
 "Entity": "",
 "GameScene": "",
@@ -113,6 +125,7 @@ config/icon="res://icon.png"
 Game="*res://managers/game_manager.gd"
 Sound="*res://managers/sound_manager/sound_manager.tscn"
 Inventory="*res://managers/item_manager.gd"
+Dialogue="*res://managers/dialogue_manager.gd"
 
 [gui]
 

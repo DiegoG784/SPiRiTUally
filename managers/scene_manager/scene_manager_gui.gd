@@ -2,6 +2,8 @@ extends Control
 
 onready var health_bar = get_node("health_bar")
 
+var can_open_menu = true
+# var can_open_inventory = true
 var inventory_opened = false
 
 #func _unhandled_input(event):
@@ -10,7 +12,8 @@ var inventory_opened = false
 func _unhandled_key_input(event):
 #	print("unhandled_key_input: " + str(event.as_text()))
 
-	if InputMap.event_is_action(event, "inventory") and !inventory_opened:
+	if InputMap.event_is_action(event, "inventory") and !inventory_opened and can_open_menu:
+		lock_menu()
 		inventory_opened = true
 		get_tree().paused = true
 		var inventory_scene = preload("res://gui/inventory/inventory.tscn").instance()
@@ -20,5 +23,12 @@ func _unhandled_key_input(event):
 
 func inventory_exit(node):
 #	print("player fechou o inventário")
+	unlock_menu()
 	inventory_opened = false
 	get_tree().paused = false
+
+func lock_menu():
+	can_open_menu = false
+
+func unlock_menu():
+	can_open_menu = true

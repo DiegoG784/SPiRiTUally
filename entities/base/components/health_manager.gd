@@ -15,7 +15,8 @@ signal health_updated(damage_taken) #emite um argumento que mostra se a entidade
 func _ready():
 	max_health = health
 	yield(get_tree(),"idle_frame")
-	self.connect("health_updated", Game.scene_manager.gui.health_bar, "update_health_bar")
+	if Game.scene_manager:
+		self.connect("health_updated", Game.scene_manager.gui.health_bar, "update_health_bar")
 #	print(is_connected("health_updated", Game.scene_manager.gui.health_bar, "update_health_bar"))
 #	Conectar os sinais nas barras de vida
 

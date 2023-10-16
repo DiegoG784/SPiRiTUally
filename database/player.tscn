@@ -16,6 +16,7 @@ extents = Vector3( 1, 3.50111, 1 )
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 1 )
+walking_speed = 1000
 health_node = NodePath("health_component")
 
 [node name="health_component" type="Node" parent="."]

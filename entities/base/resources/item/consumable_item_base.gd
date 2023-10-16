@@ -12,3 +12,5 @@ export(GDScript) var custom_item_script
 export(PackedScene) var item_prop
 
 var basic_item_script = load("res://entities/base/resources/item/basic_item_script.gd")
+
+func get_class(): return "ConsumableItem"
