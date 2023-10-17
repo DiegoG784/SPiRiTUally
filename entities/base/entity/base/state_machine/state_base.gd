@@ -36,6 +36,7 @@ func get_input(delta):
 			forward[cam_axis] = sign(cam_forward[cam_axis])
 
 			var entity_motion = Vector3.ZERO
+
 #			print(forward)
 			if forward == Vector3(1, 0, 0) or forward == Vector3(-1, 0, 0):
 				entity_motion.z = (Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")) * forward.cross(Vector3.UP).z

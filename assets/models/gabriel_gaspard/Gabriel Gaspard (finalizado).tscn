@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/gabriel_gaspard/Gabriel Gaspard (finalizado).gltf" type="PackedScene" id=1]
+
+[node name="Gabriel Gaspard (finalizado)" instance=ExtResource( 1 )]

@@ -4,7 +4,7 @@
 [ext_resource path="res://entities/base/entity/base/state_machine/state_machine_base.gd" type="Script" id=2]
 [ext_resource path="res://entities/base/entity/player/states/walk.gd" type="Script" id=3]
 [ext_resource path="res://entities/base/entity/player/states/idle.gd" type="Script" id=4]
-[ext_resource path="res://assets/models/gabriel_gaspard/gaspardobjeto.glb" type="PackedScene" id=5]
+[ext_resource path="res://assets/models/gabriel_gaspard/Gabriel Gaspard (finalizado).tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/base/components/health_manager.gd" type="Script" id=6]
 
 [sub_resource type="SpatialMaterial" id=2]
@@ -24,8 +24,7 @@ script = ExtResource( 6 )
 parent = NodePath("..")
 health = 100
 
-[node name="gaspardobjeto" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0541073, 0 )
+[node name="Gabriel Gaspard (finalizado)" parent="." instance=ExtResource( 5 )]
 
 [node name="CSGSphere" type="CSGSphere" parent="."]
 visible = false
@@ -45,4 +44,4 @@ script = ExtResource( 4 )
 script = ExtResource( 3 )
 
 [node name="item_holder" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21428, 5.29368, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21428, 6.39677, 0 )

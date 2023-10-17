@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/gaspardobjeto.glb-6e69fad9c31a67906959520dd77e73af.scn"
+path="res://.import/Gabriel Gaspard (finalizado).gltf-a06b93bd5540673d5f28f915ddbdce79.scn"
 
 [deps]
 
-source_file="res://assets/models/gabriel_gaspard/gaspardobjeto.glb"
-dest_files=[ "res://.import/gaspardobjeto.glb-6e69fad9c31a67906959520dd77e73af.scn" ]
+source_file="res://assets/models/gabriel_gaspard/Gabriel Gaspard (finalizado).gltf"
+dest_files=[ "res://.import/Gabriel Gaspard (finalizado).gltf-a06b93bd5540673d5f28f915ddbdce79.scn" ]
 
 [params]
 
@@ -16,12 +16,12 @@ nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
-nodes/use_legacy_names=false
+nodes/use_legacy_names=true
 materials/location=1
 materials/storage=1
 materials/keep_on_reimport=true
 meshes/octahedral_compression=true
-meshes/compress=4286
+meshes/compress=191
 meshes/ensure_tangents=true
 meshes/storage=0
 meshes/light_baking=0
