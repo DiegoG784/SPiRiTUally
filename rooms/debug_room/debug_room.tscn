@@ -124,6 +124,8 @@ scene_file = ExtResource( 6 )
 [node name="CollisionShape" type="CollisionShape" parent="SceneSwitcher"]
 shape = SubResource( 6 )
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
 [editable path="camera_switchers/-x"]
 [editable path="camera_switchers/x"]
 [editable path="camera_switchers/-z"]
