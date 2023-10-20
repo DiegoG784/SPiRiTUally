@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/397314__designdean__double-door-lock.wav-893efa6370b78bec0292894150463d96.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound_effects/random sfx/397314__designdean__double-door-lock.wav"
+dest_files=[ "res://.import/397314__designdean__double-door-lock.wav-893efa6370b78bec0292894150463d96.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
