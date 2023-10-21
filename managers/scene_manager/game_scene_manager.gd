@@ -1,7 +1,7 @@
 extends Spatial
 class_name GameScene
 
-export(String) var scene_name
+export(String) var room_name
 export(AudioStreamSample) var music
 export(bool) var mute_music_when_entering = false
 

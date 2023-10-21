@@ -127,6 +127,14 @@ Sound="*res://managers/sound_manager/sound_manager.tscn"
 Inventory="*res://managers/item_manager.gd"
 Dialogue="*res://managers/dialogue_manager.gd"
 
+[display]
+
+window/size/width=800
+window/size/test_width=1024
+window/size/test_height=600
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
