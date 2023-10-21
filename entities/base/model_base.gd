@@ -1,11 +1,10 @@
 extends Spatial
 
 var shader = load("res://entities/shaders/psx_shaders/psx_lit.shader")
-var test
 
 func _ready():
 #	print(shader)
-
+	
 	for mesh in get_children():
 		if mesh is MeshInstance:
 #			print(mesh)
