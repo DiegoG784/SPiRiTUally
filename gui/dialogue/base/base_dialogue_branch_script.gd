@@ -125,7 +125,7 @@ func set_next_dialogue_text():
 	dialogue_speed = dialogue_text.percent_visible * 0.5
 
 func execute_dialogue_events():
-	if current_dialogue.has("dialogue_events") == true:
+	if current_dialogue.has("dialogue_events"):
 		var events_to_execute = []
 		var execution_order = ["inventory", "scene", "dialogue"]
 #		["inventory", "give_item", "item_file.tres"]

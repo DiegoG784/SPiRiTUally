@@ -1,7 +1,7 @@
 extends InteracteableArea
 class_name CutsceneTrigger
 
-export(NodePath) var teste
+export(NodePath) var cutscene_player
 
 func interact_action():
-	pass
+	Cutscene.start_cutscene(get_node(cutscene_player))

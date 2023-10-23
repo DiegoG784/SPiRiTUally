@@ -1,0 +1,10 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["none", "none", "You look at the fridge, searching for something delicious to eat"],
+            ["none", "none", "Gaspard. Don't you dare to!"],
+            ["none", "none", "The voice came behind you, revealing to be your coleague, Leonnard"]
+        ]
+    }
+]

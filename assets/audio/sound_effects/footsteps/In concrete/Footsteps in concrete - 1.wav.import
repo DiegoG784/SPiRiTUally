@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Footsteps in concrete - 1.wav-5c18d0d40c24a0fbd9f2e48bd0b4ae58.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound_effects/footsteps/In concrete/Footsteps in concrete - 1.wav"
+dest_files=[ "res://.import/Footsteps in concrete - 1.wav-5c18d0d40c24a0fbd9f2e48bd0b4ae58.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

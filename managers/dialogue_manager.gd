@@ -3,19 +3,27 @@ extends Node
 var current_dialogue
 var dialogue_directory = "res://entities/dialogues/"
 
+
 #func _ready():
 #	var test = get_dialogue_branch("test").result
 #	print(test)
 
-func start_dialogue(dialogue_filepath):
+func start_dialogue(dialogue_filepath:String, in_cutscene = false):
 	Game.scene_manager.gui.lock_menu()
 	var file = File.new()
-	file.open(dialogue_filepath, File.READ)
+
+	if "res://" in dialogue_filepath:
+		file.open(dialogue_filepath, File.READ)
+	else:
+		file.open("res://entities/dialogues/" + dialogue_filepath + ".json", File.READ)
 	
 	var dialogue_branch = JSON.parse(file.get_as_text()).result
 	
 	var dialogue_window = preload("res://gui/dialogue/base/base_dialogue_branch.tscn").instance()
 	dialogue_window.setup(dialogue_branch)
+	if in_cutscene:
+		dialogue_window.connect("dialogue_finished", Cutscene, "dialogue_finished")
+	
 	Game.scene_manager.gui.add_child(dialogue_window)
 	return dialogue_window
 
