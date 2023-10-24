@@ -135,7 +135,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Game="*res://managers/game_manager.gd"
-Sound="*res://managers/sound_manager/sound_manager.tscn"
+Audio="*res://managers/audio_manager/audio_manager.tscn"
 Inventory="*res://managers/item_manager.gd"
 Dialogue="*res://managers/dialogue_manager.gd"
 Cutscene="*res://managers/cutscene_manager.gd"

@@ -10,5 +10,5 @@ func play_music(music_name):
 	pass
 
 func play_audio(audio_name):
-	pass
-#	Como será que vai ser feito o sistema de efeitos sonoros? Criar um nó auto delatável?
+	var audio = AudioStreamPlayer.new()
+	
