@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Ding dong no reverb.wav-3cbd5cba4363c2bfca1f9cd0216cd286.sample"
+path="res://.import/Ding dong no reverb.wav-cf7e85fc7a72d01f0589cbff10fe32bf.sample"
 
 [deps]
 
-source_file="res://assets/audio/sound_effects/Doorbells/Ding dong no reverb.wav"
-dest_files=[ "res://.import/Ding dong no reverb.wav-3cbd5cba4363c2bfca1f9cd0216cd286.sample" ]
+source_file="res://assets/audio/sound_effects/doorbells/Ding dong no reverb.wav"
+dest_files=[ "res://.import/Ding dong no reverb.wav-cf7e85fc7a72d01f0589cbff10fe32bf.sample" ]
 
 [params]
 
