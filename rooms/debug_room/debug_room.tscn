@@ -5,7 +5,7 @@
 [ext_resource path="res://entities/items/consumables/health_kit/health_kit_prop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/base/components/scene/dialogue_interaction.gd" type="Script" id=4]
 [ext_resource path="res://managers/scene_manager/game_scene_manager.gd" type="Script" id=5]
-[ext_resource path="res://rooms/debug_room/cutscene_test.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rooms/main_game/introduction.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/base/components/scene/scene_changer.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape" id=2]

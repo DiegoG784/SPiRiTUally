@@ -294,7 +294,7 @@ light_energy = 1.141
 directional_shadow_mode = 1
 
 [node name="cutscene_camera" type="Camera" parent="."]
-transform = Transform( -0.585184, -0.163373, 0.794273, 0, 0.979494, 0.201471, -0.810901, 0.117898, -0.573184, 0, 12.0358, 15.9861 )
+transform = Transform( -0.585184, -0.163373, 0.794272, 0, 0.979494, 0.201471, -0.810901, 0.117898, -0.573185, 0, 12.0358, 15.9861 )
 
 [node name="CSGSphere" type="CSGSphere" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -7.82226 )
