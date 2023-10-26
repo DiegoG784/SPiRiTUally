@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/switch_on.wav-456e21f4d4f0640d30f3b0d2b36e591f.sample"
+path="res://.import/switch_on.wav-48a1d1127d923c0c75155341fc52fbf0.sample"
 
 [deps]
 
-source_file="res://assets/audio/sound_effects/switchs/switch_on.wav"
-dest_files=[ "res://.import/switch_on.wav-456e21f4d4f0640d30f3b0d2b36e591f.sample" ]
+source_file="res://assets/audio/sound_effects/Switchs/switch_on.wav"
+dest_files=[ "res://.import/switch_on.wav-48a1d1127d923c0c75155341fc52fbf0.sample" ]
 
 [params]
 

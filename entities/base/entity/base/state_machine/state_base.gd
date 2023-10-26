@@ -23,7 +23,7 @@ func logic(delta):
 	entity.move()
 
 func get_input(delta):
-	if entity.can_move:
+	if entity.can_move and Game.scene_manager:
 		var camera_node = Game.scene_manager.get_current_camera()
 #		print(camera_node)
 #		print(Game.scene_manager.current_camera)

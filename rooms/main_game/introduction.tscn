@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://managers/scene_manager/game_scene_manager.gd" type="Script" id=1]
+[ext_resource path="res://database/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/audio/musics/music_test.ogg" type="AudioStream" id=3]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+
+[node name="intro" type="Spatial"]
+script = ExtResource( 1 )
+music = ExtResource( 3 )
+mute_music_when_entering = true
+show_room_name = false
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249182, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.88792, 0.459998, 0, -0.459998, 0.88792, 0, 10.0936, 9.28199 )
+current = true

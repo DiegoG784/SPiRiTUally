@@ -25,8 +25,12 @@ func _ready():
 		file_name = dir.get_next()
 
 
-func play_music(music_name):
-	pass
+func play_music(music_file):
+	if music.is_playing():
+		pass
+	else:
+		music.stream = music_file
+		music.play()
 
 func play_audio(audio_file):
 	var audio = AudioStreamPlayer.new()

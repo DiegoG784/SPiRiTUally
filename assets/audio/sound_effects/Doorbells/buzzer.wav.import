@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/buzzer.wav-5bfacb2598a75602c6511cef4d9465c4.sample"
+path="res://.import/buzzer.wav-152abb1b06ef3307ed5af133255d2c9a.sample"
 
 [deps]
 
-source_file="res://assets/audio/sound_effects/doorbells/buzzer.wav"
-dest_files=[ "res://.import/buzzer.wav-5bfacb2598a75602c6511cef4d9465c4.sample" ]
+source_file="res://assets/audio/sound_effects/Doorbells/buzzer.wav"
+dest_files=[ "res://.import/buzzer.wav-152abb1b06ef3307ed5af133255d2c9a.sample" ]
 
 [params]
 

@@ -9,6 +9,9 @@ func _ready():
 	Game.set_scene_manager(self)
 	set_current_camera(get_viewport().get_camera())
 
+func add_scene_to_main(scene_file):
+	current_scene_node.add_child(scene_file)
+
 func change_scene(scene_file):
 	current_camera = null
 	var next_scene = scene_file.instance()
