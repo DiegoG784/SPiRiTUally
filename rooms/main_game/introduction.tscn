@@ -1,17 +1,45 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://managers/scene_manager/game_scene_manager.gd" type="Script" id=1]
+[ext_resource path="res://entities/base/components/scene/interacteable_area.gd" type="Script" id=1]
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/audio/musics/music_test.ogg" type="AudioStream" id=3]
+
+[sub_resource type="GDScript" id=2]
+resource_name = "introduction_scene"
+script/source = "extends GameScene
+
+var intro_dialogue
+var transition = preload(\"res://gui/scene/scene_transition_black.tscn\").instance()
+
+onready var timer = get_node(\"Timer\")
+
+func _ready():
+	add_child(transition)
+	Game.lock_player_input()
+	transition.fade_in()
+	timer.start()
+
+func _process(delta):
+	pass
+
+
+func timer_timeout():
+	intro_dialogue = Dialogue.start_dialogue(\"main_game/introduction/not_opening_door\")
+	intro_dialogue.connect(\"dialogue_finished\", self, \"dialogue_finished\")
+
+func dialogue_finished():
+	transition.fade_out()
+	print(\"deletado\")
+	Game.unlock_player_input()
+"
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
 
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 4.29638, 1, 1 )
+
 [node name="intro" type="Spatial"]
-script = ExtResource( 1 )
-music = ExtResource( 3 )
-mute_music_when_entering = true
-show_room_name = false
+script = SubResource( 2 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249182, 0 )
@@ -27,3 +55,21 @@ environment = SubResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.88792, 0.459998, 0, -0.459998, 0.88792, 0, 10.0936, 9.28199 )
 current = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="InteracteableArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -63.717 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="InteracteableArea"]
+shape = SubResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.08258, -65.9441 )
+width = 6.22619
+height = 11.7592
+
+[connection signal="timeout" from="Timer" to="." method="timer_timeout"]
