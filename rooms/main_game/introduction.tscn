@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=15 format=2]
 
+[ext_resource path="res://entities/base/components/scene/cutscene_player.gd" type="Script" id=1]
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="GDScript" id=2]
@@ -40,20 +41,113 @@ script/source = "extends InteracteableArea
 
 
 func interact_action():
-	print(\"oioioioi\")
-	var ready = false
+#	print(\"oioioioi\")
 	Game.lock_player_input()
-	Game.scene_manager.change_camera_view(\"intro_door_camera\")
+	Cutscene.start_cutscene( Game.current_scene.get_node(\"door_cutscene_1\") )
 #	Habilitar cutscene onde mostra a mão do gaspard chegasndo na porta, aí vai pedir para o jogador pressionar o botão de interação
-	
-	yield(get_tree(),\"idle_frame\")
-	while Input.is_action_just_pressed(\"interact\") and !ready:
-		print(\"Aperte e para abrir portas\")
-		ready = true
 "
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 4.29638, 1, 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "0"
+tracks/0/type = "method"
+tracks/0/path = NodePath("door_cutscene_1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "intro_door_camera" ],
+"method": "change_camera"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "1"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("noise_generator:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.498039 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("noise_generator:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0.498039 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "3"
+tracks/0/type = "method"
+tracks/0/path = NodePath("door_cutscene_1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_dialogue"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("noise_generator:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="OpenSimplexNoise" id=7]
+octaves = 1
+period = 2.8
+
+[sub_resource type="NoiseTexture" id=8]
+flags = 3
+noise = SubResource( 7 )
+
+[sub_resource type="GDScript" id=9]
+resource_name = "noise_generator"
+script/source = "extends TextureRect
+
+func _process(delta):
+	texture.width = get_viewport().size.x
+	texture.height = get_viewport().size.y
+	texture.noise.seed += 1
+"
 
 [node name="intro" type="Spatial"]
 script = SubResource( 2 )
@@ -92,5 +186,23 @@ height = 11.7592
 [node name="intro_door_camera" type="Camera" parent="."]
 transform = Transform( -0.0626538, -0.0775021, 0.995022, -0.00487045, 0.996992, 0.0773489, -0.998023, 4.66583e-10, -0.0628428, 1.48668, 6.29487, -64.4298 )
 fov = 54.355
+
+[node name="door_cutscene_1" type="AnimationPlayer" parent="."]
+anims/0 = SubResource( 5 )
+anims/1 = SubResource( 6 )
+anims/2 = SubResource( 11 )
+anims/3 = SubResource( 12 )
+anims/RESET = SubResource( 10 )
+script = ExtResource( 1 )
+dialogue_sections = "{
+\"3\":\"leonnard_calling_gaspard\"
+}"
+
+[node name="noise_generator" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 512.0
+margin_bottom = 512.0
+texture = SubResource( 8 )
+script = SubResource( 9 )
 
 [connection signal="timeout" from="Timer" to="." method="timer_timeout"]

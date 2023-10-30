@@ -18,5 +18,3 @@ visible = false
 [node name="current_scene" type="Spatial" parent="."]
 
 [node name="intro" parent="current_scene" instance=ExtResource( 3 )]
-
-[node name="animations" type="AnimationPlayer" parent="."]

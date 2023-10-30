@@ -1,6 +1,6 @@
 extends Node
 
-var current_cutscene_node:AnimationPlayer
+var current_cutscene_node:CutsScenePlayer
 var current_cutscene_strip:int = 0
 var cutscene_strip_length:int = 0
 
@@ -12,6 +12,8 @@ enum states {
 
 var current_state = states.IDLE
 
+signal cutscene_ended
+
 # func _process(delta):
 # 	match current_state:
 # 		states.IDLE:
@@ -22,9 +24,11 @@ var current_state = states.IDLE
 # 			pass
 
 
-func start_cutscene(animation_node):
+func start_cutscene(animation_node:CutsScenePlayer):
 	current_cutscene_node = animation_node
-	adjust_animation_player_settings()
+	current_cutscene_node.connect("dialogue_called", self, "dialogue_called")
+	current_cutscene_node.connect("animation_finished", self, "animation_finished")
+#	adjust_animation_player_settings()
 	cutscene_strip_length = current_cutscene_node.get_animation_list().size() - 1
 	Game.lock_player_input()
 	Game.scene_manager.gui.lock_menu()
@@ -33,18 +37,23 @@ func start_cutscene(animation_node):
 
 func end_cutscene():
 	print("cutscene terminada!")
-	Game.unlock_player_input()
-	Game.scene_manager.gui.unlock_menu()
+	
+	if current_cutscene_node.unlock_player_input_afer_cutscene:
+		Game.unlock_player_input()
+	if current_cutscene_node.unlock_menu_afer_cutscene:
+		Game.scene_manager.gui.unlock_menu()
+	
 	current_cutscene_node = null
 	current_cutscene_strip = 0
 	cutscene_strip_length = 0
+	emit_signal("cutscene_ended")
 
 func cutscene_strip_ended():
 	pass
 	
 #func cutscene_dialogue_ended():
 #	next_cutscene_branch()
-		
+
 func next_cutscene_branch():
 	print("length: ", cutscene_strip_length)
 	current_cutscene_strip += 1
@@ -53,7 +62,7 @@ func next_cutscene_branch():
 		end_cutscene()
 	else:
 		print("indo para a próxima animação da cutscene")
-		adjust_animation_player_settings()
+#		adjust_animation_player_settings()
 		yield(get_tree().create_timer(0.5), "timeout")
 		current_cutscene_node.play(str(current_cutscene_strip))
 
@@ -80,3 +89,9 @@ func animation_finished(anim_name):
 
 func dialogue_finished():
 	next_cutscene_branch()
+	current_cutscene_node.connect("animation_finished", self, "animation_finished")
+#	Desconectar sinal de terminar a track por ação de diálogo
+
+func dialogue_called():
+	if current_cutscene_node.is_connected("animation_finished", self, "animation_finished"):
+		current_cutscene_node.disconnect("animation_finished", self, "animation_finished")
