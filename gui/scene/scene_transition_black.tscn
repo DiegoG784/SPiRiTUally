@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [sub_resource type="GDScript" id=3]
 resource_name = "scene_transition_black"
@@ -14,10 +14,18 @@ func setup_finish_signal(parent, method):
 	get_node(\"animation\").connect(\"animation_finished\", parent, method)
 
 
-func fade_in():
+func fade_in(instant = false):
+	if instant:
+		animation.play(\"instant_fade_in\")
+		return
+	
 	animation.play(\"fade_in\")
 
-func fade_out():
+func fade_out(instant = false):
+	if instant:
+		animation.play(\"instant_fade_out\")
+		return
+	
 	animation.play(\"fade_out\")
 
 func transition_finished(anim_name):
@@ -69,6 +77,38 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "instant_fade_in"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "instant_fade_out"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="scene_transition_black" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -84,5 +124,7 @@ color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
 anims/RESET = SubResource( 1 )
 anims/fade_in = SubResource( 2 )
 anims/fade_out = SubResource( 4 )
+anims/instant_fade_in = SubResource( 5 )
+anims/instant_fade_out = SubResource( 6 )
 
 [connection signal="animation_finished" from="animation" to="." method="transition_finished"]

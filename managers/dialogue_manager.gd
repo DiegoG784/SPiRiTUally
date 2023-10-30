@@ -20,15 +20,16 @@ func start_dialogue(dialogue_filepath:String, in_cutscene = false):
 	var dialogue_branch = JSON.parse(file.get_as_text()).result
 	
 	var dialogue_window = preload("res://gui/dialogue/base/base_dialogue_branch.tscn").instance()
-	dialogue_window.setup(dialogue_branch)
+	dialogue_window.get_node("base_dialogue_branch").setup(dialogue_branch)
 	if in_cutscene:
-		dialogue_window.connect("dialogue_finished", Cutscene, "dialogue_finished")
+		dialogue_window.get_node("base_dialogue_branch").connect("dialogue_finished", Cutscene, "dialogue_finished")
 	
 	Game.scene_manager.gui.add_child(dialogue_window)
 	return dialogue_window
 
 func finish_dialogue():
 	pass
+
 
 func get_dialogue_branch(dialogue_name): #Função interna caso seja necessário.
 	var dir = Directory.new()

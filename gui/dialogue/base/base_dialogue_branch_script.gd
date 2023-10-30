@@ -75,8 +75,7 @@ func _process(delta):
 				get_node("selectable_options").get_child(0).grab_focus()
 				can_choose = true
 
-func setup(dialogue_branch):
-	self.dialogue_branch = dialogue_branch
+
 
 #	configurar as opções selecionáveis
 
@@ -108,6 +107,9 @@ func set_dialogue_by_id(dialogue_id):
 
 			if current_dialogue.has("dialogue_options"):
 				with_options = true
+
+func setup(dialogue_branch):
+	self.dialogue_branch = dialogue_branch
 
 func set_next_dialogue_text():
 	

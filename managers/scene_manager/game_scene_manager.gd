@@ -14,4 +14,7 @@ func _ready():
 
 
 func search_camera(camera_name):
-	pass
+	for camera in get_children():
+
+		if camera is Camera and camera.name == camera_name:
+			return camera

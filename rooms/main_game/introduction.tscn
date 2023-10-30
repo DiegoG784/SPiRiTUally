@@ -1,6 +1,5 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://entities/base/components/scene/interacteable_area.gd" type="Script" id=1]
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="GDScript" id=2]
@@ -13,9 +12,9 @@ var transition = preload(\"res://gui/scene/scene_transition_black.tscn\").instan
 onready var timer = get_node(\"Timer\")
 
 func _ready():
-	add_child(transition)
 	Game.lock_player_input()
-	transition.fade_in()
+	add_child(transition)
+	transition.fade_in(true)
 	timer.start()
 
 func _process(delta):
@@ -24,7 +23,7 @@ func _process(delta):
 
 func timer_timeout():
 	intro_dialogue = Dialogue.start_dialogue(\"main_game/introduction/not_opening_door\")
-	intro_dialogue.connect(\"dialogue_finished\", self, \"dialogue_finished\")
+	intro_dialogue.setup_signals(self)
 
 func dialogue_finished():
 	transition.fade_out()
@@ -35,6 +34,24 @@ func dialogue_finished():
 [sub_resource type="Environment" id=1]
 background_mode = 1
 
+[sub_resource type="GDScript" id=4]
+resource_name = "intro_door_interaction"
+script/source = "extends InteracteableArea
+
+
+func interact_action():
+	print(\"oioioioi\")
+	var ready = false
+	Game.lock_player_input()
+	Game.scene_manager.change_camera_view(\"intro_door_camera\")
+#	Habilitar cutscene onde mostra a mão do gaspard chegasndo na porta, aí vai pedir para o jogador pressionar o botão de interação
+	
+	yield(get_tree(),\"idle_frame\")
+	while Input.is_action_just_pressed(\"interact\") and !ready:
+		print(\"Aperte e para abrir portas\")
+		ready = true
+"
+
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 4.29638, 1, 1 )
 
@@ -42,7 +59,7 @@ extents = Vector3( 4.29638, 1, 1 )
 script = SubResource( 2 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249182, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249, 0 )
 
 [node name="OmniLight" type="OmniLight" parent="player"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039304, 9.42129, -0.360017 )
@@ -62,7 +79,7 @@ one_shot = true
 
 [node name="InteracteableArea" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -63.717 )
-script = ExtResource( 1 )
+script = SubResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InteracteableArea"]
 shape = SubResource( 3 )
@@ -71,5 +88,9 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.08258, -65.9441 )
 width = 6.22619
 height = 11.7592
+
+[node name="intro_door_camera" type="Camera" parent="."]
+transform = Transform( -0.0626538, -0.0775021, 0.995022, -0.00487045, 0.996992, 0.0773489, -0.998023, 4.66583e-10, -0.0628428, 1.48668, 6.29487, -64.4298 )
+fov = 54.355
 
 [connection signal="timeout" from="Timer" to="." method="timer_timeout"]

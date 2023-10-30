@@ -30,6 +30,8 @@ func set_current_player(player):
 
 func set_current_scene(scene):
 	current_scene = scene
+	if scene_manager:
+		scene_manager.current_game_scene = scene
 
 func set_scene_manager(target):
 	scene_manager = target

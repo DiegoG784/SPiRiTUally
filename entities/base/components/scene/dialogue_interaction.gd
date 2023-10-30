@@ -12,7 +12,7 @@ export(String, FILE) var dialogue_file
 func interact_action():
 	Game.lock_player_input()
 	var window = Dialogue.start_dialogue(dialogue_file)
-	window.connect("dialogue_finished", self, "terminate_interaction")
+	window.get_node("base_dialogue_branch").connect("dialogue_finished", self, "terminate_interaction")
 
 func terminate_interaction():
 	.terminate_interaction()
