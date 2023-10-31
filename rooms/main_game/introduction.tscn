@@ -89,6 +89,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.498039 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("noise_generator:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "2"
@@ -122,6 +134,30 @@ tracks/0/keys = {
 "method": "start_dialogue"
 } ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("noise_generator:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -136,6 +172,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("noise_generator:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 
 [sub_resource type="OpenSimplexNoise" id=7]
@@ -202,14 +262,21 @@ anims/3 = SubResource( 12 )
 anims/RESET = SubResource( 10 )
 script = ExtResource( 1 )
 dialogue_sections = "{
-\"3\":\"leonnard_calling_gaspard\"
+\"3\":\"main_game/introduction/leonnard_calling_gaspard\",
 }"
 
 [node name="noise_generator" type="TextureRect" parent="."]
+visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 512.0
 margin_bottom = 512.0
 texture = SubResource( 8 )
 script = SubResource( 9 )
+
+[node name="background" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="timeout" from="Timer" to="." method="timer_timeout"]
