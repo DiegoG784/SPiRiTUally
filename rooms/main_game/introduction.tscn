@@ -45,7 +45,14 @@ func interact_action():
 	Game.lock_player_input()
 	Cutscene.start_cutscene( Game.current_scene.get_node(\"door_cutscene_1\") )
 #	Habilitar cutscene onde mostra a mão do gaspard chegasndo na porta, aí vai pedir para o jogador pressionar o botão de interação
-"
+
+#Conectar o sinal de término da cutscene dentro desse nó
+#Trocar de Cena para o apartamento do suicída e começar a cutscene logo seguida
+
+#-= 
+# Adicionar um evento onde o jogo já se introduziu, e colocar um evento que
+# Mostra que a cutscene do apartamento foi finalizada
+#=-"
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 4.29638, 1, 1 )
