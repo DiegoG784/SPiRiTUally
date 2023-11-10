@@ -3,10 +3,10 @@
         "dialogue_id": 0,
         "dialogue_texts":[
             ["Leonnard", "character_expression?", "Não importa por quanto tempo eu esteja trabalhando nessa área, acho que nunca vou me acostumar com este tipo de vista."],
-            ["Leonnard", "character_expression?", "Não importa por quanto tempo eu esteja trabalhando nessa área, acho que nunca vou me acostumar com este tipo de vista."],
-            ["Leonnard", "character_expression?", "Não importa por quanto tempo eu esteja trabalhando nessa área, acho que nunca vou me acostumar com este tipo de vista."],
-            ["Leonnard", "character_expression?", "Não importa por quanto tempo eu esteja trabalhando nessa área, acho que nunca vou me acostumar com este tipo de vista."],
-            ["Leonnard", "character_expression?", "Não importa por quanto tempo eu esteja trabalhando nessa área, acho que nunca vou me acostumar com este tipo de vista."]
+            ["Gaspard", "character_expression?", "Mais um caso de suicídio?"],
+            ["Leonnard", "character_expression?", "É o que parece, mas mesmo assim precisamos ter certeza disso, não queremos que aconteça novamente o que aconteceu no caso Dominique. Essa cidade já tem de sobra do que reclamar da polícia local. E é por isso que você está aqui, detetive."],
+            ["Gaspard", "character_expression?", "Alguma informação para mim?"],
+            ["Leonnard", "character_expression?", "É tudo seu."]
         ]
     }
 ]
