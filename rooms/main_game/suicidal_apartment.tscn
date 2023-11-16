@@ -11,12 +11,15 @@ script/source = "extends GameScene
 
 func _ready():
 	._ready()
+	yield(get_tree(),\"idle_frame\")
 	Cutscene.start_cutscene(get_node(\"case_intro\"))
 	Cutscene.connect(\"cutscene_ended\", self, \"case_intro_end\")
 
 
-func case_intro_ended():
-	pass
+func case_intro_end():
+	print(\"introdução do caso terminado!\")
+	Game.unlock_player_input()
+	Game.scene_manager.set_current_camera(get_node(\"main_room_view\"))
 "
 
 [sub_resource type="BoxShape" id=4]
@@ -102,37 +105,39 @@ tracks/1/keys = {
 
 [node name="Spatial" type="Spatial"]
 script = SubResource( 3 )
+mute_music_when_entering = true
+show_room_name = false
 
 [node name="Apartamento - Caso 01" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0 )
 
-[node name="InteracteableArea3" type="Area" parent="Apartamento - Caso 01"]
+[node name="to_wife_suicide_letter_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( -0.0243276, 0, 0.999704, 0, 1, 0, -0.999704, 0, -0.0243276, -7.46652, 0, 8.41372 )
 script = ExtResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/InteracteableArea3"]
+[node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/to_wife_suicide_letter_clue"]
 shape = SubResource( 4 )
 
-[node name="InteracteableArea2" type="Area" parent="Apartamento - Caso 01"]
+[node name="ant_depress_pills_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( -0.568059, 0, 0.822987, 0, 1, 0, -0.822987, 0, -0.568059, 7.23597, 3.40598e-07, 10.9131 )
 script = ExtResource( 3 )
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/anti_depressant_pills.json"
 
-[node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/InteracteableArea2"]
+[node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/ant_depress_pills_clue"]
 shape = SubResource( 5 )
 
-[node name="InteracteableArea" type="Area" parent="Apartamento - Caso 01"]
+[node name="general_suicide_letter_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( 0.721784, 0, 0.692118, 0, 1, 0, -0.692118, 0, 0.721784, 1.89072, 0, -7.57592 )
 script = ExtResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/InteracteableArea"]
+[node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/general_suicide_letter_clue"]
 shape = SubResource( 6 )
 
-[node name="InteracteableArea4" type="Area" parent="Apartamento - Caso 01"]
+[node name="fridge_with_beers_interaction" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( 0.0419453, 0, 0.99912, 0, 1, 0, -0.99912, 0, 0.0419453, -10.6075, 0, -11.204 )
 script = ExtResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/InteracteableArea4"]
+[node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/fridge_with_beers_interaction"]
 transform = Transform( 1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0 )
 shape = SubResource( 7 )
 
@@ -152,3 +157,8 @@ dialogue_sections = "{
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1395, 11.5255, -4.57131 )
+current = true
+
+[node name="main_room_view" type="Camera" parent="."]
+transform = Transform( -0.621599, -0.251782, 0.741769, 0, 0.946936, 0.321423, -0.783336, 0.199796, -0.588614, 17.1657, 13.5279, -15.8645 )
+fov = 95.0

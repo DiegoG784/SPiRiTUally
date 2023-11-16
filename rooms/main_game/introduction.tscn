@@ -31,6 +31,9 @@ func dialogue_finished():
 	transition.fade_out()
 	print(\"deletado\")
 	Game.unlock_player_input()
+
+func door_cutscene_ended():
+	print(\"cutscene da porta terminada, enviando o jogador para a cena do suicida\")
 "
 
 [sub_resource type="Environment" id=1]
@@ -40,12 +43,18 @@ background_mode = 1
 resource_name = "intro_door_interaction"
 script/source = "extends InteracteableArea
 
+var suicidal_apartment_scene = preload(\"res://rooms/main_game/suicidal_apartment_entrance.tscn\")
 
 func interact_action():
 #	print(\"oioioioi\")
 	Game.lock_player_input()
 	Cutscene.start_cutscene( Game.current_scene.get_node(\"door_cutscene_1\") )
+	Cutscene.current_cutscene_node.connect(\"cutscene_node_ended\", self, \"door_cutscene_ended\")
 #	Habilitar cutscene onde mostra a mão do gaspard chegasndo na porta, aí vai pedir para o jogador pressionar o botão de interação
+
+func door_cutscene_ended():
+	print(\"cutscene terminada, trocando de cena para o apartamento\")
+	Game.scene_manager.change_scene(suicidal_apartment_scene, true)
 
 #Conectar o sinal de término da cutscene dentro desse nó
 #Trocar de Cena para o apartamento do suicída e começar a cutscene logo seguida
@@ -53,7 +62,8 @@ func interact_action():
 #-= 
 # Adicionar um evento onde o jogo já se introduziu, e colocar um evento que
 # Mostra que a cutscene do apartamento foi finalizada
-#=-"
+#=-
+"
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 4.29638, 1, 1 )

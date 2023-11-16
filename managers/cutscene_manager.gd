@@ -12,7 +12,7 @@ enum states {
 
 var current_state = states.IDLE
 
-signal cutscene_ended
+signal cutscene_ended(node)
 
 # func _process(delta):
 # 	match current_state:
@@ -37,7 +37,8 @@ func start_cutscene(animation_node:CutsScenePlayer):
 
 func end_cutscene():
 	print("cutscene terminada!")
-	
+	current_cutscene_node.emit_signal("cutscene_node_ended")
+	print("teste")
 	if current_cutscene_node.unlock_player_input_afer_cutscene:
 		Game.unlock_player_input()
 	if current_cutscene_node.unlock_menu_afer_cutscene:
@@ -57,7 +58,7 @@ func cutscene_strip_ended():
 func next_cutscene_branch():
 	print("length: ", cutscene_strip_length)
 	current_cutscene_strip += 1
-	print("currentt: ", current_cutscene_strip)
+	print("current: ", current_cutscene_strip)
 	if is_finished():
 		end_cutscene()
 	else:
@@ -89,7 +90,8 @@ func animation_finished(anim_name):
 
 func dialogue_finished():
 	next_cutscene_branch()
-	current_cutscene_node.connect("animation_finished", self, "animation_finished")
+	if !is_finished():
+		current_cutscene_node.connect("animation_finished", self, "animation_finished")
 #	Desconectar sinal de terminar a track por ação de diálogo
 
 func dialogue_called():

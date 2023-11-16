@@ -8,6 +8,7 @@ export(bool) var unlock_menu_afer_cutscene
 var parsed_dialogue
 
 signal dialogue_called
+signal cutscene_node_ended
 
 #func _process(delta):
 #	print(current_animation)

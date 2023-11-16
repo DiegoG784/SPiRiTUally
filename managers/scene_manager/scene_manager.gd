@@ -39,6 +39,7 @@ func change_scene(scene_file, without_transition = false):
 		transition_overlay.queue_free()
 
 func set_current_camera(camera:Camera):
+	print(camera)
 	current_camera = camera
 	camera.current = true
 
