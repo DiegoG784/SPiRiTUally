@@ -103,7 +103,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 90, 0 ) ]
 }
 
-[node name="Spatial" type="Spatial"]
+[node name="suicidal_apartment" type="Spatial"]
 script = SubResource( 3 )
 mute_music_when_entering = true
 show_room_name = false
@@ -114,6 +114,8 @@ transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0 )
 [node name="to_wife_suicide_letter_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( -0.0243276, 0, 0.999704, 0, 1, 0, -0.999704, 0, -0.0243276, -7.46652, 0, 8.41372 )
 script = ExtResource( 3 )
+one_time_execution = true
+dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/suicide_letter_to_wife.json"
 
 [node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/to_wife_suicide_letter_clue"]
 shape = SubResource( 4 )
@@ -121,6 +123,7 @@ shape = SubResource( 4 )
 [node name="ant_depress_pills_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( -0.568059, 0, 0.822987, 0, 1, 0, -0.822987, 0, -0.568059, 7.23597, 3.40598e-07, 10.9131 )
 script = ExtResource( 3 )
+one_time_execution = true
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/anti_depressant_pills.json"
 
 [node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/ant_depress_pills_clue"]
@@ -129,6 +132,8 @@ shape = SubResource( 5 )
 [node name="general_suicide_letter_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( 0.721784, 0, 0.692118, 0, 1, 0, -0.692118, 0, 0.721784, 1.89072, 0, -7.57592 )
 script = ExtResource( 3 )
+one_time_execution = true
+dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/suicide_letter.json"
 
 [node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/general_suicide_letter_clue"]
 shape = SubResource( 6 )
@@ -136,6 +141,8 @@ shape = SubResource( 6 )
 [node name="fridge_with_beers_interaction" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( 0.0419453, 0, 0.99912, 0, 1, 0, -0.99912, 0, 0.0419453, -10.6075, 0, -11.204 )
 script = ExtResource( 3 )
+one_time_execution = true
+dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/fridge_with_beverages.json"
 
 [node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 01/fridge_with_beers_interaction"]
 transform = Transform( 1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0 )

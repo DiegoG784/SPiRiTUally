@@ -2,7 +2,7 @@
     {
         "dialogue_id": 0,
         "dialogue_texts":[
-            ["none", "character_expression?", "Você encontra um container de medicamento caído com várias pírulas jogadas no chão. Ao analisar profundamente, você descobre que é um medicamento anti-depressivo."]
+            ["none", "character_expression?", "É um pote de remédio jogado no chão e aparenta ser anti-depressivos pela embalagem. Parece que a vítima tentou se matar por overdose, mas acabou falhando pelos rastros de vômito dentro da banheira."]
         ]
     }
 ]
