@@ -30,6 +30,7 @@ func _process(delta):
 		states.IDLE:
 			pass
 		states.RUNNING:
+#			print(with_options)
 #			dialogue_text.visible_characters += dialogue_speed
 #			print("antes: " + str(dialogue_text.percent_visible))
 #			print(dialogue_text.percent_visible)
@@ -47,7 +48,8 @@ func _process(delta):
 			else:
 				
 				if with_options and is_finishing_dialogue() and !can_choose:
-						current_state = states.CHOOSING
+#					print("para as escolhas")
+					current_state = states.CHOOSING
 					
 				else:
 					
@@ -61,11 +63,12 @@ func _process(delta):
 				
 		states.CHOOSING:
 			if !can_choose:
+#				print("escolhendo")
 				for option in current_dialogue["dialogue_options"].size():
 #					print(current_dialogue["dialogue_options"].size())
-					
+#					print("adicionando botões")
 					var button = Button.new()
-					button.button_mask
+#					button.button_mask
 					button.text = current_dialogue["dialogue_options"][option][0]
 					button.connect("pressed", self, "option_selected")
 					button.connect("focus_entered", self, "button_focused")
@@ -81,8 +84,11 @@ func _process(delta):
 
 func option_selected():
 	var current_dialogue_option = dialogue_branch[current_dialogue_id]["dialogue_options"][option_focused.get_index()]
+	print(current_dialogue_option)
 	var dialogue_to_travel = current_dialogue_option[1]
 	for i in get_node("selectable_options").get_children():
+		i.disconnect("pressed", self, "option_selected")
+		i.disconnect("focus_entered", self, "button_focused")
 		i.queue_free()
 	
 	if str(current_dialogue_option[1]) == "end":
@@ -90,11 +96,15 @@ func option_selected():
 	else:
 		set_dialogue_by_id(dialogue_to_travel)
 		current_state = states.RUNNING
+	can_choose = false
 
 func button_focused():
 	option_focused = get_focus_owner()
 
 func set_dialogue_by_id(dialogue_id):
+#	print(dialogue_id)
+	current_dialogue = {}
+	current_dialogue_id = dialogue_id
 	current_dialogue_text = 0
 	
 	for dialogue in dialogue_branch:

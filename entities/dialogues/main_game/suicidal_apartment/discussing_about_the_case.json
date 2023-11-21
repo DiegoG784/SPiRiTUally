@@ -17,7 +17,7 @@
             ["Leonnard", "character_expression", "A clássica despedida, hein? Não poderia faltar."],
             ["Gaspard", "character_expression", "Problemas com aposta, divórcio e dinheiro. Se vocês procuravam por um motivo, tem motivo de sobra e está tudo aí, anotado em um papel de caderno rasgado."],
             ["Leonnard", "character_expression", "Bem, detetive, longe de mim querer duvidar de você, ainda mais falando de um velho amigo meu o qual cegamente confio na intuição... mas, qualquer um poderia ter escrito isso. O que impediria de ter sido até mesmo a coitada da ex-esposa ou o proprietário do local? É de um homem com dívidas do qual estamos falando, afinal."],
-            ["Gaspard", "character_expression", "Admiro-o como um agente, mas julgar a situação de modo tão precipitado é muito imprudente de sua parte. Ainda mais se formos levar em conta de que quem encontrou o corpo e nos chamou foi o proprietário. Que fim ele teria expondo tão porcamente o seu crime? Eu lhe asseguro de que ninguém além dele mesmo escreveu a carta, Leon. E eu tenho como provar."]
+            ["Gaspard", "character_expression", "Admiro-o co    mo um agente, mas julgar a situação de modo tão precipitado é muito imprudente de sua parte. Ainda mais se formos levar em conta de que quem encontrou o corpo e nos chamou foi o proprietário. Que fim ele teria expondo tão porcamente o seu crime? Eu lhe asseguro de que ninguém além dele mesmo escreveu a carta, Leon. E eu tenho como provar."]
         ],
         "dialogue_options":[
             ["A razão pela qual não foi um suicídio estava presente em seu corpo...", 2, ["item", "Manchas de tinta na mão"]]

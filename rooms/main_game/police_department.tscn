@@ -12,4 +12,4 @@ transform = Transform( 1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0
 directional_shadow_mode = 0
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.04907e-07, 0, 2.4, 0, 2.4, 0, -2.4, 0, -1.04907e-07, 41.3169, 2.72539, 6.52972 )
+transform = Transform( -1.04907e-07, 0, 2.4, 0, 2.4, 0, -2.4, 0, -1.04907e-07, 43.5836, 2.72539, 9.51497 )
