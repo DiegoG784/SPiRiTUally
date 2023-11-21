@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://database/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/models/departamento_recepcao/Recepção.gltf" type="PackedScene" id=2]
+
+[node name="police_department" type="Spatial"]
+
+[node name="Recepção" parent="." instance=ExtResource( 2 )]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 110.572, 0 )
+directional_shadow_mode = 0
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.04907e-07, 0, 2.4, 0, 2.4, 0, -2.4, 0, -1.04907e-07, 41.3169, 2.72539, 6.52972 )

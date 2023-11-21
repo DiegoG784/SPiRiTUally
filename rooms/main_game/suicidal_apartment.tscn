@@ -1,13 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/apartamento_suicida/Apartamento - Caso 01.gltf" type="PackedScene" id=2]
 [ext_resource path="res://entities/base/components/scene/dialogue_interaction.gd" type="Script" id=3]
 [ext_resource path="res://assets/models/Leonardd/modeloleonardd.gltf" type="PackedScene" id=4]
 [ext_resource path="res://entities/base/components/scene/cutscene_player.gd" type="Script" id=5]
+[ext_resource path="res://entities/rooms/suicidal_apartment/clue_counter_add.gd" type="Script" id=6]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends GameScene
+
+var clue_counter = 0
 
 func _ready():
 	._ready()
@@ -20,6 +23,39 @@ func case_intro_end():
 	print(\"introdução do caso terminado!\")
 	Game.unlock_player_input()
 	Game.scene_manager.set_current_camera(get_node(\"main_room_view\"))
+
+func finish_investigation():
+	print(\"Terminou?\")
+	if clue_counter == 3:
+		print(\"sim!\")
+		Game.lock_player_input()
+		Game.scene_manager.gui.lock_menu()
+		var window = Dialogue.start_dialogue(\"main_game/suicidal_apartment/all_evidences_found\")
+		window.get_node(\"base_dialogue_branch\").connect(\"dialogue_finished\", self, \"finished_evidence_dialogue\")
+#		trandição pra preto e transportar o jogador pra perto do Leonnard
+#		Conversa entre Gaspard e Leonnard começa
+
+func finished_evidence_dialogue():
+	var transition = Game.scene_manager.transition_overlay_node.instance()
+	Game.scene_manager.gui.add_child(transition)
+	transition.fade_in()
+	
+	yield(transition.animation, \"animation_finished\")
+	
+	Game.current_player.global_translation = Vector3(15.072, 0.286, -12.23)
+	Game.current_player.global_rotation.y = 48.636
+	
+	transition.fade_out()
+	
+	yield(transition.animation, \"animation_finished\")
+	
+	var window = Dialogue.start_dialogue(\"main_game/suicidal_apartment/discussing_about_the_case\")
+	window.get_node(\"base_dialogue_branch\").connect(\"dialogue_finished\", self, \"finished_discussion\")
+#	Começa diálogo entre Gaspard e Leonnard sobre o caso
+
+func finished_discussion():
+	Game.unlock_player_input()
+	Game.scene_manager.gui.unlock_menu()
 "
 
 [sub_resource type="BoxShape" id=4]
@@ -113,7 +149,7 @@ transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0 )
 
 [node name="to_wife_suicide_letter_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( -0.0243276, 0, 0.999704, 0, 1, 0, -0.999704, 0, -0.0243276, -7.46652, 0, 8.41372 )
-script = ExtResource( 3 )
+script = ExtResource( 6 )
 one_time_execution = true
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/suicide_letter_to_wife.json"
 
@@ -122,7 +158,7 @@ shape = SubResource( 4 )
 
 [node name="ant_depress_pills_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( -0.568059, 0, 0.822987, 0, 1, 0, -0.822987, 0, -0.568059, 7.23597, 3.40598e-07, 10.9131 )
-script = ExtResource( 3 )
+script = ExtResource( 6 )
 one_time_execution = true
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/anti_depressant_pills.json"
 
@@ -131,7 +167,7 @@ shape = SubResource( 5 )
 
 [node name="general_suicide_letter_clue" type="Area" parent="Apartamento - Caso 01"]
 transform = Transform( 0.721784, 0, 0.692118, 0, 1, 0, -0.692118, 0, 0.721784, 1.89072, 0, -7.57592 )
-script = ExtResource( 3 )
+script = ExtResource( 6 )
 one_time_execution = true
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/suicide_letter.json"
 
@@ -149,10 +185,10 @@ transform = Transform( 1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0 )
 shape = SubResource( 7 )
 
 [node name="modeloleonardd" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1.33631, 0, 1.48804, 0, 2, 0, -1.48804, 0, -1.33631, 11.1282, 0, -16.0824 )
+transform = Transform( -1.51376, 0, 1.30711, 0, 2, 0, -1.30711, 0, -1.51376, 11.1282, 0, -16.0824 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.402028, 0, 0.915627, 0, 1, 0, -0.915627, 0, -0.402028, 15.0723, 0.285796, -12.2302 )
+transform = Transform( 0.66084, 0, 0.750527, 0, 1, 0, -0.750527, 0, 0.66084, 15.0723, 0.285796, -12.2302 )
 
 [node name="case_intro" type="AnimationPlayer" parent="."]
 anims/0 = SubResource( 1 )
@@ -169,3 +205,12 @@ current = true
 [node name="main_room_view" type="Camera" parent="."]
 transform = Transform( -0.621599, -0.251782, 0.741769, 0, 0.946936, 0.321423, -0.783336, 0.199796, -0.588614, 17.1657, 13.5279, -15.8645 )
 fov = 95.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.292165, -0.501313, -0.814448, 0.648327, -0.729877, 0.216685, -0.703073, -0.46472, 0.538259, 0, 26.1623, 0 )
+
+[node name="Position3D" type="Position3D" parent="."]
+
+[node name="Camera2" type="Camera" parent="."]
+transform = Transform( 0.649236, 0, -0.760587, 0, 1, 0, 0.760587, 0, 0.649236, 9.36, 7.068, -11.365 )
+fov = 61.2

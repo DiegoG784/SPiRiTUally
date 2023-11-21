@@ -1,0 +1,42 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Leonnard", "character_expression?", "E então?"],
+            ["Gaspard", "character_expression?", "É um suicídio por enforcamento legítimo, se duvida de mim, uma autópsia médica irá confirmar."],
+            ["Leonnard", "character_expression?", "Algum achado que lhe chamou atenção?"]
+        ],
+        "dialogue_options":[
+            ["Não seria um suicídio caseiro sem isto presente na cena...", 1, ["item", "Carta de Suicídio"]]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Leonnard", "character_expression", "A clássica despedida, hein? Não poderia faltar."],
+            ["Gaspard", "character_expression", "Problemas com aposta, divórcio e dinheiro. Se vocês procuravam por um motivo, tem motivo de sobra e está tudo aí, anotado em um papel de caderno rasgado."],
+            ["Leonnard", "character_expression", "Bem, detetive, longe de mim querer duvidar de você, ainda mais falando de um velho amigo meu o qual cegamente confio na intuição... mas, qualquer um poderia ter escrito isso. O que impediria de ter sido até mesmo a coitada da ex-esposa ou o proprietário do local? É de um homem com dívidas do qual estamos falando, afinal."],
+            ["Gaspard", "character_expression", "Admiro-o como um agente, mas julgar a situação de modo tão precipitado é muito imprudente de sua parte. Ainda mais se formos levar em conta de que quem encontrou o corpo e nos chamou foi o proprietário. Que fim ele teria expondo tão porcamente o seu crime? Eu lhe asseguro de que ninguém além dele mesmo escreveu a carta, Leon. E eu tenho como provar."]
+        ],
+        "dialogue_options":[
+            ["A razão pela qual não foi um suicídio estava presente em seu corpo...", 2, ["item", "Manchas de tinta na mão"]]
+        ]
+    },
+
+    {
+        "dialogue_id": 2,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Ele era canhoto. É perceptível visto que ele deixava seu caderno e sua caneca na mesa de cabeceira esquerda. Os borrões na carta não eram apenas por uma escrita desesperada, mas sim porque sua mão estava pressionando a tinta fresca."],
+            ["Leonnard", "character_expression?", "Hm, meticuloso como sempre. Esse é o nosso detetive. Acho que terminamos por aqui, certo? Vou contatar o resto da perícia lá fora. O que você acha de sair mais tarde para beber conosco, detetive? Por minha conta, dessa vez."],
+            ["Gaspard", "character_expression?", "Deixe para próxima."],
+            ["Leonnard", "character_expression?", "Já tem compromisso? Sempre deixando para a próxima isso, próxima aquilo... alguém taciturno como você precisa de uma folga do trabalho de vez em quando, sabia?"],
+            ["Gaspard", "character_expression?", "..."],
+            ["Leonnard", "character_expression?", "Bem, não vou ficar implicando com você por isso, detetive. Mas é bom você cumprir essa promessa!"],
+            ["Gaspard", "character_expression?", "Leon, espere."],
+            ["Leonnard", "character_expression?", "Sim?"],
+            ["Gaspard", "character_expression?", "Você pode me deixar só um pouco a sós aqui?"],
+            ["Leonnard", "character_expression?", "Como quiser, detetive. Mas não demore muito.”"]
+        ]
+    }
+]
