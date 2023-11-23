@@ -47,7 +47,7 @@ func _process(delta):
 				
 			else:
 				
-				if with_options and is_finishing_dialogue() and !can_choose:
+				if with_options and is_finishing_dialogue() and !can_choose and current_dialogue.has("dialogue_options"):
 #					print("para as escolhas")
 					current_state = states.CHOOSING
 					
@@ -114,9 +114,11 @@ func set_dialogue_by_id(dialogue_id):
 			set_next_dialogue_text()
 			
 #			print(dialogue_speed)
-
-			if current_dialogue.has("dialogue_options"):
-				with_options = true
+	
+	if current_dialogue.has("dialogue_options"):
+		with_options = true
+	
+	print(current_dialogue)
 
 func setup(dialogue_branch):
 	self.dialogue_branch = dialogue_branch

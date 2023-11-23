@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Paper.wav-5b25734df7b5829db58105cfec1a6839.sample"
+path="res://.import/Paper.wav-fa8fa6003aefe466e8cb3047299a3ffa.sample"
 
 [deps]
 
-source_file="res://assets/audio/sound_effects/inventory/Paper.wav"
-dest_files=[ "res://.import/Paper.wav-5b25734df7b5829db58105cfec1a6839.sample" ]
+source_file="res://assets/audio/sound_effects/Inventory/Paper.wav"
+dest_files=[ "res://.import/Paper.wav-fa8fa6003aefe466e8cb3047299a3ffa.sample" ]
 
 [params]
 
