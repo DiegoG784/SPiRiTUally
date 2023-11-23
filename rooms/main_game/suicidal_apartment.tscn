@@ -184,6 +184,8 @@ dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences
 transform = Transform( 1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0 )
 shape = SubResource( 7 )
 
+[node name="collisions" type="Spatial" parent="Apartamento - Caso 01"]
+
 [node name="modeloleonardd" parent="." instance=ExtResource( 4 )]
 transform = Transform( -1.51376, 0, 1.30711, 0, 2, 0, -1.30711, 0, -1.51376, 11.1282, 0, -16.0824 )
 
