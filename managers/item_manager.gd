@@ -156,4 +156,5 @@ func find_item_in_directory(item_file_name):
 					
 				file_name = dir.get_next()
 			
-
+func remove_evidences(): #Remove todas as evidências depois de fechar um caso
+	pass
