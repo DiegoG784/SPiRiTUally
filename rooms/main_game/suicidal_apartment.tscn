@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/apartamento_suicida/Apartamento - Caso 01.gltf" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/models/Leonardd/modeloleonardd.gltf" type="PackedScene" id=4]
 [ext_resource path="res://entities/base/components/scene/cutscene_player.gd" type="Script" id=5]
 [ext_resource path="res://entities/rooms/suicidal_apartment/clue_counter_add.gd" type="Script" id=6]
+[ext_resource path="res://entities/base/components/scene/camera_switcher.gd" type="Script" id=7]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends GameScene
@@ -113,6 +114,9 @@ extents = Vector3( 2.00471, 1, 2.50073 )
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 3.03921, 1, 2.98517 )
 
+[sub_resource type="BoxShape" id=22]
+extents = Vector3( 3.51977, 1, 0.751478 )
+
 [sub_resource type="Animation" id=1]
 resource_name = "0"
 length = 5.0
@@ -188,6 +192,9 @@ mute_music_when_entering = true
 show_room_name = false
 
 [node name="Apartamento - Caso 01" parent="." instance=ExtResource( 2 )]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="collisions" type="Spatial" parent="Apartamento - Caso 01"]
 
@@ -337,13 +344,57 @@ fov = 61.2
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1395, 11.5255, -4.57131 )
 current = true
 
+[node name="bathroom" type="Camera" parent="cameras"]
+transform = Transform( 0.62932, -0.612399, 0.478459, 0, 0.615661, 0.788011, -0.777146, -0.495911, 0.387448, 16.3681, 13.4988, 15.4939 )
+fov = 61.9
+
+[node name="bedroom" type="Camera" parent="cameras"]
+transform = Transform( 0.448029, 0.535046, -0.716237, 0.00839101, 0.798591, 0.601815, 0.89398, -0.27564, 0.353302, -15.3401, 13.4988, 15.2018 )
+fov = 61.9
+
 [node name="rooms" type="Spatial" parent="cameras"]
 
 [node name="main_room_view" type="Camera" parent="cameras/rooms"]
-transform = Transform( -0.621599, -0.251782, 0.741769, 0, 0.946936, 0.321423, -0.783336, 0.199796, -0.588614, 17.1657, 13.5279, -15.8645 )
+transform = Transform( -0.621599, -0.460433, 0.633732, 0, 0.809017, 0.587785, -0.783336, 0.365367, -0.502884, 17.1657, 13.5279, -15.8645 )
 fov = 95.0
 
 [node name="camera_switchers" type="Spatial" parent="."]
+
+[node name="to_bathroom_camera" type="Area" parent="camera_switchers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3074, 0, 6.06786 )
+script = ExtResource( 7 )
+camera_to_switch = NodePath("../../cameras/bathroom")
+
+[node name="CollisionShape" type="CollisionShape" parent="camera_switchers/to_bathroom_camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.162664 )
+shape = SubResource( 22 )
+
+[node name="to_main_room_camera" type="Area" parent="camera_switchers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3074, 0, 3.65557 )
+script = ExtResource( 7 )
+camera_to_switch = NodePath("../../cameras/rooms/main_room_view")
+
+[node name="CollisionShape" type="CollisionShape" parent="camera_switchers/to_main_room_camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.162664 )
+shape = SubResource( 22 )
+
+[node name="to_bedroom_camera" type="Area" parent="camera_switchers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72778, 0, 6.06786 )
+script = ExtResource( 7 )
+camera_to_switch = NodePath("../../cameras/bedroom")
+
+[node name="CollisionShape" type="CollisionShape" parent="camera_switchers/to_bedroom_camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.162664 )
+shape = SubResource( 22 )
+
+[node name="to_main_room_camera2" type="Area" parent="camera_switchers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72778, 0, 3.65557 )
+script = ExtResource( 7 )
+camera_to_switch = NodePath("../../cameras/rooms/main_room_view")
+
+[node name="CollisionShape" type="CollisionShape" parent="camera_switchers/to_main_room_camera2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.162664 )
+shape = SubResource( 22 )
 
 [node name="modeloleonardd" parent="." instance=ExtResource( 4 )]
 transform = Transform( -1.51376, 0, 1.30711, 0, 2, 0, -1.30711, 0, -1.51376, 11.1282, 0, -16.0824 )
@@ -360,7 +411,10 @@ dialogue_sections = "{
 }"
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.292165, -0.501313, -0.814448, 0.648327, -0.729877, 0.216685, -0.703073, -0.46472, 0.538259, 0, 26.1623, 0 )
-visible = false
+transform = Transform( -0.292165, -0.501313, -0.814447, 0.648327, -0.729877, 0.216685, -0.703073, -0.464721, 0.538259, 0, 26.1623, 0 )
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( -0.532262, -0.231011, 0.814451, 0.648332, -0.729874, 0.216678, 0.544392, 0.643364, 0.538256, 0, 26.1623, 0 )
+light_energy = 0.5
 
 [node name="Position3D" type="Position3D" parent="."]
