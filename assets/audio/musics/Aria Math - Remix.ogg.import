@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Aria Math - Remix.ogg-7baff23ed0cd3ba61a8b202736b99f9f.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/musics/Aria Math - Remix.ogg"
+dest_files=[ "res://.import/Aria Math - Remix.ogg-7baff23ed0cd3ba61a8b202736b99f9f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

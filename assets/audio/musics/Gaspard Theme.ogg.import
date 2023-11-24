@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Gaspard Theme.ogg-592b046f40d3bcfed0ffcc922133e6c3.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/musics/Gaspard Theme.ogg"
+dest_files=[ "res://.import/Gaspard Theme.ogg-592b046f40d3bcfed0ffcc922133e6c3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

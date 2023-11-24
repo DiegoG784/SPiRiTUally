@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hollow Visions.ogg-e41b0b8c88506710b5f1d6524d9031c7.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/musics/Hollow Visions.ogg"
+dest_files=[ "res://.import/Hollow Visions.ogg-e41b0b8c88506710b5f1d6524d9031c7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

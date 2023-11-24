@@ -42,10 +42,11 @@ func get_input(delta):
 				entity_motion.z = (Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")) * forward.cross(Vector3.UP).z
 				entity_motion.x = (Input.get_action_strength("walk_backward") - Input.get_action_strength("walk_forward")) * -forward.x
 			else:
+				print("movendo em relação a posição X")
 				entity_motion.x = (Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")) * forward.cross(Vector3.UP).x
 				entity_motion.z = (Input.get_action_strength("walk_backward") - Input.get_action_strength("walk_forward")) * -forward.z
 			
-#			print(entity_motion)
+			print(entity_motion)
 
 			entity.calc_physics(entity_motion, delta)
 

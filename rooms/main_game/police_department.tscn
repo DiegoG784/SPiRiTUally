@@ -9,6 +9,7 @@
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 110.572, 0 )
+visible = false
 directional_shadow_mode = 0
 
 [node name="player" parent="." instance=ExtResource( 1 )]

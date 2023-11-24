@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/apartamento_suicida/Apartamento - Caso 01.gltf" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://entities/base/components/scene/cutscene_player.gd" type="Script" id=5]
 [ext_resource path="res://entities/rooms/suicidal_apartment/clue_counter_add.gd" type="Script" id=6]
 [ext_resource path="res://entities/base/components/scene/camera_switcher.gd" type="Script" id=7]
+[ext_resource path="res://assets/models/samuel_vitima1/modelosamuel.gltf" type="PackedScene" id=8]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends GameScene
@@ -349,7 +350,7 @@ transform = Transform( 0.62932, -0.612399, 0.478459, 0, 0.615661, 0.788011, -0.7
 fov = 61.9
 
 [node name="bedroom" type="Camera" parent="cameras"]
-transform = Transform( 0.448029, 0.535046, -0.716237, 0.00839101, 0.798591, 0.601815, 0.89398, -0.27564, 0.353302, -15.3401, 13.4988, 15.2018 )
+transform = Transform( 0.442383, 0.539723, -0.716237, 0, 0.798635, 0.601815, 0.896827, -0.266232, 0.353302, -15.3401, 13.4988, 15.2018 )
 fov = 61.9
 
 [node name="rooms" type="Spatial" parent="cameras"]
@@ -412,9 +413,14 @@ dialogue_sections = "{
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.292165, -0.501313, -0.814447, 0.648327, -0.729877, 0.216685, -0.703073, -0.464721, 0.538259, 0, 26.1623, 0 )
+visible = false
 
 [node name="DirectionalLight2" type="DirectionalLight" parent="."]
 transform = Transform( -0.532262, -0.231011, 0.814451, 0.648332, -0.729874, 0.216678, 0.544392, 0.643364, 0.538256, 0, 26.1623, 0 )
+visible = false
 light_energy = 0.5
 
 [node name="Position3D" type="Position3D" parent="."]
+
+[node name="modelosamuel" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.938926, 4.63697, -4.57119 )
