@@ -13,6 +13,7 @@ var next_state
 var previous_state
 var shoot_animation_delay:float
 var has_shoot
+var previous_camera_node
 
 func enter():
 	next_state = null
@@ -30,26 +31,29 @@ func get_input(delta):
 #		print(Game.scene_manager.current_camera)
 		var forward = Vector3.FORWARD
 		if camera_node:
+			previous_camera_node = camera_node
 #			print("oi!")
 			forward = Vector3.ZERO
 			var cam_forward = -camera_node.transform.basis.z.normalized()
 			var cam_axis = cam_forward.abs().max_axis()
 			forward[cam_axis] = sign(cam_forward[cam_axis])
-
+			
 			var entity_motion = Vector3.ZERO
-
+			
 #			print(forward)
 			if forward == Vector3(1, 0, 0) or forward == Vector3(-1, 0, 0):
 				entity_motion.z = (Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")) * forward.cross(Vector3.UP).z
 				entity_motion.x = (Input.get_action_strength("walk_backward") - Input.get_action_strength("walk_forward")) * -forward.x
 			else:
-				print("movendo em relação a posição X")
+#				print("movendo em relação a posição X")
 				entity_motion.x = (Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")) * forward.cross(Vector3.UP).x
 				entity_motion.z = (Input.get_action_strength("walk_backward") - Input.get_action_strength("walk_forward")) * -forward.z
 			
-			print(entity_motion)
-
+#			print(entity_motion)
 			entity.calc_physics(entity_motion, delta)
+			
+		else:
+			pass
 
 
 func get_transition():

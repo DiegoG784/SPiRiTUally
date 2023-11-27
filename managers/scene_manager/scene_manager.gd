@@ -57,6 +57,6 @@ func change_camera_view(camera_name_or_path):
 	if current_game_scene:
 		var camera_to_change: Camera = current_game_scene.search_camera(camera_name_or_path)
 		if camera_to_change == null:
-			return printerr("Método retornou null. Verificar se o nome inserido no parãmetro") 
+			return printerr("Método retornou null. Verificar se o nome inserido no parâmetro") 
 		
 		set_current_camera(camera_to_change)
