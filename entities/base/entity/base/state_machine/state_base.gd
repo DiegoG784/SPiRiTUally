@@ -4,6 +4,7 @@ class_name State
 onready var entity
 onready var states = {}
 
+export(String) var animation_state_name
 var jump
 var entity_side_motion
 var entity_angle_motion

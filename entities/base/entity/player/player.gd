@@ -1,6 +1,7 @@
 extends Entity
 class_name Player
 
+onready var animation_states = get_node("animation_tree")
 
 func _ready():
 	Game.set_current_player(self)
@@ -38,8 +39,9 @@ func calc_physics(entity_motion, delta):
 #		rotation = transform.interpolate_with(new_transform, walking_speed * delta)
 
 
-func animation(animation_name):
-	pass
+func animation(_animation_name):
+	var animation_tree = animation_states.get("parameters/playback")
+	animation_tree.travel(_animation_name)
 
 #	if input_vector != Vector3.ZERO:
 #		# Smooth Rotation

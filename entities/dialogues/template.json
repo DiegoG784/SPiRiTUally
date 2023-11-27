@@ -1,0 +1,9 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["nome_personagem", "character_expression?", "fala_do_personagem_aqui"],
+            ["nome_personagem", "character_expression?", "mais_fala_do_personagem_aqui"]
+        ]
+    }
+]
