@@ -1,0 +1,43 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Pela torção da cabeça, houve uma fratura na laringe deste homem."],
+            ["Leonardd", "character_expression?", "Então essa seria a causa da morte, correto?"],
+            ["Gaspard", "character_expression?", "É muito provável que sim, mas eu não vim aqui para atuar somente como legista."],
+            ["Leonardd", "character_expression?", "Algo a mais, fora isso?"]
+        ],
+        "dialogue_options":[
+            ["Examinar mãos", 1],
+            ["Examinar rosto", 2],
+            ["Examinar vestimenta", 3]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "O que é isso na sua mão esquerda?"],
+            ["Leonardd", "character_expression?", "É um ferimento?"],
+            ["Gaspard", "character_expression?", "Não... é mancha de tinta."],
+            ["Leonardd", "character_expression?", "Mancha de tinta? Ele era um pintor?"],
+            ["Gaspard", "character_expression?", "Não acho que esse seja o caso, seu apartamento é modesto demais para servir de ateliê."]
+        ]
+    },
+
+    {
+        "dialogue_id": 2,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Sua boca está suja."],
+            ["Gaspard", "character_expression?", "Ele foi intoxicado? Ou se intoxicou?"],
+            ["Gaspard", "character_expression?", "De qualquer forma, o cheiro é horrível."]
+        ]
+    },
+
+    {
+        "dialogue_id": 3,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Não há nada em seus bolsos além de fiapos e alguns centavos."]
+        ]
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Leonnard", "character_expression?", "Detetive, bom dia."],
+            ["Gaspard", "character_expression?", "Não é um pouco cedo para ficar apertando isso assim?"],
+            ["Leonnard", "character_expression?", "Não queria arriscar de você se atrasar, seu sono é bem pesadinho, não?"],
+            ["Gaspard", "character_expression?", "Eu não sou o único que vive aqui, Leon."],
+            ["Leonnard", "character_expression?", "Você fala como se fosse um crime..."],
+            ["Gaspard", "character_expression?", "Tecnicamente, perturbação de sossego É considerada um crime."],
+            ["Leonnard", "character_expression?", "GAH! Entendi, entendi... agora por que você não deixa disso e entra logo, espertalhão? Assim que terminamos, vamos ter tempo de sobra para falar o quanto você quiser sobre buzinas."]
+        ]
+    }
+]

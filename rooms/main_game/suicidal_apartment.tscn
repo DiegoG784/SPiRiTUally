@@ -1,18 +1,20 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/apartamento_suicida/Apartamento - Caso 01.gltf" type="PackedScene" id=2]
 [ext_resource path="res://entities/base/components/scene/dialogue_interaction.gd" type="Script" id=3]
 [ext_resource path="res://assets/models/Leonardd/modeloleonardd.gltf" type="PackedScene" id=4]
 [ext_resource path="res://entities/base/components/scene/cutscene_player.gd" type="Script" id=5]
-[ext_resource path="res://entities/rooms/suicidal_apartment/clue_counter_add.gd" type="Script" id=6]
 [ext_resource path="res://entities/base/components/scene/camera_switcher.gd" type="Script" id=7]
 [ext_resource path="res://assets/models/samuel_vitima1/modelosamuel.gltf" type="PackedScene" id=8]
+[ext_resource path="res://rooms/main_game/policial_clinic.tscn" type="PackedScene" id=9]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends GameScene
 
 var clue_counter = 0
+
+var can_exit_apartment = false
 
 func _ready():
 	._ready()
@@ -62,6 +64,7 @@ func finished_discussion():
 	Game.unlock_player_input()
 	Game.scene_manager.gui.unlock_menu()
 	Game.scene_manager.set_current_camera(get_node(\"cameras/rooms/main_room_view\"))
+	can_exit_apartment = true
 "
 
 [sub_resource type="CylinderShape" id=8]
@@ -98,6 +101,9 @@ extents = Vector3( 1.64262, 1, 2.33824 )
 [sub_resource type="BoxShape" id=18]
 extents = Vector3( 1.92062, 1, 3.82623 )
 
+[sub_resource type="BoxShape" id=25]
+extents = Vector3( 1.04262, 1, 1.08669 )
+
 [sub_resource type="BoxShape" id=19]
 extents = Vector3( 1, 1, 6.50125 )
 
@@ -107,11 +113,37 @@ extents = Vector3( 1, 1, 3.14544 )
 [sub_resource type="BoxShape" id=21]
 extents = Vector3( 1.92538, 1, 2.22638 )
 
+[sub_resource type="GDScript" id=26]
+script/source = "extends \"res://entities/rooms/suicidal_apartment/clue_counter_add.gd\"
+
+func terminate_interaction():
+	.terminate_interaction()
+	Inventory.give_item(load(\"res://database/items/evidences/suicide_note_to_wife.tres\"))
+"
+
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 2, 1, 3.68563 )
 
+[sub_resource type="GDScript" id=27]
+resource_name = "anti_depressant_pills_clue"
+script/source = "extends \"res://entities/rooms/suicidal_apartment/clue_counter_add.gd\"
+
+func terminate_interaction():
+	.terminate_interaction()
+	Inventory.give_item(load(\"res://database/items/evidences/anti_depressant_pills.tres\"))
+"
+
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 3.82124, 1, 3.31367 )
+
+[sub_resource type="GDScript" id=28]
+resource_name = "general_suicide_letter_clue"
+script/source = "extends \"res://entities/rooms/suicidal_apartment/clue_counter_add.gd\"
+
+func terminate_interaction():
+	.terminate_interaction()
+	Inventory.give_item(load(\"res://database/items/evidences/suicide_letter.tres\"))
+"
 
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 2.00471, 1, 2.50073 )
@@ -190,6 +222,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 0, 90, 0 ) ]
 }
+
+[sub_resource type="GDScript" id=24]
+resource_name = "to_clinic"
+script/source = "extends SceneSwitcher
+
+func interact_action():
+#	print(\"olá!\")
+	if Game.current_scene.can_exit_apartment:
+		.interact_action()
+#		pass
+	
+	terminate_interaction()
+"
+
+[sub_resource type="BoxShape" id=23]
+extents = Vector3( 1.16013, 1, 3.48295 )
 
 [node name="suicidal_apartment" type="Spatial"]
 script = SubResource( 3 )
@@ -281,6 +329,10 @@ shape = SubResource( 18 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.237, 0, 7.70091 )
 shape = SubResource( 18 )
 
+[node name="CollisionShape3" type="CollisionShape" parent="Apartamento - Caso 02/collisions/main_room"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.01522, 0, -11.8813 )
+shape = SubResource( 25 )
+
 [node name="StaticBody" type="StaticBody" parent="Apartamento - Caso 02/collisions"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.42318, 0, 14.8105 )
 
@@ -300,7 +352,7 @@ shape = SubResource( 21 )
 
 [node name="to_wife_suicide_letter_clue" type="Area" parent="Apartamento - Caso 02/evidences_areas"]
 transform = Transform( -0.0243276, 0, 0.999704, 0, 1, 0, -0.999704, 0, -0.0243276, -7.46652, 0, 8.41372 )
-script = ExtResource( 6 )
+script = SubResource( 26 )
 one_time_execution = true
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/suicide_letter_to_wife.json"
 
@@ -309,7 +361,7 @@ shape = SubResource( 4 )
 
 [node name="ant_depress_pills_clue" type="Area" parent="Apartamento - Caso 02/evidences_areas"]
 transform = Transform( -0.568059, 0, 0.822987, 0, 1, 0, -0.822987, 0, -0.568059, 9.05021, 3.40598e-07, 12.8863 )
-script = ExtResource( 6 )
+script = SubResource( 27 )
 one_time_execution = true
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/anti_depressant_pills.json"
 
@@ -318,7 +370,7 @@ shape = SubResource( 5 )
 
 [node name="general_suicide_letter_clue" type="Area" parent="Apartamento - Caso 02/evidences_areas"]
 transform = Transform( 0.721784, 0, 0.692118, 0, 1, 0, -0.692118, 0, 0.721784, 1.89072, 0, -7.57592 )
-script = ExtResource( 6 )
+script = SubResource( 28 )
 one_time_execution = true
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/suicide_letter.json"
 
@@ -327,14 +379,15 @@ transform = Transform( 0.961262, 0, 0.275637, 0, 1, 0, -0.275637, 0, 0.961262, 0
 shape = SubResource( 6 )
 
 [node name="fridge_with_beers_interaction" type="Area" parent="Apartamento - Caso 02/evidences_areas"]
-transform = Transform( 0.0419453, 0, 0.99912, 0, 1, 0, -0.99912, 0, 0.0419453, -10.6075, 0, -11.204 )
+transform = Transform( 0.0419453, 0, 0.99912, 0, 1, 0, -0.99912, 0, 0.0419453, -13.2514, 0, -14.3834 )
 script = ExtResource( 3 )
-one_time_execution = true
 dialogue_file = "res://entities/dialogues/main_game/suicidal_apartment/evidences/fridge_with_beverages.json"
 
 [node name="CollisionShape" type="CollisionShape" parent="Apartamento - Caso 02/evidences_areas/fridge_with_beers_interaction"]
 transform = Transform( 1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0 )
 shape = SubResource( 7 )
+
+[node name="interaction_areas" type="Spatial" parent="Apartamento - Caso 02"]
 
 [node name="cameras" type="Spatial" parent="."]
 
@@ -422,3 +475,12 @@ transform = Transform( -0.532262, -0.231011, 0.814451, 0.648332, -0.729874, 0.21
 
 [node name="suicída" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.938926, 4.63697, -4.57119 )
+
+[node name="to_clinic" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9619, 0.909195, -12.7347 )
+script = SubResource( 24 )
+scene_file = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="to_clinic"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.424349, 0, 0 )
+shape = SubResource( 23 )

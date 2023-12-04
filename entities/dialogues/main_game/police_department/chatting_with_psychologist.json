@@ -1,0 +1,48 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "to com depressão"],
+            ["Psicólogo", "character_expression?", "pq?"]
+        ],
+        "dialogue_options":[
+            ["porque sim seu burro nn sabe interpretar nn veio desgraçado", 1],
+            ["minha esposa morreu sem comer a minha bunda", 2]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Psicólogo", "character_expression?", "tomanoteucu ein seu prr mal educado do kraio, sai dq vai"],
+            ["Gaspard", "character_expression?", "aff q veio chato da prr vou sair memo"],
+            ["Gaspard", "character_expression?", "krl q relógio daora eu vou roubar saporra q se foda tbm"]
+        ],
+        "dialogue_events":[
+            ["inventory", "give_item", "health_kit.tres"],
+            ["dialogue", "end"]
+        ]
+    },
+
+    {
+        "dialogue_id": 2,
+        "dialogue_texts":[
+            ["Psicólogo", "character_expression?", "viado? mas ok, infelizmente coisas acontecem e tals e tem momentos q bla bla bla bla bla bla"],
+            ["Gaspard", "character_expression?", "..."],
+            ["Psicólogo", "character_expression?", "Alguma coisa?"],
+            ["Gaspard", "character_expression?", "nada nn, eu só estou..."]
+        ],
+        "dialogue_options":[
+            ["pensando nesse bundao pomposo q vc tem aí", 1],
+            ["eu só estou triste mesmo mas estou ouvindo o senhor", 3]
+        ]
+    },
+    
+    {
+        "dialogue_id": 3,
+        "dialogue_texts":[
+            ["Psicólogo", "character_expression?", "tudo bem e parece que já acabou nossa consulta, tudo de bom pro senhor e nn se mate ein?"],
+            ["Gaspard", "character_expression?", "ok"]
+        ]
+    }
+]

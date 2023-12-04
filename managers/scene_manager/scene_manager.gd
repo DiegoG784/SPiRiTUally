@@ -14,7 +14,7 @@ func _ready():
 func add_scene_to_main(scene_file):
 	current_scene_node.add_child(scene_file)
 
-func change_scene(scene_file, without_transition = false):
+func change_scene(scene_file, custom_position_node_name = null, without_transition = false):
 	current_camera = null
 	var next_scene = scene_file.instance()
 	var transition_overlay = transition_overlay_node.instance()
@@ -31,6 +31,16 @@ func change_scene(scene_file, without_transition = false):
 	yield(get_tree(), "idle_frame")
 	yield(get_tree().create_timer(0.3), "timeout")
 	set_current_camera(get_viewport().get_camera())
+
+	if custom_position_node_name != null:
+
+		for node in get_tree().get_nodes_in_group("map_positioner"):
+			
+			if node.name == custom_position_node_name:
+				Game.current_player.global_position = node.global_position
+				# Fazer com que sua rotação seja sempre direcionada a posição oposta da porta
+				break
+		
 	#	print(current_camera)
 	
 	if !without_transition:
@@ -46,12 +56,12 @@ func set_current_camera(camera:Camera):
 func get_current_camera():
 	return current_camera
 
-func fade_in_screen():
-	var transition = transition_overlay_node.instance()
+# func fade_in_screen():
+# 	var transition = transition_overlay_node.instance()
 	
 
-func fade_out_screen():
-	pass
+# func fade_out_screen():
+# 	pass
 
 func change_camera_view(camera_name_or_path):
 	if current_game_scene:

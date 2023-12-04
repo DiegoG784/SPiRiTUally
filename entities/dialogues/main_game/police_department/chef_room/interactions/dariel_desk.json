@@ -1,0 +1,10 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Esta é a mesa do delegado Dariell."],
+            ["Gaspard", "character_expression?", "O delegado não gosta muito que invadam sua propriedade."],
+            ["Gaspard", "character_expression?", "Já vi muitos novatos tendo a cabeça caçada por tocarem nisso ou aquilo."]
+        ]
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Preciso voltar aos trilhos..."],
+            ["Gaspard", "character_expression?", "Lavar o rosto?"]
+        ],
+        "dialogue_options":[
+            ["Sim", 1],
+            ["Não", 2]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Isso vai me manter de pé."]
+        ]
+    },
+
+    {
+        "dialogue_id": 2,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Talvez agora não."]
+        ]
+    }
+]

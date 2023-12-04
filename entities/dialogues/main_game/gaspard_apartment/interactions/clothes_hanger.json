@@ -1,0 +1,26 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Retirar o sobretudo?"]
+        ],
+        "dialogue_options":[
+            ["Sim", 1],
+            ["Não", 2]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Bem melhor."]
+        ]
+    },
+
+    {
+        "dialogue_id": 2,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Não estou com muito calor."]
+        ]
+    }
+]

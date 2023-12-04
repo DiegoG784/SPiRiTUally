@@ -1,0 +1,11 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Café... o melhor amigo de um policial."],
+            ["Gaspard", "character_expression?", "Ao entrar para este ramo, ou você vira dependente do café, ou do fumo."],
+            ["Gaspard", "character_expression?", "Caso contrário, é impossível aguentar o peso por tanto tempo sem descontar em algo."],
+            ["Gaspard", "character_expression?", "De qualquer forma, eu prefiro chá."]
+        ]
+    }
+]

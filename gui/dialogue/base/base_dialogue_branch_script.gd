@@ -65,20 +65,33 @@ func _process(delta):
 			if !can_choose:
 #				print("escolhendo")
 				for option in current_dialogue["dialogue_options"].size():
+					var current_option = current_dialogue["dialogue_options"][option]
 #					print(current_dialogue["dialogue_options"].size())
 #					print("adicionando botões")
-					var button = Button.new()
-#					button.button_mask
-					button.text = current_dialogue["dialogue_options"][option][0]
-					button.connect("pressed", self, "option_selected")
-					button.connect("focus_entered", self, "button_focused")
+					print(current_option.size())
 					
-					get_node("selectable_options").add_child(button)
+					if current_option.size() > 2:
+						var current_sub_option = current_option[2]
+						match current_sub_option[0]:
+							"item":
+								if Inventory.search_item(current_sub_option[1]) != null:
+									create_option_button(current_option[0])
+
+					else:
+						create_option_button(current_option[0])
 					
 				get_node("selectable_options").get_child(0).grab_focus()
 				can_choose = true
 
 
+func create_option_button(option_text):
+	var button = Button.new()
+#	button.button_mask
+	button.text = option_text
+	button.connect("pressed", self, "option_selected")
+	button.connect("focus_entered", self, "button_focused")
+
+	get_node("selectable_options").add_child(button)
 
 #	configurar as opções selecionáveis
 
@@ -141,7 +154,7 @@ func set_next_dialogue_text():
 func execute_dialogue_events():
 	if current_dialogue.has("dialogue_events"):
 		var events_to_execute = []
-		var execution_order = ["inventory", "scene", "dialogue"]
+#		var execution_order = ["inventory", "scene", "dialogue"] NAO DELETAR
 #		["inventory", "give_item", "item_file.tres"]
 #		["script_name", "script_method", "optional_script_arguments"]
 		
@@ -157,7 +170,7 @@ func execute_dialogue_events():
 				"inventory":
 					if event[1] == "give_item":
 						var quantity = event[3] if event.size() == 4 else 1
-						  
+						
 						Inventory.give_item(event[2], quantity)
 						continue
 				"scene":

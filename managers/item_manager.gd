@@ -138,7 +138,7 @@ func search_item(item_name, return_array_position = false):
 
 func find_item_in_directory(item_file_name):
 	var item_directory = "res://database/items/"
-	var directories = ["consumables", "key_items", "weapons"]
+	var directories = ["consumables", "key_items", "weapons", "evidences"]
 	var dir = Directory.new()
 	
 	for folder in directories:
