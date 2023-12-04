@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://managers/scene_manager/game_scene_manager.gd" type="Script" id=1]
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=2]
@@ -82,6 +82,17 @@ extents = Vector3( 7.2931, 1, 0.81302 )
 
 [sub_resource type="BoxShape" id=24]
 extents = Vector3( 3.52327, 1, 0.81302 )
+
+[sub_resource type="Environment" id=27]
+fog_enabled = true
+fog_color = Color( 0.203922, 0.207843, 0.211765, 1 )
+fog_depth_begin = 410.3
+fog_depth_end = 561.5
+fog_height_enabled = true
+fog_height_min = 2461.5
+fog_height_max = -3076.9
+fog_height_curve = 1.68179
+glow_bloom = 1.0
 
 [node name="gaspard_apartment" type="Spatial"]
 script = ExtResource( 1 )
@@ -271,6 +282,11 @@ camera_to_switch = NodePath("../../../cameras/main_room")
 [node name="CollisionShape" type="CollisionShape" parent="apartamento_gaspard/camera_switchers/bathroom_to_main_room2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.865049, 0, 0.123653 )
 shape = SubResource( 24 )
+
+[node name="lights" type="Spatial" parent="apartamento_gaspard"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="apartamento_gaspard/lights"]
+environment = SubResource( 27 )
 
 [node name="cameras" type="Spatial" parent="."]
 

@@ -158,8 +158,9 @@ fog_depth_begin = 410.3
 fog_depth_end = 561.5
 fog_height_enabled = true
 fog_height_min = 2461.5
-fog_height_max = -2705.7
+fog_height_max = -3076.9
 fog_height_curve = 1.68179
+glow_bloom = 1.0
 
 [sub_resource type="BoxShape" id=22]
 extents = Vector3( 3.51977, 1, 0.751478 )
