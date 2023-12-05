@@ -15,6 +15,7 @@ script/source = "extends GameScene
 var clue_counter = 0
 
 var can_exit_apartment = false
+var case_intro_ended = false
 
 func _ready():
 	._ready()
@@ -37,6 +38,7 @@ func case_intro_end():
 func concluded_reading():
 	Game.unlock_player_input()
 	Game.scene_manager.set_current_camera(get_node(\"cameras/rooms/main_room_view\"))
+	case_intro_ended  = true
 
 # =====================================================================
 
@@ -60,8 +62,11 @@ func finished_evidence_dialogue():
 	
 	yield(transition.animation, \"animation_finished\")
 	
-	Game.current_player.global_translation = Vector3(15.072, 0.286, -12.23)
-	Game.current_player.global_rotation.y = 48.636
+	Game.current_player.global_translation = Vector3(13.592, 0.286, -12.23)
+	
+#	Game.current_player.global_rotation.y = 48.636
+	Game.current_player.look_at(get_node(\"modeloleonardd\").global_translation, Vector3.UP)
+	get_node(\"modeloleonardd\").look_at(Game.current_player.global_translation, Vector3.UP)
 	
 	Game.scene_manager.set_current_camera(get_node(\"cameras/discussing_case_cutscene\"))
 	
@@ -259,13 +264,17 @@ func interact_action():
 		.interact_action()
 #		pass
 	else:
-		var window = Dialogue.start_dialogue(\"main_game/suicidal_apartment/cant_exit\")
-		window.get_node(\"base_dialogue_branch\").connect(\"dialogue_finished\", self, \"finished_talking\")
+		if Game.current_scene.case_intro_ended:
+			var window = Dialogue.start_dialogue(\"main_game/suicidal_apartment/cant_exit\")
+			window.get_node(\"base_dialogue_branch\").connect(\"dialogue_finished\", self, \"finished_talking\")
+			Game.lock_player_input()
+			Game.scene_manager.gui.lock_menu()
 	
-	terminate_interaction()
 
 func finished_talking():
+	terminate_interaction()
 	Game.unlock_player_input()
+	Game.scene_manager.gui.unlock_menu()
 "
 
 [sub_resource type="BoxShape" id=23]
@@ -520,7 +529,7 @@ shape = SubResource( 22 )
 transform = Transform( -1.51376, 0, 1.30711, 0, 2, 0, -1.30711, 0, -1.51376, 11.1282, 0, -16.0824 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.66084, 0, 0.750527, 0, 1, 0, -0.750527, 0, 0.66084, 15.0723, 0.285796, -12.2302 )
+transform = Transform( 0.66084, 0, 0.750527, 0, 1, 0, -0.750527, 0, 0.66084, 13.5921, 0.285796, -12.2302 )
 
 [node name="case_intro" type="AnimationPlayer" parent="."]
 anims/0 = SubResource( 1 )

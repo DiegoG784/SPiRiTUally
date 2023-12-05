@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Key.wav-faec182944668a99d58e89d9e3ec326d.sample"
+path="res://.import/key.wav-0ea7e9f6b493c05039dbf7b639ad487d.sample"
 
 [deps]
 
-source_file="res://assets/audio/sound_effects/Inventory/Key.wav"
-dest_files=[ "res://.import/Key.wav-faec182944668a99d58e89d9e3ec326d.sample" ]
+source_file="res://assets/audio/sound_effects/inventory/key.wav"
+dest_files=[ "res://.import/key.wav-0ea7e9f6b493c05039dbf7b639ad487d.sample" ]
 
 [params]
 

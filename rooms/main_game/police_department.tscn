@@ -1,10 +1,61 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/departamento_recepcao/Recepcao_Departamento.gltf" type="PackedScene" id=2]
 [ext_resource path="res://entities/base/components/scene/interacteable_area.gd" type="Script" id=3]
 [ext_resource path="res://entities/base/components/scene/scene_changer.gd" type="Script" id=4]
 [ext_resource path="res://entities/base/components/scene/camera_switcher.gd" type="Script" id=5]
+
+[sub_resource type="BoxShape" id=30]
+extents = Vector3( 4.01944, 1, 6.17352 )
+
+[sub_resource type="BoxShape" id=31]
+extents = Vector3( 5.61383, 1, 2.57727 )
+
+[sub_resource type="BoxShape" id=32]
+extents = Vector3( 3.97576, 1, 1.86674 )
+
+[sub_resource type="BoxShape" id=33]
+extents = Vector3( 2.83098, 1, 1.15756 )
+
+[sub_resource type="BoxShape" id=40]
+extents = Vector3( 0.661101, 1, 16.5654 )
+
+[sub_resource type="BoxShape" id=41]
+extents = Vector3( 0.448298, 1, 6.19455 )
+
+[sub_resource type="BoxShape" id=42]
+extents = Vector3( 0.448298, 1, 18.3993 )
+
+[sub_resource type="BoxShape" id=46]
+extents = Vector3( 0.448298, 1, 21.5876 )
+
+[sub_resource type="BoxShape" id=44]
+extents = Vector3( 0.448298, 1, 7.05747 )
+
+[sub_resource type="BoxShape" id=45]
+extents = Vector3( 0.448298, 1, 6.14762 )
+
+[sub_resource type="BoxShape" id=43]
+extents = Vector3( 0.448298, 1, 18.3993 )
+
+[sub_resource type="BoxShape" id=34]
+extents = Vector3( 2.71064, 1, 5.28892 )
+
+[sub_resource type="BoxShape" id=35]
+extents = Vector3( 2.17729, 1, 1.75012 )
+
+[sub_resource type="BoxShape" id=37]
+extents = Vector3( 3.31723, 1, 1.75012 )
+
+[sub_resource type="BoxShape" id=36]
+extents = Vector3( 4.15048, 1, 1.75012 )
+
+[sub_resource type="BoxShape" id=38]
+extents = Vector3( 3.56567, 1, 3.99982 )
+
+[sub_resource type="BoxShape" id=39]
+extents = Vector3( 17.9862, 1, 1.0637 )
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 4.28945, 1, 1 )
@@ -27,6 +78,164 @@ fog_height_curve = 1.68179
 [node name="Recepcao_Departamento" parent="." instance=ExtResource( 2 )]
 
 [node name="collisions" type="Spatial" parent="Recepcao_Departamento"]
+
+[node name="main_room" type="Spatial" parent="Recepcao_Departamento/collisions"]
+
+[node name="StaticBody" type="StaticBody" parent="Recepcao_Departamento/collisions/main_room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5148, 0, 3.19731 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Recepcao_Departamento/collisions/main_room/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227856, 2.50082, -1.86474 )
+shape = SubResource( 30 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Recepcao_Departamento/collisions/main_room/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19944, 2.16749, 13.0058 )
+shape = SubResource( 31 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Recepcao_Departamento/collisions/main_room/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1994, 2.16749, 12.9593 )
+shape = SubResource( 31 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Recepcao_Departamento/collisions/main_room/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9347, 2.16749, -15.8962 )
+shape = SubResource( 32 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Recepcao_Departamento/collisions/main_room/StaticBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.2626, 2.16749, -1.89618 )
+shape = SubResource( 32 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="Recepcao_Departamento/collisions/main_room/StaticBody"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.437, 2.16749, -16.638 )
+shape = SubResource( 33 )
+
+[node name="walls" type="Spatial" parent="Recepcao_Departamento/collisions"]
+
+[node name="StaticBody" type="StaticBody" parent="Recepcao_Departamento/collisions/walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0 )
+
+[node name="=== main_room ===" type="Spatial" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9572, 0, 2.05511 )
+shape = SubResource( 40 )
+
+[node name="CollisionShape18" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.774, 0, 2.05511 )
+shape = SubResource( 40 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.999, -0.492976, -14.7585 )
+shape = SubResource( 41 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.67069, -0.492976, -14.7585 )
+shape = SubResource( 41 )
+
+[node name="=== right_corridor ===" type="Spatial" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+
+[node name="CollisionShape4" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.71087, -0.492976, -33.9457 )
+shape = SubResource( 42 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0513, -0.492976, -33.9457 )
+shape = SubResource( 42 )
+
+[node name="=== backrooms ===" type="Spatial" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+
+[node name="CollisionShape16" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.7712, -0.492976, -65.5715 )
+shape = SubResource( 46 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76957, -0.492976, -58.8367 )
+shape = SubResource( 44 )
+
+[node name="CollisionShape12" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.94967, -0.492976, -52.1394 )
+shape = SubResource( 45 )
+
+[node name="CollisionShape13" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.0985, -0.492976, -52.1394 )
+shape = SubResource( 45 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6413, -0.492976, -58.8367 )
+shape = SubResource( 44 )
+
+[node name="=== left_corridor ===" type="Spatial" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+
+[node name="CollisionShape6" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.71087, -0.492976, 38.2256 )
+shape = SubResource( 43 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0513, -0.492976, 38.2256 )
+shape = SubResource( 43 )
+
+[node name="=== coffee_room ===" type="Spatial" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+
+[node name="CollisionShape14" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.94967, -0.492976, 56.3534 )
+shape = SubResource( 45 )
+
+[node name="CollisionShape15" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.0985, -0.492976, 56.3534 )
+shape = SubResource( 45 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76957, -0.492976, 63.3798 )
+shape = SubResource( 44 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6413, -0.492976, 63.3798 )
+shape = SubResource( 44 )
+
+[node name="CollisionShape17" type="CollisionShape" parent="Recepcao_Departamento/collisions/walls/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.7712, -0.492976, 70.3974 )
+shape = SubResource( 46 )
+
+[node name="coffee_stop" type="Spatial" parent="Recepcao_Departamento/collisions"]
+
+[node name="StaticBody" type="StaticBody" parent="Recepcao_Departamento/collisions/coffee_stop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8231, 0, 74.244 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Recepcao_Departamento/collisions/coffee_stop/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6148, 2.55348, -11.0447 )
+shape = SubResource( 34 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Recepcao_Departamento/collisions/coffee_stop/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4732, 2.55348, -16.0293 )
+shape = SubResource( 35 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Recepcao_Departamento/collisions/coffee_stop/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4732, 2.55348, -5.48293 )
+shape = SubResource( 35 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Recepcao_Departamento/collisions/coffee_stop/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2443, 2.55348, -5.41637 )
+shape = SubResource( 37 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Recepcao_Departamento/collisions/coffee_stop/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.2255, 2.55348, -11.2607 )
+shape = SubResource( 36 )
+
+[node name="backrooms" type="Spatial" parent="Recepcao_Departamento/collisions"]
+
+[node name="StaticBody" type="StaticBody" parent="Recepcao_Departamento/collisions/backrooms"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.633, 0, -67.1903 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Recepcao_Departamento/collisions/backrooms/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9634, 2.55662, 10.9062 )
+shape = SubResource( 38 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Recepcao_Departamento/collisions/backrooms/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2211, 2.55662, 10.1667 )
+shape = SubResource( 38 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Recepcao_Departamento/collisions/backrooms/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62072, 2.55662, 2.75417 )
+shape = SubResource( 39 )
 
 [node name="camera_switchers" type="Spatial" parent="Recepcao_Departamento"]
 

@@ -35,6 +35,7 @@ func interact_action(): #Aqui é onde vai executar a interação entre o player 
 #	print('oi')
 	pass
 #	print("Interação terminada")
+#	Toda vez  que uma interação for terminada, é recomendável terminar o código da interação colocando a função terminate_interaction()
 
 func terminate_interaction(): #Vou deixar esse método com o código de cima caso fique somente ele.
 	yield(get_tree().create_timer(interaction_cooldown), "timeout")
