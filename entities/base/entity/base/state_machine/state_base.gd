@@ -29,6 +29,7 @@ var old_movement_key
 
 func _process(delta):
 	current_action_button = null
+	Input
 #	holding_movement = false
 #	another_movement_key_pressed = false
 
