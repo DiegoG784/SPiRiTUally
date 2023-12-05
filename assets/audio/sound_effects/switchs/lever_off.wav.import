@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/lever_off.wav-6c3540a72c08fd94afcd1346b1d6230c.sample"
+path="res://.import/lever_off.wav-ff3139897d981496f6b2a95c0327ddda.sample"
 
 [deps]
 
-source_file="res://assets/audio/sound_effects/switchs/lever_off.wav"
-dest_files=[ "res://.import/lever_off.wav-6c3540a72c08fd94afcd1346b1d6230c.sample" ]
+source_file="res://assets/audio/sound_effects/Switchs/lever_off.wav"
+dest_files=[ "res://.import/lever_off.wav-ff3139897d981496f6b2a95c0327ddda.sample" ]
 
 [params]
 
