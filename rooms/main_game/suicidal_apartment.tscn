@@ -23,11 +23,24 @@ func _ready():
 	Cutscene.connect(\"cutscene_ended\", self, \"case_intro_end\")
 
 
+# Mostrar a ficha da vítima depois de terem conversado sobre a vítima
+
 func case_intro_end():
-	print(\"introdução do caso terminado!\")
+	var criminal_report = preload(\"res://entities/base/components/scene/criminal_report_showcase/base_criminal_report_showcase.tscn\").instance()
+	var samuel_report = load(\"res://assets/sprites/criminal_report_envelope/samuel_report.png\")
+#	print(samuel_report)
+	Game.scene_manager.gui.add_child(criminal_report)
+	criminal_report.setup_and_play(samuel_report)
+	criminal_report.connect(\"concluded_reading\", self, \"concluded_reading\")
+	print(\"introdução do caso terminado! Mostrando ficha para o jogador\")
+
+func concluded_reading():
 	Game.unlock_player_input()
 	Game.scene_manager.set_current_camera(get_node(\"cameras/rooms/main_room_view\"))
 
+# =====================================================================
+
+# Entrar para discussão sobre o real destino da vítima
 func finish_investigation():
 #	print(\"Terminou?\")
 	if clue_counter == 1:
@@ -38,6 +51,7 @@ func finish_investigation():
 		window.get_node(\"base_dialogue_branch\").connect(\"dialogue_finished\", self, \"finished_evidence_dialogue\")
 #		trandição pra preto e transportar o jogador pra perto do Leonnard
 #		Conversa entre Gaspard e Leonnard começa
+
 
 func finished_evidence_dialogue():
 	var transition = Game.scene_manager.transition_overlay_node.instance()
@@ -59,12 +73,14 @@ func finished_evidence_dialogue():
 	window.get_node(\"base_dialogue_branch\").connect(\"dialogue_finished\", self, \"finished_discussion\")
 #	Começa diálogo entre Gaspard e Leonnard sobre o caso
 
-
+#  Finalização da discussão, Gaspard pode sair do apartamento nesse momento
 func finished_discussion():
 	Game.unlock_player_input()
 	Game.scene_manager.gui.unlock_menu()
 	Game.scene_manager.set_current_camera(get_node(\"cameras/rooms/main_room_view\"))
 	can_exit_apartment = true
+
+# ====================================================
 "
 
 [sub_resource type="CylinderShape" id=8]
@@ -158,9 +174,8 @@ fog_depth_begin = 410.3
 fog_depth_end = 561.5
 fog_height_enabled = true
 fog_height_min = 2461.5
-fog_height_max = -3076.9
+fog_height_max = -2705.7
 fog_height_curve = 1.68179
-glow_bloom = 1.0
 
 [sub_resource type="BoxShape" id=22]
 extents = Vector3( 3.51977, 1, 0.751478 )
@@ -243,8 +258,14 @@ func interact_action():
 	if Game.current_scene.can_exit_apartment:
 		.interact_action()
 #		pass
+	else:
+		var window = Dialogue.start_dialogue(\"main_game/suicidal_apartment/cant_exit\")
+		window.get_node(\"base_dialogue_branch\").connect(\"dialogue_finished\", self, \"finished_talking\")
 	
 	terminate_interaction()
+
+func finished_talking():
+	Game.unlock_player_input()
 "
 
 [sub_resource type="BoxShape" id=23]
