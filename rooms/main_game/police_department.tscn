@@ -313,6 +313,7 @@ shape = SubResource( 2 )
 
 [node name="main_room" type="Camera" parent="Recepcao_Departamento/cameras"]
 transform = Transform( -3.64242e-08, -0.552839, 0.833288, -2.41654e-08, 0.833288, 0.552839, -1, 0, -4.37114e-08, 4.41523, 16.2141, 1.09177 )
+current = true
 fov = 85.0
 
 [node name="left_corridor" type="Camera" parent="Recepcao_Departamento/cameras"]
