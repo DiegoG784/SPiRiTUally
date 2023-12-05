@@ -14,9 +14,48 @@ var previous_state
 var shoot_animation_delay:float
 var has_shoot
 var previous_camera_node
-var holding_movement = false
-var forward = Vector3.FORWARD
+var current_action_button
+var movement_mapping = {
+	"W":"walk_forward",
+	"A":"walk_left",
+	"S":"walk_backward",
+	"D":"walk_right"
+}
 
+var forward = Vector3.FORWARD
+var holding_movement = false
+var another_movement_key_pressed = false
+var old_movement_key
+
+func _process(delta):
+	current_action_button = null
+#	holding_movement = false
+#	another_movement_key_pressed = false
+
+func _unhandled_input(event):
+	
+	current_action_button = event.as_text()
+	
+	if !holding_movement:
+		old_movement_key = current_action_button
+	
+	if current_action_button in movement_mapping.keys():
+		holding_movement = true
+		
+		if holding_movement and current_action_button != old_movement_key:
+			another_movement_key_pressed = true
+		else:
+			another_movement_key_pressed = false
+	else:
+		holding_movement = false
+	
+
+	
+#	if holding_movement:
+#		if current_action_button in movement_mapping.keys():
+#			another_movement_key_pressed = true
+#		else:
+#			another_movement_key_pressed = false
 
 func enter():
 	next_state = null
@@ -27,14 +66,17 @@ func logic(delta):
 	get_input(delta)
 	entity.move()
 
+
 func get_input(delta):
+#	print("holding_movement: ", holding_movement)
+#	print("another_movement_key_pressed: ", another_movement_key_pressed)
 	if entity.can_move and Game.scene_manager:
 		var camera_node = Game.scene_manager.get_current_camera()
 		var entity_motion = Vector3.ZERO
 #		print(camera_node)
 #		print(Game.scene_manager.current_camera)
 
-		if !holding_movement:
+		if !holding_movement and !another_movement_key_pressed:
 			if camera_node:
 				previous_camera_node = camera_node
 #				print("oi!")
@@ -55,15 +97,15 @@ func get_input(delta):
 			
 		
 		entity.calc_physics(entity_motion, delta)
-			
 		
-		if entity_motion != Vector3.ZERO:
-			holding_movement = true
-		else:
-			holding_movement = false
 		
-		print(entity_motion)
-		print(holding_movement)
+#		if entity_motion != Vector3.ZERO:
+#			holding_movement = true
+#		else:
+#			holding_movement = false
+		
+#		print(entity_motion)
+#		print(holding_movement)
 
 
 func get_transition():
