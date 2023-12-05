@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 name = "Carta de Suicídio"
 description = ""
+is_interacteable = false
