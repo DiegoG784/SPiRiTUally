@@ -29,7 +29,7 @@ var old_movement_key
 
 func _process(delta):
 	current_action_button = null
-	Input
+	
 #	holding_movement = false
 #	another_movement_key_pressed = false
 
@@ -49,8 +49,6 @@ func _unhandled_input(event):
 			another_movement_key_pressed = false
 	else:
 		holding_movement = false
-	
-
 	
 #	if holding_movement:
 #		if current_action_button in movement_mapping.keys():
