@@ -2,13 +2,14 @@
 
 [ext_resource path="res://managers/scene_manager/scene_manager_gui.gd" type="Script" id=1]
 [ext_resource path="res://managers/scene_manager/scene_manager.gd" type="Script" id=2]
-[ext_resource path="res://rooms/main_game/gaspard_apartment.tscn" type="PackedScene" id=3]
+[ext_resource path="res://rooms/main_game/suicidal_apartment.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/health_bar/health_bar.tscn" type="PackedScene" id=4]
 
 [node name="scene_manager" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="gui" type="CanvasLayer" parent="."]
+pause_mode = 2
 layer = 0
 script = ExtResource( 1 )
 
@@ -17,4 +18,4 @@ visible = false
 
 [node name="current_scene" type="Spatial" parent="."]
 
-[node name="gaspard_apartment" parent="current_scene" instance=ExtResource( 3 )]
+[node name="suicidal_apartment" parent="current_scene" instance=ExtResource( 3 )]

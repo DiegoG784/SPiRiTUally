@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://entities/base/resources/item/evidence_base.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/criminal_reports/samuel_report.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/item_icons/ico_ficha.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+icon = ExtResource( 3 )
+name = "Relatório da vítima"
+description = "Isto é um relatório gerado pela polícia com os dados da vítima e o seu estado atual. Aparentemente foi vítima de um suicídio e seu corpo foi encontrado em seu próprio apartamento depois de seu desaparecimento."
+item_display = ExtResource( 2 )
+is_interacteable = false

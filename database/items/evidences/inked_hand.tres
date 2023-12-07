@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/base/resources/item/evidence_base.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/item_icons/ico_lupa.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+icon = ExtResource( 2 )
+name = "Mãos com tinta"
+description = "Ao analisar o seu corpo, a sua mão esquerda está com rastros de tinta, o que indica que ele usou uma caneta para escrever a carta."
+is_interacteable = false

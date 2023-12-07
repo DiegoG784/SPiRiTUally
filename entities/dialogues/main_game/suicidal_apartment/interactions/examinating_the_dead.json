@@ -22,6 +22,10 @@
             ["Gaspard", "character_expression?", "Não... é mancha de tinta."],
             ["Leonardd", "character_expression?", "Mancha de tinta? Ele era um pintor?"],
             ["Gaspard", "character_expression?", "Não acho que esse seja o caso, seu apartamento é modesto demais para servir de ateliê."]
+        ],
+        "dialogue_events":[
+            ["inventory", "give_item", "inked_hand.tres"],
+            ["dialogue", "end"]
         ]
     },
 
@@ -31,6 +35,9 @@
             ["Gaspard", "character_expression?", "Sua boca está suja."],
             ["Gaspard", "character_expression?", "Ele foi intoxicado? Ou se intoxicou?"],
             ["Gaspard", "character_expression?", "De qualquer forma, o cheiro é horrível."]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"]
         ]
     },
 
@@ -38,6 +45,9 @@
         "dialogue_id": 3,
         "dialogue_texts":[
             ["Gaspard", "character_expression?", "Não há nada em seus bolsos além de fiapos e alguns centavos."]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"]
         ]
     }
 ]

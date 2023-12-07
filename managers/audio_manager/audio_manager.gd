@@ -32,6 +32,9 @@ func play_music(music_file):
 		music.stream = music_file
 		music.play()
 
+func remove_music():
+	music.stream = null
+
 func play_audio(audio_file):
 	var audio = AudioStreamPlayer.new()
 	audio.stream = audio_file

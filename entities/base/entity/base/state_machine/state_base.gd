@@ -15,12 +15,18 @@ var shoot_animation_delay:float
 var has_shoot
 var previous_camera_node
 var current_action_button
-var movement_mapping = {
-	"W":"walk_forward",
-	"A":"walk_left",
-	"S":"walk_backward",
-	"D":"walk_right"
-}
+#var movement_mapping = {
+#	"W":"walk_forward",
+#	"A":"walk_left",
+#	"S":"walk_backward",
+#	"D":"walk_right"
+#}
+var movement_mapping = [
+	"walk_forward",
+	"walk_left",
+	"walk_backward",
+	"walk_right"
+]
 
 var forward = Vector3.FORWARD
 var holding_movement = false
@@ -33,22 +39,23 @@ func _process(delta):
 #	holding_movement = false
 #	another_movement_key_pressed = false
 
-func _unhandled_input(event):
-	
-	current_action_button = event.as_text()
-	
-	if !holding_movement:
-		old_movement_key = current_action_button
-	
-	if current_action_button in movement_mapping.keys():
-		holding_movement = true
-		
-		if holding_movement and current_action_button != old_movement_key:
-			another_movement_key_pressed = true
-		else:
-			another_movement_key_pressed = false
-	else:
-		holding_movement = false
+#func _unhandled_input(event):
+#	current_action_button = event.as_text()
+#	# print(event.as_text())
+#
+#	if !holding_movement:
+#		old_movement_key = current_action_button
+#
+#	if current_action_button in movement_mapping.keys():
+#		holding_movement = true
+#
+#		if holding_movement and current_action_button != old_movement_key:
+#			another_movement_key_pressed = true
+#			holding_movement = false
+#		else:
+#			another_movement_key_pressed = false
+#	else:
+#		holding_movement = false
 	
 #	if holding_movement:
 #		if current_action_button in movement_mapping.keys():
@@ -69,13 +76,20 @@ func logic(delta):
 func get_input(delta):
 #	print("holding_movement: ", holding_movement)
 #	print("another_movement_key_pressed: ", another_movement_key_pressed)
+	for i in movement_mapping:
+		if Input.is_action_pressed(i):
+			holding_movement = true
+			break
+		else:
+			holding_movement = false
+	print(holding_movement)
 	if entity.can_move and Game.scene_manager:
 		var camera_node = Game.scene_manager.get_current_camera()
 		var entity_motion = Vector3.ZERO
 #		print(camera_node)
 #		print(Game.scene_manager.current_camera)
 
-		if !holding_movement and !another_movement_key_pressed:
+		if !holding_movement:
 			if camera_node:
 				previous_camera_node = camera_node
 #				print("oi!")
@@ -83,6 +97,7 @@ func get_input(delta):
 				var cam_forward = -camera_node.transform.basis.z.normalized()
 				var cam_axis = cam_forward.abs().max_axis()
 				forward[cam_axis] = sign(cam_forward[cam_axis])
+				
 	
 	
 #			print(forward)

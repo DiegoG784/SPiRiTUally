@@ -2,47 +2,144 @@
     {
         "dialogue_id": 0,
         "dialogue_texts":[
-            ["Gaspard", "character_expression?", "to com depressão"],
-            ["Psicólogo", "character_expression?", "pq?"]
+            ["Psicólogo", "character_expression?", "Então você teve uma visão mais uma vez hoje?"],
+            ["Gaspard", "character_expression?", "... Acho que sim."],
+            ["Psicólogo", "character_expression?", "Em sonho ou acordado?"],
+            ["Gaspard", "character_expression?", "Acordado, foi durante o trabalho, na verdade."],
+            ["Psicólogo", "character_expression?", "Poderia me contar um pouco sobre essa visão?"],
+            ["Gaspard", "character_expression?", "..."],
+            ["Gaspard", "character_expression?", "...Isso é mesmo necessário?"],
+            ["Psicólogo", "character_expression?", "Gaspard, já conversamos sobre o processo de desenvolvimento dos pacientes e como se abrir sobre situações desse tipo podem melhorar o quadro d- "],
+            ["Gaspard", "character_expression?", "Não tente me enrolar, falar sobre isso vai ou não vai me tirar da terapia o mais rápido possível? "],
+            ["Psicólogo`", "character_expression?", "Eu não posso garantir que-"],
+            ["Gaspard", "character_expression?", "Vai ou não vai, doutor?"],
+            ["Psicólogo", "character_expression?", "Olhe bem, se o senhor fizer a sua parte, eu posso fazer a minha, entende? Isso são apenas formalidades, então, por favor, tente se manter na linha vamos agir conforme o esperado."],
+            ["Gaspard", "character_expression?", "... Tudo bem."],
+            ["Gaspard", "character_expression?", "Eu me lembro de estar em um lugar vazio, escuro. Não tinha chão e nem parede nenhuma, mas ainda assim eu estava em pé."],
+            ["Gaspard", "character_expression?", "Era como se tudo estivesse preto, não preenchido. Até que, de longe, vejo manchas. "],
+            ["Gaspard", "character_expression?", "Pensando melhor, eram mais como pétalas murchas. De qualquer forma, comecei a seguir o rastro."],
+            ["Gaspard", "character_expression?", "Parecia que não ia acabar, até que finalmente algo diferente disso surgiu em meu campo de visão: era uma porta."],
+            ["Psicólogo", "character_expression?", "Uma porta?"],
+            ["Gaspard", "character_expression?", "Sim, mas não levando para alguma construção ou algo do gênero. Era apenas a porta, com maçaneta e tudo. Como se estivesse suspensa no ar. "],
+            ["Gaspard", "character_expression?", "Foi aí que eu percebi que tinha algo de errado... Ela estava trancada, e quando eu digo trancada era com cadeado e tudo quanto é lacre. Por que alguém trancaria uma porta que não dava caminho para lugar algum?"],
+            ["Gaspard", "character_expression?", "E então, eu comecei a ouvir alguém me chamando por trás da porta. E os chamados viraram batidas vindo do outro lado. Mas, como se não tinha outro lado?"],
+            ["Gaspard", "character_expression?", "Então eu tentei abrir a porta, mas, de repente, senti como se meu peito fosse dilacerar e minhas mãos dissolverem. "],
+            ["Gaspard", "character_expression?", "Quanto mais eu me aproximava, mais distante tudo parecia de mim. Eu sentia minha cabeça latejar."],
+            ["Psicólogo", "character_expression?", "E então?"],
+            ["Gaspard", "character_expression?", "E então... eu voltei a si. Leonardd me acordou gritando no meu ouvido, como sempre."],
+            ["Psicólogo", "character_expression?", "E como você se sentiu, ao recobrar a consciência?"]
         ],
         "dialogue_options":[
-            ["porque sim seu burro nn sabe interpretar nn veio desgraçado", 1],
-            ["minha esposa morreu sem comer a minha bunda", 2]
+            ["Eu não sei...", 1],
+            ["Me senti... vivo", 2],
+            ["Me senti... desesperado?", 3]
         ]
     },
 
     {
         "dialogue_id": 1,
         "dialogue_texts":[
-            ["Psicólogo", "character_expression?", "tomanoteucu ein seu prr mal educado do kraio, sai dq vai"],
-            ["Gaspard", "character_expression?", "aff q veio chato da prr vou sair memo"],
-            ["Gaspard", "character_expression?", "krl q relógio daora eu vou roubar saporra q se foda tbm"]
+            ["Psicólogo", "character_expression?", "Eu entendo. Quando estamos no estado de transe, nós perdermos um pouco do nosso senso de realidade e as nossas sensações."],
+            ["Psicólogo", "character_expression?", "E quanto a porta?"],
+            ["Gaspard", "character_expression?", "O que tem ela?"],
+            ["Psicólogo", "character_expression?", "Alguma ideia do que poderia estar dentro?"],
+            ["Gaspard", "character_expression?", "Não, quer dizer, não sei, eu acho."],
+            ["Psicólogo", "character_expression?", "Você quer ainda abrir a porta?"]
         ],
-        "dialogue_events":[
-            ["inventory", "give_item", "health_kit.tres"],
-            ["dialogue", "end"]
+        "dialogue_options":[
+            ["Acho que sim", 4],
+            ["Talvez não", 5]
         ]
     },
 
     {
         "dialogue_id": 2,
         "dialogue_texts":[
-            ["Psicólogo", "character_expression?", "viado? mas ok, infelizmente coisas acontecem e tals e tem momentos q bla bla bla bla bla bla"],
-            ["Gaspard", "character_expression?", "..."],
-            ["Psicólogo", "character_expression?", "Alguma coisa?"],
-            ["Gaspard", "character_expression?", "nada nn, eu só estou..."]
+            ["Psicólogo", "character_expression?", "Posso te garantir que isto é um sentimento comum quando ganhamos consciência ao nosso redor, quando retornamos ao nosso senso de realidade."],
+            ["Psicólogo", "character_expression?", "E quanto a porta?"],
+            ["Gaspard", "character_expression?", "O que tem ela?"],
+            ["Psicólogo", "character_expression?", "Alguma ideia do que poderia estar dentro?"],
+            ["Gaspard", "character_expression?", "Não, quer dizer, não sei, eu acho."],
+            ["Psicólogo", "character_expression?", "Você quer ainda abrir a porta?"]
         ],
         "dialogue_options":[
-            ["pensando nesse bundao pomposo q vc tem aí", 1],
-            ["eu só estou triste mesmo mas estou ouvindo o senhor", 3]
+            ["Acho que sim", 4],
+            ["Talvez não", 5]
         ]
     },
     
     {
         "dialogue_id": 3,
         "dialogue_texts":[
-            ["Psicólogo", "character_expression?", "tudo bem e parece que já acabou nossa consulta, tudo de bom pro senhor e nn se mate ein?"],
-            ["Gaspard", "character_expression?", "ok"]
+            ["Psicólogo", "character_expression?", "Quando a consciência bate em nossa cabeça depois de um episódio como esse, nossas emoções ficam mais intensas quando começamos á perceber a realidade ao nosso redor."],
+            ["Psicólogo", "character_expression?", "E quanto a porta?"],
+            ["Gaspard", "character_expression?", "O que tem ela?"],
+            ["Psicólogo", "character_expression?", "Alguma ideia do que poderia estar dentro?"],
+            ["Gaspard", "character_expression?", "Não, quer dizer, não sei, eu acho."],
+            ["Psicólogo", "character_expression?", "Você quer ainda abrir a porta?"]
+        ],
+        "dialogue_options":[
+            ["Acho que sim", 4],
+            ["Talvez não", 5]
         ]
+    },
+
+    {
+        "dialogue_id": 4,
+        "dialogue_texts":[
+            ["Psicólogo", "character_expression?", "Posso dizer que você é bastante corajoso para saber o que esconde o outro lado da porta mesmo tendo percepção de um perigo próximo, Gaspard."],
+            ["Psicólogo", "character_expression?", "Mas... e saber o que tem dentro dela realmente, você gostaria?"]
+        ],
+        "dialogue_options":[
+            ["Sim.", 6],
+            ["Não.", 7]
+        ]
+    },
+
+    {
+        "dialogue_id": 5,
+        "dialogue_texts":[
+            ["Psicólogo", "character_expression?", "Posso dizer que você é bastante corajoso para saber o que esconde o outro lado da porta mesmo tendo percepção de um perigo próximo, Gaspard."],
+            ["Psicólogo", "character_expression?", "Mas... e saber o que tem dentro dela realmente, você gostaria?"]
+        ],
+        "dialogue_options":[
+            ["Sim.", 6],
+            ["Não.", 7]
+        ]
+    },
+
+    {
+        "dialogue_id": 6,
+        "dialogue_texts":[
+            ["Psicólogo", "character_expression?", "A curiosidade nos faz descobrir coisas novas ou a verdade sobre aquilo, ou acabar caindo em armadilhas também."],
+            ["Psicólogo", "character_expression?", "Entendo. Bom, Gaspard, por hoje acho que podemos ficar por aqui. Está liberado."],
+            ["Gaspard", "character_expression?", "Já tem alguma ideia de quando poderei parar de participar dessa bobagem? "],
+            ["Psicólogo", "character_expression?", "Acompanhamento psicológico não é bobagem, Gaspard."],
+            ["Gaspard", "character_expression?", "Eu já disse várias vezes, eu não estou doente, doutor! "],
+            ["Psicólogo", "character_expression?", "Nós sabemos disso, mas considerando esses incidentes e a maneira que isso vem o afetando, é necessário acompanha-lo pelo seu bem. "],
+            ["Gaspard", "character_expression?", "Se quisessem mesmo me ver bem, teriam me tirado daqui logo. Eu não estou louco, doutor, eu te garanto isso."],
+            ["Psicólogo", "character_expression?", "Nos vemos na próxima terça, Gaspard."],
+            ["Gaspard", "character_expression?", "..."]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"]
+        ]
+    },
+
+    {
+        "dialogue_id": 7,
+        "dialogue_texts":[
+            ["Psicólogo", "character_expression?", "Intrigante, porém acredito que seja explicável a sua resposta. Posso hipotetizar que tenha medo de descobrir o que tem pelo outro lado da  porta, por medo de acabar acontecendo mal a você por parecer muito real."],
+            ["Psicólogo", "character_expression?", "Entendo. Bom, Gaspard, por hoje acho que podemos ficar por aqui. Está liberado."],
+            ["Gaspard", "character_expression?", "Já tem alguma ideia de quando poderei parar de participar dessa bobagem? "],
+            ["Psicólogo", "character_expression?", "Acompanhamento psicológico não é bobagem, Gaspard."],
+            ["Gaspard", "character_expression?", "Eu já disse várias vezes, eu não estou doente, doutor! "],
+            ["Psicólogo", "character_expression?", "Nós sabemos disso, mas considerando esses incidentes e a maneira que isso vem o afetando, é necessário acompanha-lo pelo seu bem. "],
+            ["Gaspard", "character_expression?", "Se quisessem mesmo me ver bem, teriam me tirado daqui logo. Eu não estou louco, doutor, eu te garanto isso."],
+            ["Psicólogo", "character_expression?", "Nos vemos na próxima terça, Gaspard."],
+            ["Gaspard", "character_expression?", "..."]
+        ]
+
     }
+
 ]

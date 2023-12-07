@@ -1,6 +1,8 @@
 extends Control
 
 onready var dialogue_text = get_node("dialogue_background/dialogue_text")
+onready var character_name = get_node("character_name_background/character_name")
+onready var character_name_background = get_node("character_name_background")
 
 var dialogue_branch:Array
 var current_dialogue:Dictionary
@@ -64,6 +66,7 @@ func _process(delta):
 		states.CHOOSING:
 			if !can_choose:
 #				print("escolhendo")
+				# character_name_background.hide()
 				for option in current_dialogue["dialogue_options"].size():
 					var current_option = current_dialogue["dialogue_options"][option]
 #					print(current_dialogue["dialogue_options"].size())
@@ -140,6 +143,11 @@ func set_next_dialogue_text():
 	
 	dialogue_text.hide() if is_inside_tree() else null
 #			print(dialogue)
+	if current_dialogue["dialogue_texts"][current_dialogue_text][0] != "none":
+		character_name_background.show()
+		character_name.text = current_dialogue["dialogue_texts"][current_dialogue_text][0]
+	else:
+		character_name_background.hide()
 	dialogue_text.text = current_dialogue["dialogue_texts"][current_dialogue_text][2]
 #	print(dialogue_text.text)
 	dialogue_text.percent_visible = 0

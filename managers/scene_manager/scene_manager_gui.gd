@@ -18,14 +18,16 @@ func _unhandled_key_input(event):
 		get_tree().paused = true
 		var inventory_scene = preload("res://gui/inventory/inventory.tscn").instance()
 #		print("Player pressionou o botão de inventário. Abrindo o inventário")
-		inventory_scene.connect("child_exiting_tree", self, "inventory_exit")
+		inventory_scene.connect("about_to_exit", self, "inventory_exit")
 		add_child(inventory_scene)
 
-func inventory_exit(node):
-#	print("player fechou o inventário")
-	unlock_menu()
-	inventory_opened = false
+func inventory_exit(menu_node):
+	print("player fechou o inventário")
 	get_tree().paused = false
+	unlock_menu()
+	menu_node.queue_free()
+	yield(get_tree().create_timer(0.3), "timeout")
+	inventory_opened = false
 
 func lock_menu():
 	can_open_menu = false

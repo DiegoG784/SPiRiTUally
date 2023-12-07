@@ -1,8 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://entities/base/resources/item/evidence_base.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/item_icons/ico_remedio.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
+icon = ExtResource( 2 )
 name = "Pírulas anti-depressivas"
-description = ""
+description = "Essas pírulas contém componentes letais se tomados em grandes quantidades. Tudo indica que a vítima tentou se matar por overdose mas acabou falhando."
+is_interacteable = false

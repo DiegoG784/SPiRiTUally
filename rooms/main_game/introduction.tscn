@@ -2,7 +2,7 @@
 
 [ext_resource path="res://entities/base/components/scene/cutscene_player.gd" type="Script" id=1]
 [ext_resource path="res://database/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/audio/musics/music_test.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/musics/Hollow Visions.ogg" type="AudioStream" id=3]
 
 [sub_resource type="GDScript" id=2]
 resource_name = "introduction_scene"
@@ -31,6 +31,7 @@ func dialogue_finished():
 	transition.fade_out()
 	print(\"deletado\")
 	Game.unlock_player_input()
+	Audio.play_music(music)
 
 func door_cutscene_ended():
 	print(\"cutscene da porta terminada, enviando o jogador para a cena do suicida\")
@@ -43,7 +44,7 @@ background_mode = 1
 resource_name = "intro_door_interaction"
 script/source = "extends InteracteableArea
 
-var suicidal_apartment_scene = preload(\"res://rooms/main_game/suicidal_apartment_entrance.tscn\")
+var suicidal_apartment_scene = load(\"res://rooms/main_game/suicidal_apartment.tscn\")
 
 func interact_action():
 #	print(\"oioioioi\")
@@ -54,6 +55,7 @@ func interact_action():
 
 func door_cutscene_ended():
 	print(\"cutscene terminada, trocando de cena para o apartamento\")
+	yield(get_tree(),\"idle_frame\")
 	Game.scene_manager.change_scene(suicidal_apartment_scene, true)
 
 #Conectar o sinal de término da cutscene dentro desse nó

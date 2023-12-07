@@ -9,7 +9,8 @@ var current_game_scene
 
 func _ready():
 	Game.set_scene_manager(self)
-	set_current_camera(get_viewport().get_camera())
+	if get_viewport().get_camera():
+		set_current_camera(get_viewport().get_camera())
 
 func add_scene_to_main(scene_file):
 	current_scene_node.add_child(scene_file)
@@ -25,6 +26,7 @@ func change_scene(scene_file, custom_position_node_name = null, without_transiti
 
 		yield(transition_overlay.animation, "animation_finished")
 	
+	Audio.remove_music()
 	Game.current_scene.queue_free()
 	current_scene_node.add_child(next_scene)
 

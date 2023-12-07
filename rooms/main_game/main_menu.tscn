@@ -1,46 +1,642 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/sprites/gui/Spiritually Logo Normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/models/gaspard_animado_nao_finalizado/Gaspard animado sem o sobretudo.gltf" type="PackedScene" id=2]
+[ext_resource path="res://entities/base/resources/button.tres" type="StyleBox" id=3]
+[ext_resource path="res://entities/base/resources/font.tres" type="DynamicFont" id=4]
 
-[node name="Control" type="Control"]
+[sub_resource type="GDScript" id=50]
+resource_name = "main_menu"
+script/source = "extends Control
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	Game.set_current_scene(self)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func novo_jogo_pressed():
+	get_node(\"ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo\").get_node(\"AnimationPlayer\").play(\"virar\")
+	Game.scene_manager.change_scene(load(\"res://rooms/main_game/introduction.tscn\"))
+
+func sair_pressed():
+	get_tree().quit()
+
+
+func animation_finished(anim_name):
+	pass
+"
+
+[sub_resource type="Environment" id=29]
+fog_enabled = true
+fog_color = Color( 0.203922, 0.207843, 0.211765, 1 )
+fog_depth_begin = 410.3
+fog_depth_end = 561.5
+fog_height_enabled = true
+fog_height_min = 2461.5
+fog_height_max = -2705.7
+fog_height_curve = 1.68179
+
+[sub_resource type="CapsuleShape" id=30]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="CapsuleShape" id=31]
+radius = 0.0604648
+height = 0.483718
+
+[sub_resource type="CapsuleShape" id=32]
+radius = 0.12311
+height = 0.984879
+
+[sub_resource type="CapsuleShape" id=33]
+radius = 0.0242963
+height = 0.194371
+
+[sub_resource type="CapsuleShape" id=34]
+radius = 0.126085
+height = 1.00868
+
+[sub_resource type="CapsuleShape" id=35]
+radius = 0.0942685
+height = 0.754148
+
+[sub_resource type="CapsuleShape" id=36]
+radius = 0.033
+height = 0.264
+
+[sub_resource type="CapsuleShape" id=37]
+radius = 0.0262046
+height = 0.209637
+
+[sub_resource type="CapsuleShape" id=38]
+radius = 0.0283696
+height = 0.226957
+
+[sub_resource type="CapsuleShape" id=39]
+radius = 0.126085
+height = 1.00868
+
+[sub_resource type="CapsuleShape" id=40]
+radius = 0.0942685
+height = 0.754148
+
+[sub_resource type="CapsuleShape" id=41]
+radius = 0.0167158
+height = 0.133726
+
+[sub_resource type="CapsuleShape" id=42]
+radius = 0.0283696
+height = 0.226957
+
+[sub_resource type="CapsuleShape" id=43]
+radius = 0.0262046
+height = 0.209637
+
+[sub_resource type="CapsuleShape" id=44]
+radius = 0.165601
+height = 1.32481
+
+[sub_resource type="CapsuleShape" id=45]
+radius = 0.20963
+height = 1.67704
+
+[sub_resource type="CapsuleShape" id=46]
+radius = 0.165601
+height = 1.32481
+
+[sub_resource type="CapsuleShape" id=47]
+radius = 0.20963
+height = 1.67704
+
+[sub_resource type="Animation" id=48]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ossos/Skeleton2/BoneAttachment:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ossos/Skeleton2/BoneAttachment17:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../../../ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../../../ColorRect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Ossos/Skeleton2/BoneAttachment/Cabeça:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "virar"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../../../ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../../../ColorRect:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ossos/Skeleton2/BoneAttachment:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 68.897, 0 ) ]
+}
+
+[node name="main_menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = SubResource( 50 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -474.0
+margin_top = -214.0
+margin_right = 87.0
+margin_bottom = 302.0
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 561, 516 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="ViewportContainer/Viewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ViewportContainer/Viewport/Spatial"]
+environment = SubResource( 29 )
+
+[node name="Gaspard animado sem o sobretudo" parent="ViewportContainer/Viewport/Spatial" instance=ExtResource( 2 )]
+
+[node name="Empty" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo" index="0"]
+visible = false
+
+[node name="Empty001" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo" index="1"]
+visible = false
+
+[node name="Armature" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo" index="2"]
+visible = false
+
+[node name="Chão" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo" index="3"]
+visible = false
+
+[node name="BoneAttachment" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78814e-08, 1.6369, 0.0765854 )
+
+[node name="Cabeça" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/BoneAttachment" index="0"]
+transform = Transform( 0.725972, 0, 0, 0, -3.17332e-08, -0.725972, 0, 0.725972, -3.17332e-08, -0.0578418, 0.597772, -0.0182491 )
+
+[node name="BoneAttachment2" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78814e-08, 1.39394, 0.0765854 )
+
+[node name="BoneAttachment3" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="2"]
+transform = Transform( -0.956903, -0.290407, 2.98242e-08, 0.290407, -0.956903, 1.83827e-08, 2.27141e-08, 2.77929e-08, 1, 1.09645, -1.57862, 0.0915766 )
+
+[node name="BoneAttachment4" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="3"]
+transform = Transform( -0.999742, -0.0227154, -3.82518e-07, 0.0227154, -0.999742, 3.94316e-08, -3.8337e-07, 3.23475e-08, 1, 1.1024, -1.31664, 0.0915766 )
+
+[node name="BoneAttachment5" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="4"]
+transform = Transform( -0.99027, -0.139123, -0.0032859, 0.138147, -0.979933, -0.143689, 0.0167705, -0.142745, 0.989617, 1.07199, -1.29905, -0.172411 )
+
+[node name="BoneAttachment6" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="5"]
+transform = Transform( -0.9997, -0.0203543, -0.0136205, 0.0239235, -0.930622, -0.365198, -0.00524218, -0.365414, 0.93083, 1.07776, -1.03503, -0.0687446 )
+
+[node name="BoneAttachment7" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="6"]
+transform = Transform( -0.996194, 0.0871558, 5.96046e-08, -0.0871559, -0.996195, 3.72529e-08, 6.27479e-08, 3.35276e-08, 1, 1.07364, -0.987898, 0.0915766 )
+
+[node name="BoneAttachment8" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="7"]
+transform = Transform( -0.997175, 0.0749803, 0.00436218, -0.0751071, -0.995493, -0.0579054, 7.53083e-07, -0.0580695, 0.998312, 1.00296, -0.0494616, 0.146318 )
+
+[node name="BoneAttachment9" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="8"]
+transform = Transform( -0.996893, 0.0787271, -0.00244294, -0.078765, -0.996414, 0.0309073, -9.38773e-07, 0.0310037, 0.999519, 0.903694, 1.20687, 0.107227 )
+
+[node name="BoneAttachment10" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="9"]
+transform = Transform( -0.990269, 0.139123, 0.00328589, -0.138147, -0.979933, -0.143689, -0.0167705, -0.142745, 0.989617, -1.07199, -1.29905, -0.172411 )
+
+[node name="BoneAttachment11" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="10"]
+transform = Transform( -0.9997, 0.0203543, 0.0136205, -0.0239236, -0.930622, -0.365198, 0.00524218, -0.365414, 0.93083, -1.07776, -1.03503, -0.0687446 )
+
+[node name="BoneAttachment12" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="11"]
+transform = Transform( -0.956903, 0.290407, -3.02898e-08, -0.290407, -0.956904, 2.58333e-08, -2.42106e-08, 2.43794e-08, 1, -1.09645, -1.57862, 0.0915766 )
+
+[node name="BoneAttachment13" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="12"]
+transform = Transform( -0.999742, 0.0227154, 3.82053e-07, -0.0227154, -0.999742, 4.68822e-08, 3.82845e-07, 2.86575e-08, 1, -1.1024, -1.31664, 0.0915766 )
+
+[node name="BoneAttachment14" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="13"]
+transform = Transform( -0.996194, -0.0871559, -6.00703e-08, 0.0871559, -0.996195, 4.47035e-08, -6.28643e-08, 2.98023e-08, 1, -1.07364, -0.987898, 0.0915766 )
+
+[node name="BoneAttachment15" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="14"]
+transform = Transform( -0.997175, -0.0749803, -0.00436218, 0.0751071, -0.995493, -0.0579054, -7.53345e-07, -0.0580695, 0.998312, -1.00296, -0.0494616, 0.146318 )
+
+[node name="BoneAttachment16" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="15"]
+transform = Transform( -0.996893, -0.0787271, 0.00244294, 0.078765, -0.996414, 0.0309073, 9.38773e-07, 0.0310037, 0.999519, -0.903694, 1.20687, 0.107227 )
+
+[node name="Braço Esq" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/BoneAttachment16" index="0"]
+transform = Transform( -0.17127, 5.58107e-08, -1.54835e-08, -1.56518e-08, -0.514459, 2.23517e-08, -1.30586e-08, 5.40167e-08, 0.202094, -0.0105051, 0.56011, -0.0269725 )
+
+[node name="BoneAttachment17" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="16"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78814e-08, 0.162841, 0.0765854 )
+
+[node name="BoneAttachment18" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="17"]
+transform = Transform( 1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, 1, 1.78814e-08, -0.441807, 0.0765854 )
+
+[node name="BoneAttachment19" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="18"]
+transform = Transform( 1, 5.68434e-14, 2.38419e-07, -2.1365e-07, -0.443822, 0.896115, 1.05815e-07, -0.896115, -0.443822, 0.497016, -4.32441, 0.0772904 )
+
+[node name="BoneAttachment20" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="19"]
+transform = Transform( 1, 1.77636e-15, 2.38419e-07, 1.34481e-08, -0.998408, -0.0564055, 2.38039e-07, 0.0564055, -0.998408, 0.497016, -2.23145, -0.0409523 )
+
+[node name="BoneAttachment21" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="20"]
+transform = Transform( 1, 4.44089e-16, 2.38419e-07, -1.44898e-08, -0.998151, 0.0607747, 2.37978e-07, -0.0607747, -0.998151, 0.497016, -0.578501, 0.0596913 )
+
+[node name="BoneAttachment22" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="21"]
+transform = Transform( 1, -5.68434e-14, -2.38419e-07, 2.1365e-07, -0.443822, 0.896115, -1.05815e-07, -0.896115, -0.443822, -0.497016, -4.32441, 0.0772904 )
+
+[node name="BoneAttachment23" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="22"]
+transform = Transform( 1, -1.77636e-15, -2.38419e-07, -1.34481e-08, -0.998408, -0.0564055, -2.38039e-07, 0.0564055, -0.998408, -0.497016, -2.23145, -0.0409523 )
+
+[node name="BoneAttachment24" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="23"]
+transform = Transform( 1, -4.44089e-16, -2.38419e-07, 1.44898e-08, -0.998151, 0.0607747, -2.37978e-07, -0.0607747, -0.998151, -0.497016, -0.578501, 0.0596913 )
+
+[node name="BoneAttachment25" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="24"]
+transform = Transform( 1, 0, 0, 0, -1, 0, 0, 0, -1, 1.78814e-08, -0.441807, 0.0765854 )
+
+[node name="Physical Bone Cintura" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="25"]
+transform = Transform( 1, 0, -1.49012e-08, 0, -1, 0, -1.49012e-08, 0, -1, -5.58794e-09, -0.441807, 0.0765855 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34693e-08, 0, 9.68574e-08 )
+body_offset = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -2.34693e-08, 0, -9.68575e-08 )
+bone_name = "Cintura"
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Cintura"]
+shape = SubResource( 30 )
+
+[node name="Physical Bone Abdomen" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="26"]
+transform = Transform( 1, -2.98023e-07, 0, 0, 0, -1, 2.98023e-07, 1, 0, 3.1665e-08, -0.139482, 0.0765855 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37836e-08, -9.68574e-08, 0.302324 )
+body_offset = Transform( 1, -2.106e-07, 0, 0, 0, -1, 2.106e-07, 1, 0, 1.37836e-08, 0.302324, 9.68575e-08 )
+bone_name = "Abdomen"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Abdomen"]
+shape = SubResource( 31 )
+
+[node name="Physical Bone Tronco" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="27"]
+transform = Transform( 1, 1.49012e-08, 0, 0, 0, -1, -1.49012e-08, 1, 0, -5.58794e-09, 0.778391, 0.0765855 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34693e-08, -9.68574e-08, 0.61555 )
+body_offset = Transform( 1, 1.49012e-08, 0, 0, 0, -1, -1.49012e-08, 1, 0, -2.34693e-08, 0.61555, 9.68575e-08 )
+bone_name = "Tronco"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Tronco"]
+shape = SubResource( 32 )
+
+[node name="Physical Bone Pescoco" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="28"]
+transform = Transform( 1, 1.49012e-08, 0, 0, 0, -1, -1.49012e-08, 1, 0, -5.58794e-09, 1.51542, 0.0765855 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34693e-08, -9.68574e-08, 0.121481 )
+body_offset = Transform( 1, 1.49012e-08, 0, 0, 0, -1, -1.49012e-08, 1, 0, -2.34693e-08, 0.121481, 9.68575e-08 )
+bone_name = "Pescoco"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Pescoco"]
+shape = SubResource( 33 )
+
+[node name="Physical Bone Braco R" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="29"]
+transform = Transform( -0.996894, -0.00244301, -0.0787279, -0.0787658, 0.0309073, 0.996415, -9.23311e-07, 0.999521, -0.0310037, 0.953328, 0.578698, 0.126773 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5432e-06, 7.04559e-09, 0.630429 )
+body_offset = Transform( 1, 7.23944e-08, 7.66713e-07, 6.86627e-07, 1.11759e-08, -1, -5.8277e-09, 1, -1.11759e-08, -2.02656e-06, 0.630429, 0 )
+bone_name = "Braco R"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Braco R"]
+shape = SubResource( 34 )
+
+[node name="Physical Bone Antebraco R" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="30"]
+transform = Transform( -0.997175, 0.0043623, -0.0749809, -0.0751076, -0.0579055, 0.995493, 3.87073e-07, 0.998313, 0.0580697, 1.0383, -0.518688, 0.118948 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.29608e-07, -8.41584e-07, 0.47135 )
+body_offset = Transform( 1, -1.16754e-07, 5.65266e-07, 5.06511e-07, 3.35276e-08, -1, -3.37167e-07, 1, 1.41561e-07, -5.96046e-07, 0.471351, 7.7486e-07 )
+bone_name = "Antebraco R"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Antebraco R"]
+shape = SubResource( 35 )
+
+[node name="Physical Bone Palma R" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="31"]
+transform = Transform( -0.996196, 2.98023e-08, -0.0871573, -0.0871573, 5.82209e-08, 0.996196, 2.5332e-07, 1, -6.51926e-08, 1.08802, -1.15227, 0.0915765 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43903e-06, 1.16983e-07, 0.165005 )
+body_offset = Transform( 1, 2.78616e-08, 1.39326e-06, 1.27405e-06, -2.34856e-08, -1, 1.90572e-07, 1, -3.1665e-08, -1.66893e-06, 0.165005, -1.11759e-07 )
+bone_name = "Palma R"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Palma R"]
+shape = SubResource( 36 )
+
+[node name="Physical Bone Meio R" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="32"]
+transform = Transform( -0.999743, -2.98023e-07, 0.0227153, 0.0227153, 7.46441e-08, 0.999742, -5.06639e-07, 1, -5.58794e-08, 1.09943, -1.44763, 0.0915765 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75789e-07, 7.75891e-08, 0.131027 )
+body_offset = Transform( 1, -8.36738e-08, 1.546e-07, 1.6205e-07, -3.71227e-08, -1, -1.23269e-07, 1, -2.35318e-08, -5.96046e-07, 0.131027, -7.45058e-08 )
+bone_name = "Meio R"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Meio R"]
+shape = SubResource( 37 )
+
+[node name="Physical Bone Dedao R" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="33"]
+transform = Transform( -0.9997, -0.0136205, 0.0203517, 0.0239211, -0.365198, 0.930622, -0.00524284, 0.930831, 0.365415, 1.07488, -1.16704, -0.12058 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39928e-07, 1.6182e-06, 0.141849 )
+body_offset = Transform( 1, 6.0536e-09, 2.63203e-06, 2.5467e-06, -6.25849e-07, -0.999999, 2.90573e-07, 1, 3.57628e-07, -1.01328e-06, 0.141849, -1.66893e-06 )
+bone_name = "Dedao R"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Dedao R"]
+shape = SubResource( 38 )
+
+[node name="Physical Bone Braco L" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="34"]
+transform = Transform( -0.996894, 0.00244318, 0.0787281, 0.0787659, 0.0309073, 0.996415, 9.05236e-07, 0.99952, -0.0310037, -0.953327, 0.578695, 0.126773 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.04559e-07, -1.15686e-07, 0.630432 )
+body_offset = Transform( 1, -2.37472e-07, -8.71014e-07, -7.6168e-07, -1.30385e-08, -1, -9.9281e-09, 1, -5.58794e-09, 9.53674e-07, 0.630433, 1.19209e-07 )
+bone_name = "Braco L"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Braco L"]
+shape = SubResource( 39 )
+
+[node name="Physical Bone Antebraco L" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="35"]
+transform = Transform( -0.997176, -0.00436194, 0.0749809, 0.0751077, -0.0579055, 0.995493, -6.24298e-07, 0.998314, 0.0580696, -1.0383, -0.518686, 0.118947 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.08071e-07, -5.5139e-07, 0.471349 )
+body_offset = Transform( 1, -2.45064e-07, -6.02573e-07, -5.22534e-07, -5.21541e-08, -1, 9.88715e-08, 1, 6.33299e-08, 1.19209e-06, 0.471349, 5.21541e-07 )
+bone_name = "Antebraco L"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Antebraco L"]
+shape = SubResource( 40 )
+
+[node name="Physical Bone Palma L" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="36"]
+transform = Transform( -0.996196, -0.0835905, 0.0246737, 0.087156, -0.955452, 0.281986, 2.95043e-06, 0.283064, 0.959102, -1.0757, -1.01147, 0.0114161 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40664e-06, -3.60049e-06, 0.0835797 )
+body_offset = Transform( 1, -8.45056e-07, -3.13822e-06, 1.15946e-13, 0.959101, -0.283064, 3.0133e-06, 0.283064, 0.959102, 1.66893e-06, 0.0236619, -0.0801605 )
+bone_name = "Palma L"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Palma L"]
+shape = SubResource( 41 )
+
+[node name="Physical Bone Dedao L" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="37"]
+transform = Transform( -0.999702, 0.0136207, -0.0203517, -0.0239211, -0.365198, 0.930622, 0.00524307, 0.930831, 0.365415, -1.07488, -1.16704, -0.120579 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5368e-06, 1.00947e-06, 0.141848 )
+body_offset = Transform( 1, -2.40281e-07, -2.61224e-06, -2.64833e-06, -6.85453e-07, -1, -8.75443e-08, 1, 4.47035e-07, 1.90735e-06, 0.141848, -1.07288e-06 )
+bone_name = "Dedao L"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Dedao L"]
+shape = SubResource( 42 )
+
+[node name="Physical Bone Meio L" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="38"]
+transform = Transform( -0.999743, 5.36442e-07, -0.0227153, -0.0227153, 7.44753e-08, 0.999743, 2.83122e-07, 1, -5.7742e-08, -1.09943, -1.44763, 0.0915766 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61218e-07, -3.34423e-08, 0.13102 )
+body_offset = Transform( 1, -1.54976e-07, -1.19209e-07, -1.65775e-07, -2.40789e-08, -1, -9.97236e-08, 1, -2.90845e-08, 4.76837e-07, 0.13102, 3.72529e-08 )
+bone_name = "Meio L"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Meio L"]
+shape = SubResource( 43 )
+
+[node name="Physical Bone Coxa R" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="39"]
+transform = Transform( 1, 2.83122e-07, -9.31322e-10, -2.65986e-08, 0.0607748, 0.998151, 2.23517e-07, -0.998152, 0.0607748, 0.497016, -1.40497, 0.00936972 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88335e-08, 1.29506e-07, 0.828004 )
+body_offset = Transform( 1, 4.47034e-08, -9.3131e-10, 1.29653e-08, -7.45058e-09, -1, 1.3698e-08, 1, -4.84288e-08, 5.96046e-08, 0.828004, -8.9407e-08 )
+bone_name = "Coxa R"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Coxa R"]
+shape = SubResource( 44 )
+
+[node name="Physical Bone Perna R" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="40"]
+transform = Transform( 1, 2.5332e-07, -1.30385e-08, 8.01124e-09, -0.0564056, 0.998409, 5.96046e-08, -0.998409, -0.0564056, 0.497017, -3.27793, 0.0181693 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8238e-07, 3.02245e-07, 1.04815 )
+body_offset = Transform( 1, 1.4901e-08, -1.30385e-08, -4.63646e-09, 1.49012e-08, -1, 1.78457e-07, 1, 6.70552e-08, 5.96046e-07, 1.04815, -3.72529e-07 )
+bone_name = "Perna R"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Perna R"]
+shape = SubResource( 45 )
+
+[node name="Physical Bone Coxa L" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="41"]
+transform = Transform( 1, -3.42727e-07, -1.67638e-08, 3.01971e-08, 0.0607748, 0.998151, -3.27826e-07, -0.998152, 0.0607747, -0.497016, -1.40497, 0.00936945 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38805e-08, -1.39236e-07, 0.828004 )
+body_offset = Transform( 1, -1.04308e-07, -1.67638e-08, -1.02178e-08, 1.49012e-08, -1, 9.0636e-08, 1, -2.98023e-08, 0, 0.828005, 1.63913e-07 )
+bone_name = "Coxa L"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Coxa L"]
+shape = SubResource( 46 )
+
+[node name="Physical Bone Perna L" type="PhysicalBone" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="42"]
+transform = Transform( 1, -2.38419e-07, 1.39698e-08, -1.07479e-08, -0.0564056, 0.998408, -2.23517e-07, -0.998408, -0.0564056, -0.497017, -3.27793, 0.0181691 )
+joint_type = 1
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32392e-07, 3.47418e-08, 1.04815 )
+body_offset = Transform( 1, 1.13687e-13, 1.39698e-08, -1.87678e-09, 2.23517e-08, -1, -1.46508e-08, 1, 5.21541e-08, -4.47035e-07, 1.04815, -8.9407e-08 )
+bone_name = "Perna L"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/Ossos/Skeleton2/Physical Bone Perna L"]
+shape = SubResource( 47 )
+
+[node name="AnimationPlayer" parent="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo" index="5"]
+autoplay = "Addon"
+anims/RESET = SubResource( 48 )
+anims/virar = SubResource( 49 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="ViewportContainer/Viewport/Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.927406, 0.374056, 0, -0.374056, 0.927406, 0, 7.22252, 6.07432 )
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport/Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.986048, 0.166459, 0, -0.166459, 0.986048, 0, 6.86915, 2.11379 )
+fov = 87.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
 margin_left = 30.0
-margin_top = 28.0
+margin_top = -272.0
 margin_right = 469.0
-margin_bottom = 182.0
+margin_bottom = -118.0
 texture = ExtResource( 1 )
 expand = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 108.0
-margin_top = 315.0
-margin_right = 408.0
-margin_bottom = 455.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 92.0
+margin_top = 15.0
+margin_right = 392.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 300, 0 )
 custom_constants/separation = 20
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="novo_jogo" type="Button" parent="VBoxContainer"]
 margin_right = 300.0
-margin_bottom = 20.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 300, 30 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
 text = "Novo Jogo"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-margin_top = 40.0
+[node name="sair" type="Button" parent="VBoxContainer"]
+margin_top = 50.0
 margin_right = 300.0
-margin_bottom = 60.0
-text = "Continuar"
-
-[node name="Button3" type="Button" parent="VBoxContainer"]
-margin_top = 80.0
-margin_right = 300.0
-margin_bottom = 100.0
-text = "Opções"
-
-[node name="Button4" type="Button" parent="VBoxContainer"]
-margin_top = 120.0
-margin_right = 300.0
-margin_bottom = 140.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 300, 30 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
 text = "Sair"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[connection signal="animation_finished" from="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo/AnimationPlayer" to="." method="animation_finished"]
+[connection signal="pressed" from="VBoxContainer/novo_jogo" to="." method="novo_jogo_pressed"]
+[connection signal="pressed" from="VBoxContainer/sair" to="." method="sair_pressed"]
+
+[editable path="ViewportContainer/Viewport/Spatial/Gaspard animado sem o sobretudo"]
