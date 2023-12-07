@@ -17,7 +17,7 @@ func _ready():
 	window.get_node(\"base_dialogue_branch\").connect(\"dialogue_finished\", self, \"finished_chatting\")
 
 func finished_chatting():
-	Game.scene_manager.change_scene(load(\"res://rooms/main_game/police_department.tscn\"))
+	Game.scene_manager.change_scene(load(\"res://rooms/main_game/chef_room.tscn\"))
 "
 
 [sub_resource type="Environment" id=29]

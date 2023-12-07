@@ -49,6 +49,7 @@ var suicidal_apartment_scene = load(\"res://rooms/main_game/suicidal_apartment.t
 func interact_action():
 #	print(\"oioioioi\")
 	Game.lock_player_input()
+	Game.current_player.animation(\"Addon\")
 	Cutscene.start_cutscene( Game.current_scene.get_node(\"door_cutscene_1\") )
 	Cutscene.current_cutscene_node.connect(\"cutscene_node_ended\", self, \"door_cutscene_ended\")
 #	Habilitar cutscene onde mostra a mão do gaspard chegasndo na porta, aí vai pedir para o jogador pressionar o botão de interação

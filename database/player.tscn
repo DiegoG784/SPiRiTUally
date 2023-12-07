@@ -70,33 +70,6 @@ visible = false
 [node name="Chão" parent="Gaspard animado sem o sobretudo" index="3"]
 visible = false
 
-[node name="Skeleton2" parent="Gaspard animado sem o sobretudo/Ossos" index="0"]
-bones/0/bound_children = [ NodePath("BoneAttachment25") ]
-bones/1/bound_children = [ NodePath("BoneAttachment18") ]
-bones/2/bound_children = [ NodePath("BoneAttachment17") ]
-bones/3/bound_children = [ NodePath("BoneAttachment2") ]
-bones/4/bound_children = [ NodePath("BoneAttachment") ]
-bones/5/bound_children = [ NodePath("BoneAttachment9") ]
-bones/6/bound_children = [ NodePath("BoneAttachment8") ]
-bones/7/bound_children = [ NodePath("BoneAttachment7") ]
-bones/8/bound_children = [ NodePath("BoneAttachment4") ]
-bones/9/bound_children = [ NodePath("BoneAttachment3") ]
-bones/10/bound_children = [ NodePath("BoneAttachment6") ]
-bones/11/bound_children = [ NodePath("BoneAttachment5") ]
-bones/12/bound_children = [ NodePath("BoneAttachment16") ]
-bones/13/bound_children = [ NodePath("BoneAttachment15") ]
-bones/14/bound_children = [ NodePath("BoneAttachment14") ]
-bones/15/bound_children = [ NodePath("BoneAttachment11") ]
-bones/16/bound_children = [ NodePath("BoneAttachment10") ]
-bones/17/bound_children = [ NodePath("BoneAttachment13") ]
-bones/18/bound_children = [ NodePath("BoneAttachment12") ]
-bones/19/bound_children = [ NodePath("BoneAttachment21") ]
-bones/20/bound_children = [ NodePath("BoneAttachment20") ]
-bones/21/bound_children = [ NodePath("BoneAttachment19") ]
-bones/22/bound_children = [ NodePath("BoneAttachment24") ]
-bones/23/bound_children = [ NodePath("BoneAttachment23") ]
-bones/24/bound_children = [ NodePath("BoneAttachment22") ]
-
 [node name="BoneAttachment" parent="Gaspard animado sem o sobretudo/Ossos/Skeleton2" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78814e-08, 1.6369, 0.0765854 )
 
