@@ -1,0 +1,41 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Gaspard", "character_expression?", "Gaspard, por favor, sente-se"],
+            ["Leonnard", "character_expression?", "Como está se sentindo?"]
+        ],
+        "dialogue_options":[
+            ["Bem como sempre", 1],
+            ["Melhor que isso, não fica", 2]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Delegado", "character_expression?", "Filho, eu te conheço melhor do que ninguém nesse prédio. Não é muito inteligente da sua parte mentir para mim."],
+            ["Delegado", "character_expression?", "Como foi o check-up hoje? Um passarinho me contou que alguém acabou passando mal novamente na cena do crime. Acho bom que essa pessoa não esteja se sobrecarregando. Você sabe que pode dar uma pausa a qualquer momento, detetive."],
+            ["Gaspard", "character_expression?", "Por que fui chamado, senhor?"],
+            ["Delegado", "character_expression?", "Direto ao ponto como sempre, não é? Você deveria aprender com o tagarela do Leonardd a jogar conversa fora de vez em quando, não faria mal algum. Mas enfim"]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Delegado", "character_expression?", "Um dia puxado, imagino?"],
+            ["Gaspard", "character_expression?", "Não muito"],
+            ["Delegado", "character_expression?", "Se você diz... de qualquer modo, é preciso aguentar as rédeas, filho. Não podemos perder mais nenhuma mão de obra no momento em que vivemos"],
+            ["Delegado", "character_expression?", "Como foi o check-up hoje? Um passarinho me contou que alguém acabou passando mal novamente na cena do crime. Acho bom que essa pessoa não esteja se sobrecarregando. Você sabe que pode dar uma pausa a qualquer momento, detetive."],
+            ["Gaspard", "character_expression?", "Por que fui chamado, senhor?"],
+            ["Delegado", "character_expression?", "Direto ao ponto como sempre, não é? Você deveria aprender com o tagarela do Leonardd a jogar conversa fora de vez em quando, não faria mal algum. Mas enfim"]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"]
+        ]
+    }
+]

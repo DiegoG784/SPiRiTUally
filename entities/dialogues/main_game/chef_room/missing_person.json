@@ -1,0 +1,44 @@
+[
+    {
+        "dialogue_id": 0,
+        "dialogue_texts":[
+            ["Delegado", "character_expression?", "Faz 5 dias desde que recebemos a ligação informando o desaparecimento e os incompetentes da nossa unidade ainda não encontraram nada."],
+            ["Gaspard", "character_expression?", "E você está me encarregando de procurá-la?"],
+            ["Delegado", "character_expression?", "Exatamente, filho. Entendo que pode ser grosseiro colocar um perito criminal como você para brincar de caça ao tesouro pela cidade, a procura de uma bebum que deve estar afogando suas mágoas em alguma baiuca, mas são tempos difíceis para o nosso departamento policial. Não temos tantos homens no momento, e precisamos diminuir a taxa de reclamações de um jeito ou de outro"],
+            ["Gaspard", "character_expression?", "Quando inicio a minha investigação?"],
+            ["Delegado", "character_expression?", "Preciso de você no bar pelas 10:00 amanhã, pedirei para Leonardd te buscar na porta da sua casa. Tudo bem por você?"]
+        ],
+        "dialogue_options":[
+            ["Certo", "end"],
+            ["Alguma informação nova sobre o Lacerador Noturno?", 1]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Delegado", "character_expression?", "Filho, eu te conheço melhor do que ninguém nesse prédio. Não é muito inteligente da sua parte mentir para mim."],
+            ["Delegado", "character_expression?", "Como foi o check-up hoje? Um passarinho me contou que alguém acabou passando mal novamente na cena do crime. Acho bom que essa pessoa não esteja se sobrecarregando. Você sabe que pode dar uma pausa a qualquer momento, detetive."],
+            ["Gaspard", "character_expression?", "Por que fui chamado, senhor?"],
+            ["Delegado", "character_expression?", "Direto ao ponto como sempre, não é? Você deveria aprender com o tagarela do Leonardd a jogar conversa fora de vez em quando, não faria mal algum. Mas enfim"]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"]
+        ]
+    },
+
+    {
+        "dialogue_id": 1,
+        "dialogue_texts":[
+            ["Delegado", "character_expression?", "Um dia puxado, imagino?"],
+            ["Gaspard", "character_expression?", "Não muito"],
+            ["Delegado", "character_expression?", "Se você diz... de qualquer modo, é preciso aguentar as rédeas, filho. Não podemos perder mais nenhuma mão de obra no momento em que vivemos"],
+            ["Delegado", "character_expression?", "Como foi o check-up hoje? Um passarinho me contou que alguém acabou passando mal novamente na cena do crime. Acho bom que essa pessoa não esteja se sobrecarregando. Você sabe que pode dar uma pausa a qualquer momento, detetive."],
+            ["Gaspard", "character_expression?", "Por que fui chamado, senhor?"],
+            ["Delegado", "character_expression?", "Direto ao ponto como sempre, não é? Você deveria aprender com o tagarela do Leonardd a jogar conversa fora de vez em quando, não faria mal algum. Mas enfim"]
+        ],
+        "dialogue_events":[
+            ["dialogue", "end"]
+        ]
+    }
+]

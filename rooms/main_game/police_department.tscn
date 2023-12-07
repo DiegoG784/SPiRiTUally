@@ -334,6 +334,7 @@ fov = 85.0
 
 [node name="left_corridor" type="Camera" parent="Recepcao_Departamento/cameras"]
 transform = Transform( 1, 0, 0, 0, 0.903448, 0.428699, 0, -0.428699, 0.903448, -12, 16.376, 70.107 )
+current = true
 fov = 95.0
 
 [node name="right_corridor" type="Camera" parent="Recepcao_Departamento/cameras"]
