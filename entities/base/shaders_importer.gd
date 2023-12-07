@@ -2,7 +2,7 @@ tool
 extends EditorScenePostImport
 
 var shader = load("res://entities/shaders/psx_shaders/psx_lit.shader")
-
+var base_material = load("res://entities/base/base_shader_material.tres")
 
 func post_import(scene):
 
@@ -11,13 +11,24 @@ func post_import(scene):
 
 func iterate(node):
 	if node != null:
-		# print(node.name)
+		#print(node.name)
 		if node is MeshInstance:
-			node.material_override = ShaderMaterial.new()
-			node.material_override.shader = shader
-#			yield(get_tree(),"idle_frame")
+			var material = node.material_override
+
+			material = base_material
+			#material.shader = shader
+			# material = player_material
+
 #			node.node.get("surface_1/material").albedo_texture
-			node.material_override.set_shader_param("albedoTex", node.mesh.get("surface_1/material").albedo_texture)
-		# node.name = "modified_" + node.name
+			#print(node.mesh.get("surface_1/material"))
+
+		# 	print(material.get_shader_param("albedoTex"))
+
+		
+			if node.mesh.get("surface_1/material") != null:
+				material.set_shader_param("albedoTex", node.mesh.get("surface_1/material").albedo_texture)
+			
+			print(material)
+		# # node.name = "modified_" + node.name
 		for child in node.get_children():
 			iterate(child)

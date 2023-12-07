@@ -1,0 +1,221 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://gui/inventory/inventory.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/gui/inventory_menu/menu_background.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gui/inventory_menu/item_lister.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gui/inventory_menu/evidencias.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gui/inventory_menu/itens.png" type="Texture" id=5]
+[ext_resource path="res://gui/inventory/inventory_tab/inventory_tab.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/fonts/PixeloidMono.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/bar:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 2 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "click"
+
+[sub_resource type="Animation" id=3]
+resource_name = "hover"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/bar:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 2 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/bar:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 2 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "click"
+
+[sub_resource type="Animation" id=7]
+resource_name = "hover"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/bar:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 2 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "idle"
+
+[sub_resource type="DynamicFont" id=9]
+size = 12
+font_data = ExtResource( 8 )
+
+[node name="inventory_menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -260.0
+margin_right = 360.0
+margin_bottom = 260.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="background"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 695.0
+margin_bottom = 29.0
+
+[node name="ColorRect2" type="ColorRect" parent="background"]
+margin_left = 25.0
+margin_top = 495.0
+margin_right = 695.0
+margin_bottom = 499.0
+
+[node name="upper_separator" type="HBoxContainer" parent="background"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 35.0
+margin_top = -215.0
+margin_right = 522.0
+margin_bottom = -175.0
+custom_constants/separation = 170
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="inventory_tab" parent="background/upper_separator" instance=ExtResource( 6 )]
+margin_right = 0.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+tab_name = "equipment"
+
+[node name="inventory_tab2" parent="background/upper_separator" instance=ExtResource( 6 )]
+margin_left = 170.0
+margin_right = 170.0
+margin_bottom = 40.0
+tab_name = "item"
+
+[node name="tab_name" parent="background/upper_separator/inventory_tab2/VBoxContainer" index="0"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="background/upper_separator/inventory_tab2" index="1"]
+anims/RESET = SubResource( 1 )
+anims/click = SubResource( 2 )
+anims/hover = SubResource( 3 )
+anims/idle = SubResource( 4 )
+
+[node name="inventory_tab3" parent="background/upper_separator" instance=ExtResource( 6 )]
+margin_left = 340.0
+margin_right = 340.0
+margin_bottom = 40.0
+tab_name = "evidence"
+
+[node name="tab_name" parent="background/upper_separator/inventory_tab3/VBoxContainer" index="0"]
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" parent="background/upper_separator/inventory_tab3" index="1"]
+anims/RESET = SubResource( 5 )
+anims/click = SubResource( 6 )
+anims/hover = SubResource( 7 )
+anims/idle = SubResource( 8 )
+
+[node name="middle_separator" type="HBoxContainer" parent="background"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 35.0
+margin_top = -146.0
+margin_right = 236.0
+margin_bottom = 195.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="item_lister_frame" type="TextureRect" parent="background/middle_separator"]
+margin_right = 201.0
+margin_bottom = 341.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="item_lister" type="VBoxContainer" parent="background/middle_separator/item_lister_frame"]
+margin_left = 16.0
+margin_top = 30.0
+margin_right = 181.0
+margin_bottom = 312.0
+
+[node name="item_display_node" type="TextureRect" parent="background/middle_separator"]
+margin_left = 226.0
+margin_right = 426.0
+margin_bottom = 341.0
+rect_min_size = Vector2( 200, 340 )
+expand = true
+
+[node name="details" type="VBoxContainer" parent="background/middle_separator"]
+margin_left = 451.0
+margin_right = 651.0
+margin_bottom = 341.0
+
+[node name="description" type="Label" parent="background/middle_separator/details"]
+margin_right = 200.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 200, 340 )
+custom_fonts/font = SubResource( 9 )
+align = 3
+valign = 1
+autowrap = true
+clip_text = true
+
+[editable path="background/upper_separator/inventory_tab2"]
+[editable path="background/upper_separator/inventory_tab3"]

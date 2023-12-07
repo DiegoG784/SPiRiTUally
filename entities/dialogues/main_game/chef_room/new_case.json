@@ -3,7 +3,7 @@
         "dialogue_id": 0,
         "dialogue_texts":[
             ["Gaspard", "character_expression?", "Gaspard, por favor, sente-se"],
-            ["Leonnard", "character_expression?", "Como está se sentindo?"]
+            ["Delegado", "character_expression?", "Como está se sentindo?"]
         ],
         "dialogue_options":[
             ["Bem como sempre", 1],
@@ -25,7 +25,7 @@
     },
 
     {
-        "dialogue_id": 1,
+        "dialogue_id": 2,
         "dialogue_texts":[
             ["Delegado", "character_expression?", "Um dia puxado, imagino?"],
             ["Gaspard", "character_expression?", "Não muito"],

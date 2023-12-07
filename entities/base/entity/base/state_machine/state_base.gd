@@ -82,7 +82,7 @@ func get_input(delta):
 			break
 		else:
 			holding_movement = false
-	print(holding_movement)
+	#print(holding_movement)
 	if entity.can_move and Game.scene_manager:
 		var camera_node = Game.scene_manager.get_current_camera()
 		var entity_motion = Vector3.ZERO
