@@ -91,6 +91,10 @@ func create_option_button(option_text):
 	var button = Button.new()
 #	button.button_mask
 	button.text = option_text
+	button.add_stylebox_override("custom_styles/normal", load("res://entities/base/resources/button.tres"))
+	button.add_stylebox_override("custom_styles/hover", load("res://entities/base/resources/button.tres"))
+	button.add_stylebox_override("custom_styles/pressed", load("res://entities/base/resources/button.tres"))
+	button.add_stylebox_override("custom_styles/focus", load("res://entities/base/resources/button.tres"))
 	button.connect("pressed", self, "option_selected")
 	button.connect("focus_entered", self, "button_focused")
 

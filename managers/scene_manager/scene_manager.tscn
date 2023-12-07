@@ -2,7 +2,7 @@
 
 [ext_resource path="res://managers/scene_manager/scene_manager_gui.gd" type="Script" id=1]
 [ext_resource path="res://managers/scene_manager/scene_manager.gd" type="Script" id=2]
-[ext_resource path="res://rooms/main_game/main_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://rooms/main_game/suicidal_apartment.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/health_bar/health_bar.tscn" type="PackedScene" id=4]
 
 [node name="scene_manager" type="Spatial"]
@@ -18,4 +18,4 @@ visible = false
 
 [node name="current_scene" type="Spatial" parent="."]
 
-[node name="main_menu" parent="current_scene" instance=ExtResource( 3 )]
+[node name="suicidal_apartment" parent="current_scene" instance=ExtResource( 3 )]
